@@ -1,0 +1,33 @@
+<h1 class="mt-3"> <b>Creación de un nuevo cliente</b> </h1>
+<br>
+
+{{!-- Mostrar los mensajes en caso de existir --}}
+{{#if mensajes}}
+  {{#each mensajes}}
+   <div class="alert {{type}}" role="alert">
+      {{error}}
+    </div>
+  {{/each}}
+{{/if}}
+
+{{!-- Usamos post para el envio de datos --}}
+<form method="POST" action="/crear_cliente">
+  <div class="form-group">
+
+    <label for="nombre"> <b>Nombre del Cliente</b> </label>
+    <input type="text" class="form-control" id="nombre" name="nombre">
+<br>
+    <label for="nombre"> <b>Dirección del Cliente</b> </label>
+    <input type="text" class="form-control" id="nombre" name="direccion">
+<br>
+    <label for="nombre"> <b>Teléfono del Cliente</b> </label>
+    <input type="text" class="form-control" id="nombre" name="telefono">
+<br>
+{{!-- <input type="file" name= "foto"> --}}
+
+    </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+
+</form>
+
+

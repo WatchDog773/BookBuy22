@@ -1,0 +1,45 @@
+<h1 class="mt-3"> <b>Creación de un nuevo libro</b> </h1>
+<br>
+{{!-- Mostrar los mensajes en caso de existir --}}
+{{#if mensajes}}
+  {{#each mensajes}}
+   <div class="alert {{type}}" role="alert">
+      {{error}}
+    </div>
+  {{/each}}
+{{/if}}
+
+{{!-- Usamos post para el envio de datos --}}
+<form method="POST" action="/crear_libro">
+  <div class="form-group">
+   
+    <label for="nombre"> <b>Nombre del libro</b> </label>
+    <input type="text" class="form-control" id="nombre" name="nombre">
+<br>
+       <label for="nombre"> <b>Autor del libro</b> </label>
+    <input type="text" class="form-control" id="nombre" name="autor">
+<br>
+   <label for="nombre"> <b>Precio</b> </label>
+   <input type="text" class="form-control" id="precio" name="precio">
+  <br>
+   <label for="nombre"> <b>Descripción</b> </label>
+   <input type="text" class="form-control" id="descripcion" name="descripcion">
+   <br>
+    <label for="nombre"> <b> ISBN del libro</b></label>
+    <input type="text" class="form-control" id="nombre" name="ISBN">
+<br>
+     <label for="nombre"> <b>Fecha del libro</b> </label>
+    <input type="text" class="form-control" id="nombre" name="fecha">
+<br>
+ 
+<input type="file" name="imagen" />
+
+    </div>
+      <button  type="submit" class="btn btn-primary " >Guardar</button>
+      <a href="/home_libro"  class="btn btn-primary ">Regresar</a>
+
+</form>
+
+
+
+
