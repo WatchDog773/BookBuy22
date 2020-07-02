@@ -1,0 +1,63 @@
+{{!-- Formulario de Inicio de sesión --}}
+
+
+<div class="container mt-5">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Iniciar Sesión</h3>
+				<div class="d-flex justify-content-end social_icon">
+					<span><i class="fab fa-facebook-square"></i></span>
+					<span><i class="fab fa-google-plus-square"></i></span>
+					<span><i class="fab fa-twitter-square"></i></span>
+				</div>
+			</div>
+			<div class="card-body">
+				<form action="/iniciar_sesion" method="POST">
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" name="email" placeholder="Correo">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control"  name="password" placeholder="password">
+					</div>
+					<div class="form-group">
+						   <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+{{!-- <form class="form-signin" action="/iniciar_sesion" method="POST">
+
+    <div class="mb-4 text-center">
+        <h1>Iniciar sesión en Taskily</h1>
+        <p>Bienvenido al mejor gestor de proyectos</p>
+    </div>
+
+    <div class="form-label-group">
+        <input type="email" name="email" id="email" placeholder="jmartinez@gmail.com" required>
+        <label for="email">Correo electrónico</label>
+    </div>
+     <div class="form-label-group">
+        <input type="password" name="password" id="password"  required>
+        <label for="email">Contraseña</label>
+    </div>
+    <div class="mb3">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
+        <p class="tect-center text-muted mt-5">2020 Negocios Web UNICAH</p>
+    </div>
+</form>
+ --}}
