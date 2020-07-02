@@ -22,6 +22,8 @@ const db = require("./config/db.js");
 
 require("./models/Cliente");
 require("./models/Usuario");
+require("./models/Libro");
+
 
 
 db.sync()
@@ -58,7 +60,7 @@ app.use(cookieParser());
 app.use(session({
   secret: process.env.SESSIONSECRET,
   resave: false,
-  saveUninitilialized: false,
+  saveUninitialized: false, 
 })
 );
 
