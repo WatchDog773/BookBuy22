@@ -1,5 +1,5 @@
 .header {
-     background: url(../images/Background.jpg) no-repeat center; 
+     background: url(../images/Background.jpg) no-repeat center;
     background-size: cover;
     min-height: 100vh;
   }
@@ -8,7 +8,6 @@
   background-color: transparent !important;
 }
 
-/* Para el auth */
 .headerAuth {
   background-size: cover;
   min-height: 100vh;
@@ -35,11 +34,11 @@ body {
   background: linear-gradient(to right, #84b9ff, #33AEFF);
 } */
 
-.card{
+#cardHome{
     box-shadow: 2px 2px 5px #999;
 }
 
-.card:hover{
+#cardHome:hover{
   transform: scale(1.02);
     transition: transform 700ms, filter 60ms ease-in-out;
 }

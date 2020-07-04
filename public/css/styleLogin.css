@@ -15,6 +15,10 @@
     overflow: hidden;
   }
   
+  #cardLogin{
+    box-shadow: 2px 2px 5px rgb(10, 9, 9);
+}
+
   .card-signin .card-title {
     margin-bottom: 2rem;
     font-weight: 300;
