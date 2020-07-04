@@ -3,6 +3,12 @@ const  Sequilize = require("sequelize");
 
 // Importar la conf2iguración de la base de datos
 const db = require("../config/db");
+
+// Importar Slug
+const slug = require("slug");
+// Importar Shortid
+const shortid = require("shortid");
+
 const { Sequelize } = require("sequelize");
 
 
@@ -37,8 +43,30 @@ const  Libro = db.define("libro", {
      },
      estado:{
          type: Sequilize.STRING,
+     },
+     url:{
+        type: Sequilize.STRING
+    },
+},
+{
+    hooks: {
+        beforeCreate(libro) {
+            console.log("Antes de inserta en la base de datos");
+            const url = slug(libro.nombre).toLocaleLowerCase();
+            const date = new Date();
+           //  Crea el nombre en la URL del proyecto
+            libro.url = `${url}_${shortid.generate()}`;
+            libro.fecha = date.toISOString();
+        },
+        beforeUpdate(libro){
+            console.log("Antes de actualizar en la base de datos");
+            const url = slug(libro.nombre).toLocaleLowerCase();
+    
+            //  Actualiza el nombre en la URL del proyecto
+            libro.url =  `${url}_${shortid.generate()}`;
+        }
+      },
      }
-}
 );
 
 
