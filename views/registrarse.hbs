@@ -1,30 +1,38 @@
 {{!-- Formulario de Registro --}}
+<link rel="stylesheet" href="../css/StyleRegistrarse.css">
 
 {{!-- Validacion de sequelize que la trae a traves del modelo --}}
 {{#if error}}
     <p>{{error}}</p>
 {{/if}}
 
-<form class="form-signin" action="" method="POST">
 
-    <div class="mb-4 text-center">
-        <h1>Regístrate en Taskily</h1>
-        <p>Y comienza a utilizar nuestro aclamado gestor de proyectos</p>
+<div class="registration-form">
+        <form class="form-signin" action="" method="POST">
+            <h2>Registrate en BookBuy™ </h2>
+            <div class="form-icon" >
+                <span><i class="icon icon-user"> </i></span>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control item" name="fullname" id="fullname" placeholder="Ingresa tu nombre completo" required autofocus>
+            </div>
+                <div class="form-group">
+                <input type="text" class="form-control item" name="email" id="email" placeholder="ejemplo@gmail.com" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control item" name="password" id="password" placeholder="Ingresa tu contraseña" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-block create-account">Crear Cuenta</button>
+            </div>
+              <a class="d-block text-center mt-2 small" href="/iniciar_sesion">Ya tengo una cuenta de BookBuy</a>
+        </form>
+        <div class="social-media">
+            <h5>Visita los sitios oficiales de BookBuy™</h5>
+            <div class="social-icons">
+                <a href="#"><i class="icon-social-facebook" title="Facebook"></i></a>
+                <a href="#"><i class="icon-social-google" title="Google"></i></a>
+                <a href="#"><i class="icon-social-twitter" title="Twitter"></i></a>
+            </div>
+        </div>
     </div>
-     <div class="form-label-group">
-        <input type="text" name="fullname" id="fullname" placeholder="Junnior" required autofocus>
-        <label for="email">Nombre Completo</label>
-    </div>
-    <div class="form-label-group">
-        <input type="email" name="email" id="email" placeholder="jmartinez@gmail.com" required>
-        <label for="email">Correo electrónico</label>
-    </div>
-     <div class="form-label-group">
-        <input type="password" name="password" id="password"  required>
-        <label for="email">Contraseña</label>
-    </div>
-    <div class="mb3">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Registrarse</button>
-        <p class="tect-center text-muted mt-5">2020 Negocios Web UNICAH</p>
-    </div>
-</form>
