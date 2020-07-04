@@ -4,7 +4,7 @@ const Movimientos = require("../models/Movimientos.js");
 
 exports.formularioNuevoLibro = (req, res, next) => {
     // Vamos a renderizar la vista en este control
-      res.render("crear_libro");
+      res.render("crear_libro",{ layout: "auth"});
 };
 
 
