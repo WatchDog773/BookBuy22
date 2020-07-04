@@ -4,12 +4,15 @@ const  Sequilize = require("sequelize");
 // Importar la conf2iguración de la base de datos
 const db = require("../config/db");
 
+
 // Importar Slug
 const slug = require("slug");
 // Importar Shortid
 const shortid = require("shortid");
 
 const { Sequelize } = require("sequelize");
+
+
 
 
 
@@ -68,6 +71,8 @@ const  Libro = db.define("libro", {
       },
      }
 );
+
+
 
 
 // Importar el modulo para poder utilizarlo
