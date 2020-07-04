@@ -29,7 +29,8 @@
   "devDependencies": {},
   "scripts": {
     "dev": "nodemon ./index.js",
-    "start": "node ./index.js"
+    "start": "concurrently  \"npm run dev\" \"npm run watch\"",
+    "watch": "webpack --w --mode development"
   },
   "author": "Junnior Martinez",
   "license": "ISC"
