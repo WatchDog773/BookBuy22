@@ -1,5 +1,5 @@
 .header {
-    background: url(../images/OpenBook.jpg) no-repeat center;
+    /* background: url(../images/light-blue-cardboard-sheets-against-gray-background-4040654.jpg) no-repeat center; */
     background-size: cover;
     min-height: 100vh;
   }
@@ -8,6 +8,11 @@
   background-color: transparent !important;
 }
 
-.body{
-  background-color: antiquewhite;
+/* Para el auth */
+.headerAuth {
+  background-size: cover;
+  min-height: 100vh;
 }
+
+
+
