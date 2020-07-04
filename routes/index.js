@@ -27,7 +27,9 @@ module.exports = function ( )
     routes.get("/home_cliente",authController.usuarioAutenticado, clientesController.clientesHome);
     routes.get("/home_libro", authController.usuarioAutenticado, librosController.librosHome);
 
-
+    // Compra de un libro según su url
+    routes.delete("/libro/:url", authController.usuarioAutenticado, librosController.comprarLibro);
+  
         // Rutas para autenticación
 
         routes.get("/registrate", usuariosController.formularioCrearCuenta);
@@ -43,8 +45,8 @@ module.exports = function ( )
         routes.post("/crear_tweet",tweetsController.nuevoTweet);
 
 
-        routes.get("/comprar_libro", authController.usuarioAutenticado, librosController.formularioNuevaCompra);
-        routes.post("/comprar_libro", authController.usuarioAutenticado, librosController.comprarLibro);
+        // routes.get("/comprar_libro", authController.usuarioAutenticado, librosController.formularioNuevaCompra);
+        // routes.post("/comprar_libro", authController.usuarioAutenticado, librosController.comprarLibro);
 
         routes.get("/cerrar_sesion", authController.cerrarSesion);
     return routes;
