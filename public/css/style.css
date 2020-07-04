@@ -1,5 +1,5 @@
 .header {
-    /* background: url(../images/light-blue-cardboard-sheets-against-gray-background-4040654.jpg) no-repeat center; */
+     background: url(../images/Background.jpg) no-repeat center; 
     background-size: cover;
     min-height: 100vh;
   }
@@ -34,3 +34,12 @@ body {
   background: #007bff;
   background: linear-gradient(to right, #84b9ff, #33AEFF);
 } */
+
+.card{
+    box-shadow: 2px 2px 5px #999;
+}
+
+.card:hover{
+  transform: scale(1.02);
+    transition: transform 700ms, filter 60ms ease-in-out;
+}
