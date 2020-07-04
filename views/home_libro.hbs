@@ -27,16 +27,12 @@
          <h5> <b>Autor:</b> {{ dataValues.autor  }}</h5>
          <h5> <b>Precio:</b> L.{{ dataValues.precio  }}</h5>
          <h5> <b>Fecha:</b> {{ dataValues.fecha  }}</h5>
-         <h5> <b>ISBN:</b> {{ dataValues.ISBN  }}</h5>
-         <label for="exampleFormControlTextarea1 text-center"><h5><b> Descripción:</b></h5></label>
+         <h5> <b>ISBN:</b> {{ dataValues.ISBN  }}</h5> <label for="exampleFormControlTextarea1 text-center"><h5><b> Descripción:</b></h5></label>
          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled > {{ dataValues.descripcion  }}</textarea>
-         <form method="POST" action="/comprar_libro" class="text-center">
-         <input type="hidden" class="form-control text-center" id="nombre" name="nombre" value="{{ dataValues.nombre }}" >
-         <button type="submit" class="btn btn-info btn-lg btn-block mt-2">Comprar libro</button>
-          </form>
+            <button id="eliminar-libro" data-libro-url={{dataValues.url}} type="button" class="btn btn-primary btn-lg btn-block mt-2">Comprar</button>
         </div>
-      </div>
-      <br>
+       </div>
+       <br>
   </div>
 </div>
 
