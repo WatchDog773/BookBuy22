@@ -4,7 +4,7 @@ const Movimientos = require("../models/Movimientos.js");
 
 exports.formularioNuevoLibro = (req, res, next) => {
     // Vamos a renderizar la vista en este control
-      res.render("crear_libro");
+      res.render("crear_libro",{ layout: "auth"});
 };
 
 
@@ -88,31 +88,26 @@ exports.formularioNuevaCompra = (req, res, next) => {
 
 
 exports.comprarLibro = async(req, res, next) =>{
-    const mensajes = [];
-    const {nombre} = req.body;
-
-    try {
-        await Movimientos.create({nombre});
-     } catch (error) {
-         console.log("No se logro registrar el movimiento");
-     }
-
+    
+    const {url} = req.query;
+    console.log(url);
+    
     try {
        // Variable que almacena todos los proyectos que existem
-       const libro = await Libro.update({estado:"Vendido"},{
+        await Libro.destroy({
                 where:{
-                    nombre:nombre
-                }
+                    url,
+                },
         });
 
        // Luego renderizo la vista que mostrará todos los proyectos que existen
-       res.redirect("home_libro");
+       res.status( 200).send("¡Haz adquirido un nuevo libro!");
+     
 
     } catch (error) 
     {
-        mensajes.push({error: "Error al obtener los datos del libro, favor reintentar",
-        type: "alert-warning"
-        });
-        res.render("home_libro", mensajes);
+        return next;
     }
-}
+};
+
+

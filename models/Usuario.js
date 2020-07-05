@@ -64,9 +64,8 @@ const Usuario = db.define('usuario',{
 );
 
 
-// Definir que el usuario tiene muchos proyectos
-Usuario.hasMany(Tweet);
-Usuario.hasMany(Libro);
+// // Definir que el usuario tiene muchos proyectos
+ Usuario.hasMany(Libro);
 
 // Métodos personalizados, nos permiten agregarle metodos a parte al modelo
 // Verificar si el password enviado (sin hash), es igual al almacenado(hash)

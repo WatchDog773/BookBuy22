@@ -1,5 +1,5 @@
 {{!-- Formulario de Registro --}}
-<link rel="stylesheet" href="../css/StyleRegistrarse.css">
+
 
 {{!-- Validacion de sequelize que la trae a traves del modelo --}}
 {{#if error}}
@@ -8,8 +8,8 @@
 
 
 <div class="registration-form">
-        <form class="form-signin" action="" method="POST">
-            <h2>Registrate en BookBuy™ </h2>
+        <form class="form-signin" id="cardLogin" action="" method="POST">
+            <h2 class="text-center">Registrate en BookBuy™ </h2>
             <div class="form-icon" >
                 <span><i class="icon icon-user"> </i></span>
             </div>
@@ -27,12 +27,14 @@
             </div>
               <a class="d-block text-center mt-2 small" href="/iniciar_sesion">Ya tengo una cuenta de BookBuy</a>
         </form>
-        <div class="social-media">
-            <h5>Visita los sitios oficiales de BookBuy™</h5>
-            <div class="social-icons">
-                <a href="#"><i class="icon-social-facebook" title="Facebook"></i></a>
-                <a href="#"><i class="icon-social-google" title="Google"></i></a>
-                <a href="#"><i class="icon-social-twitter" title="Twitter"></i></a>
+        <div class="social-media" id="cardLogin">
+            <h5 class="mr-auto" >Visita los sitios oficiales de BookBuy™</h5>
+            <div class="social-icons ml-5">
+                <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x" >  </i>
+                <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x" > </i>
+                <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
             </div>
         </div>
     </div>
+
+  

@@ -1,38 +1,32 @@
 {{!-- Formulario de Inicio de sesión --}}
-<link rel="stylesheet" href="../css/styleLogin.css">
-
 
 <body>
   <div class="container">
     <div class="row">
       <div class="col-lg-10 col-xl-9 mx-auto">
-        <div class="card card-signin flex-row my-5">
+        <div  class="card card-signin flex-row my-5" id="cardLogin">
           <div class="card-img-left d-none d-md-flex">
              <!-- Background image for card set in CSS! -->
-          </div>
-          <div class="card-body">
-            <h5 class="card-title text-center"> <strong>¡Bienvenido a BookBuy!</strong> </h5>
-            <form class="form-signin" action="/iniciar_sesion" method="POST" >
-     
-              <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control"  name="email" placeholder="Correo" required>
-                <label for="inputEmail">Correo Eléctronico</label>
-              </div>
-            
+             </div>
+               <div class="card-body">
+               <h5 class="card-title text-center"> <strong>¡Bienvenido a BookBuy!</strong> </h5>
+               <form class="form-signin" action="/iniciar_sesion" method="POST" >
+               <div class="form-label-group">
+               <input type="email" id="inputEmail" class="form-control"  name="email" placeholder="Correo" required>
+               <label for="inputEmail">Correo Eléctronico</label>
+               </div>
               <hr>
-
               <div class="form-label-group">
                 <input type="password" id="inputPassword" class="form-control" name="password" placeholder="password" required>
                 <label for="inputPassword">Contraseña</label>
               </div>
-         
-<div class="form-group">
+            <div class="form-group">
 						   <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Iniciar Sesión</button>
-					</div>
-              <a class="d-block text-center mt-2 small" href="/registrate">¿Aún no te has regitrado? Hazlo ahora</a>
+					  </div>
+              <a class="d-block text-center mt-2 small" href="/registrate">¿Aún no te has registrado? Hazlo ahora</a>
               <hr class="my-4">
               <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Registrate con Google</button>
-                    </form>
+            </form>
           </div>
         </div>
       </div>
