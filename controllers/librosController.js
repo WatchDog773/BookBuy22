@@ -2,6 +2,11 @@ const Libro= require("../models/Libro.js");
 const Usuario = require("../models/Usuario.js");
 const Movimientos = require("../models/Movimientos.js");
 
+
+const moment =require("moment");
+moment.locale("es");
+
+
 exports.formularioNuevoLibro = (req, res, next) => {
     // Vamos a renderizar la vista en este control
       res.render("crear_libro",{ layout: "auth"});
@@ -66,9 +71,14 @@ exports.librosHome = async(req, res, next) =>{
            where:{
             estado: "En venta"
            } 
-       });  
+       }).then(function (libros){   // esto es una promesa
+        libros = libros.map(function(libro){
+            libro.dataValues.fecha = moment(libro.dataValues.fecha).fromNow();
+            return libro;
+        });
        // Luego renderizo la vista que mostrará todos los proyectos que existen
        res.render("home_libro", { libros });
+       });
 
     } catch (error) 
     {
