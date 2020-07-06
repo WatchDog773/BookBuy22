@@ -30,11 +30,11 @@
          <h5> <b>Nombre :</b>  {{ dataValues.nombre  }}</h5>
          <h5> <b>Autor:</b> {{ dataValues.autor  }}</h5>
          <h5> <b>Precio:</b> L.{{ dataValues.precio  }}</h5>
-         <h5> <b>Fecha:</b> {{ dataValues.fecha  }}</h5>
          <h5> <b>ISBN:</b> {{ dataValues.ISBN  }}</h5>
          <label for="exampleFormControlTextarea1 text-center"><h5><b> Descripción:</b></h5></label>
          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled > {{ dataValues.descripcion  }}</textarea>
             <button id="eliminar-libro" data-libro-url={{dataValues.url}} type="button" class="btn btn-primary btn-lg btn-block mt-2">Comprar</button>
+        <h6 class="text-muted mt-1" >  {{ dataValues.fecha  }}</h6>
         </div>
        </div>
        <br>
