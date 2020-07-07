@@ -50,6 +50,7 @@ body {
   font-size:15px;
   line-height:24px;
   color:#737373;
+  
 }
 .site-footer hr
 {
@@ -206,6 +207,8 @@ body {
     font-weight:600
   }
 }
+
+
 .formulario{
   /*Degradacion de imagen*/
   
@@ -214,3 +217,4 @@ background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Ch
 background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+
