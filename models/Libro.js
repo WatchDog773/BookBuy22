@@ -39,7 +39,7 @@ const  Libro = db.define("libro", {
         type: Sequilize.TEXT,
     },
     fecha:{
-        type: Sequilize.DATEONLY ,       // DataTypes.DATEONLY   // DATE without time
+        type: Sequilize.DATE ,       // DataTypes.DATEONLY   // DATE without time
     },
     imagen: {
         type: Sequilize.BLOB,
