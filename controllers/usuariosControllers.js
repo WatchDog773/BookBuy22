@@ -22,13 +22,15 @@ exports.crearCuenta = async (req, res, next) =>{
         // Redireccionar el usuario al formulario de inicio de sesión, el lo tenia con redirect
         res.render("iniciar_sesion", { layout: "auth"});
     } catch (error) {
-        res.render("registrarse", { layout : "auth",
-            error,
-        });
-        
+        res.render("registrarse", { layout : "auth",error: error.message });
+
     }
 };
 
 exports.formularioIniciarSesion =  (req, res, next) =>{
-    res.render("iniciar_sesion", { layout : "auth"});
+    
+  // Verificar si existe algún mensaje
+  const messages = res.locals.messages;
+
+  res.render("iniciar_sesion", { layout: "auth", messages });
 };

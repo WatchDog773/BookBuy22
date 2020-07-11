@@ -40,7 +40,7 @@ if (mensajes.length) {
 
     try {
 
-      await Libro.create({ nombre, autor,precio, descripcion, ISBN, fecha, imagen, estado, usuario: usuario.id});
+      await Libro.create({ nombre, autor,precio, descripcion, ISBN, fecha, imagen, estado, usuarioId: usuario.id});
 
        mensajes.push({
         error: "Libro almacenado satisfactoriamente",
