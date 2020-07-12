@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
    <title>BookBuy 2020</title>
 </head>
 
@@ -17,13 +19,14 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav m-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/home_libro"> <strong>Comentarios</strong><span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/home_libro" id="mainLetter"> <strong>Comentarios</strong><span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" id="mainLetter" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <strong>Categorias</strong> 
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -33,17 +36,22 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/home_libro"><strong>Libros</strong></a>
+            <a class="nav-link" href="/home_libro" id="mainLetter"><strong>Libros</strong></a>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="/cerrar_sesion"><strong>Cerrar Sesión</strong></a>
+            <a class="nav-link" href="/cerrar_sesion" id="mainLetter"><strong>Cerrar Sesión</strong></a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button> 
+          
+           <a class="nav-link" ><i class="fas fa-user-circle mr-2" id="mainLetter"></i><strong>{{usuario.fullname}}</strong></a>
+          {{!-- <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>  --}}
         </form>
       </div>
+
+ 
+
     </nav>
 
 {{!--  Contenido Principal --}}

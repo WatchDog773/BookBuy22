@@ -27,8 +27,11 @@ module.exports = function ( )
     routes.get("/home_cliente",authController.usuarioAutenticado, clientesController.clientesHome);
     routes.get("/home_libro", authController.usuarioAutenticado, librosController.librosHome);
 
+
     // Compra de un libro según su url
+    // routes.post("/libro/:url", authController.usuarioAutenticado, librosController.comprarLibro);
     routes.delete("/libro/:url", authController.usuarioAutenticado, librosController.comprarLibro);
+ 
   
         // Rutas para autenticación
 
@@ -49,5 +52,7 @@ module.exports = function ( )
         // routes.post("/comprar_libro", authController.usuarioAutenticado, librosController.comprarLibro);
 
         routes.get("/cerrar_sesion", authController.cerrarSesion);
+
+
     return routes;
 };
