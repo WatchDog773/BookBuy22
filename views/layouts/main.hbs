@@ -14,7 +14,7 @@
     <div class="d-flex" id="wrapper">
       <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading mt-2 "><i class="fas fa-users-cog ml-4mr-2"></i> <strong>Mi cuenta</strong> </div>
+      <div class="sidebar-heading mt-2 "><i class="fas fa-users-cog ml-4 mr-2"></i><strong>Mi cuenta</strong> </div>
       <hr>
       <div class="list-group list-group-flush">
         <a href="/crear_libro" class="list-group-item list-group-item-action bg-light"><i class="fas fa-plus-circle mr-2"></i>Vender libros</a>
@@ -23,7 +23,7 @@
         <a href="/registrate" class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-edit mr-2"></i>Perfíl</a>
         <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fas fa-info-circle mr-2"></i>Ayuda</a>
 
-        
+        <img id="imagenLateral"  src="https://500biz.com/images/ganadineroencuestas.gif" alt="">
       </div>
     </div>
 
@@ -76,11 +76,11 @@
         </ul>
 
           <li class="nav-item dropdown" id="estilo">
-            <a class="nav-link dropdown-toggle" id="mainLetter"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             <i class="fas fa-user-circle mr-2" id="mainLetter"></i><strong>{{usuario.fullname}}</strong>
+            <a  class="nav-link dropdown-toggle" id="mainLetter"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <i class="fas fa-user-circle mr-2"   id="mainLetter"></i><strong >{{usuario.fullname}}</strong>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="nav-link" href="/cerrar_sesion" id="mainLetter"><i class="fas fa-sign-out-alt mr-2"></i><strong>Cerrar Sesión</strong></a>
+            <a class="nav-link" href="/cerrar_sesion" id="salir" id="mainLetter" ><i class="fas fa-sign-out-alt mr-2"></i><strong>Cerrar Sesión</strong></a>
             </div>
           </li>
           
@@ -90,6 +90,7 @@
  
 
     </nav>
+
 
   <div class="container-fluid">
          
@@ -128,6 +129,21 @@
       $("#wrapper").toggleClass("toggled");
     });
   </script>
+
+  
+  <script>
+ var slideIndex = 1;
+ showDivs(slideIndex);
+ function plusDivs(n) {
+ showDivs(slideIndex += n);
+  }
+ function showDivs(n) {
+ var i;
+ var x = document.getElementsByClassName("mySlides");
+ if (n > x.length) {slideIndex = 1} if (n < 1) {slideIndex = x.length}for
+ (i = 0; i < x.length; i++) {x[i].style.display = "none";}
+ x[slideIndex-1].style.display = "block"; }
+</script>
 
 
 </body>

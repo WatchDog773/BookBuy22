@@ -244,3 +244,85 @@ background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+
 #estilo{
  list-style: none;
 }
+
+
+
+.carousel {	
+  margin: 0 auto;
+  padding: 0 68px;
+}
+.carousel .carousel-item {
+  text-align: center;
+  overflow: hidden;
+  height: 160px;
+}
+.carousel .carousel-item .img-box {
+  background: #fff;
+  padding: 9px;
+  box-shadow: 0 6px 20px -6px rgba(0,0,0,0.4);
+}
+.carousel .carousel-item img {
+  margin: 0 auto;
+}
+.carousel-control-prev, .carousel-control-next {
+  width: 68px;
+  background: none;
+}
+.carousel-control-prev i, .carousel-control-next i {
+  font-size: 28px;
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  margin-top: -15px;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 0 3px 3px #e6e6e6, 0 0 0 #000;
+}
+.carousel-indicators {
+  bottom: -40px;
+}
+.carousel-indicators li, .carousel-indicators li.active {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+  margin: 1px 4px;
+  box-shadow: inset 0 2px 1px rgba(0,0,0,0.2);
+}
+.carousel-indicators li {	
+  background: #999;
+  border-color: transparent;
+}
+.carousel-indicators li.active {
+  background: #555;
+}
+
+.w3-content{position:relative;margin-top:0em;}
+.w3-btn,.w3-button{border:none;display:inline-block;outline:0;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
+.w3-btn,.w3-button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none} 
+.w3-disabled,.w3-btn:disabled,.w3-button:disabled{cursor:not-allowed;opacity:0.3}.w3-disabled *,:disabled *{pointer-events:none}
+.w3-bar-block .w3-dropdown-hover .w3-button,.w3-bar-block .w3-dropdown-click .w3-button{width:100%;text-align:left;padding:8px 16px}
+.w3-button:hover{color:#000!important;background-color:#ccc!important}
+
+.w3-content button {
+position: absolute;
+top: 32%;
+}
+
+.w3-display-right {right:0}
+.w3-display-left {left:0}
+
+#imagenLateral{
+  margin-left: 10%;
+  margin-top: 20%;
+  width:80%;
+  height: 60%;
+  text-align: center;
+}
+
+#salir{
+  color:#ff2e24;
+}
+
