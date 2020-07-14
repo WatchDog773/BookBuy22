@@ -23,10 +23,18 @@ textarea{
   }
 }
 
+#color{
+  background-color: #f1f1f1;
+}
+/* 
+#sidebar-wrapper{
+  background-color: #dddddd;
+} */
 
  body {
-  background-image: url(../images/Background.jpg);
-  background-image: url(../images/Background.jpg);
+  /* background-image: url(../images/Background.jpg); */
+  /*   background-image: url(https://images.pexels.com/photos/97987/pexels-photo-97987.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); */
+  background-image: url(https://images.pexels.com/photos/2647794/pexels-photo-2647794.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
   --webkit-background-size: cover;
   background-size:cover;
   background-repeat: no-repeat;
@@ -37,6 +45,9 @@ textarea{
 
 #cardHome{
     box-shadow: 2px 2px 5px #999;
+    border-color: rgb(167, 167, 167);
+    border-width: 1px;
+    border-radius: 1em;
 }
 
 
