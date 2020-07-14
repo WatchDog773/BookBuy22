@@ -37,17 +37,13 @@ if (mensajes.length) {
         mensajes,
     });
 } else {
-
     try {
-
-      await Libro.create({ nombre, autor,precio, descripcion, ISBN, fecha, imagen, estado, usuario: usuario.id});
-
+      await Libro.create({ nombre, autor,precio, descripcion, ISBN, fecha, imagen, estado, usuarioId: usuario.id});
        mensajes.push({
         error: "Libro almacenado satisfactoriamente",
         type: "alert-success",
        });
        res.redirect("/home_libro");
-
  }
   catch (error)
 {
@@ -57,19 +53,41 @@ if (mensajes.length) {
     });
  }
 }
+
+const movimiento = "Ingreso al estante de venta";
+const vendedor = usuario.id;
+const libro = nombre;
+const beneficio = precio * 0.15;
+
+    try {
+      await Movimientos.create({ movimiento, precio, vendedor, libro, beneficio});
+ }
+  catch (error)
+{
+    mensajes.push({
+        error: "Ha ocurrido un error en el sercidor, comunicate con el personal de taskily",
+        type: "alert-warning",
+    });
+ }
+
+
+
+
 };
 
 
 
 // Obtener los datos del proyecto
 exports.librosHome = async(req, res, next) =>{
+    const usuario = res.locals.usuario;
     const mensajes = [];
 
     try {
        // Variable que almacena todos los proyectos que existem
        const libros = await Libro.findAll({
            where:{
-            estado: "En venta"
+               estado : "En venta"
+            // usuarioId : usuario.id,
            } 
        }).then(function (libros){   // esto es una promesa
         libros = libros.map(function(libro){
@@ -97,10 +115,37 @@ exports.formularioNuevaCompra = (req, res, next) => {
 };
 
 
-exports.comprarLibro = async(req, res, next) =>{
+// exports.movimientos = async(req, res, next) => {
     
+//     const { nombre,autor, precio,descripcion, ISBN, fecha, imagen} = req.body;
+//     const usuario = res.locals.usuario;
+
+//     const movimiento = "Salida del estante de venta";
+//     const vendedor = usuario.id;
+//     // const precio = precio;
+//     const libro = nombre;
+//     const beneficio = precio * 0.15;
+    
+//         try {
+//           await Movimientos.create({ movimiento, precio, vendedor, libro, beneficio});
+//      }
+//       catch (error)
+//     {
+//         mensajes.push({
+//             error: "Ha ocurrido un error en el sercidor, comunicate con el personal de taskily",
+//             type: "alert-warning",
+//         });
+//      }
+
+// };
+
+
+
+exports.comprarLibro = async(req, res, next) =>{
+
     const {url} = req.query;
-    console.log(url);
+    // console.log(url);
+
     
     try {
        // Variable que almacena todos los proyectos que existem
@@ -118,6 +163,7 @@ exports.comprarLibro = async(req, res, next) =>{
     {
         return next;
     }
+
 };
 
 

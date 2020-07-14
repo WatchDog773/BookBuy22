@@ -13,6 +13,7 @@ exports.autenticarUsuario = passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/iniciar_sesion",
     badRequestMessage: "Debes ingresar tu correo electrónico y tu contraseña",
+    failureFlash: true,
   });
   
 
@@ -34,4 +35,4 @@ exports.usuarioAutenticado = (req, res, next) =>{
 
   // Si el usuario no esta autenticado, iniciar sesión
   return res.redirect("/iniciar_sesion");
-}
+};

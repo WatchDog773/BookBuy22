@@ -11,8 +11,20 @@ const  Movimiento = db.define("movimiento", {
         primaryKey: true,
         autoIncrement: true
     },
-    descripcion:{
+    movimiento:{
         type: Sequilize.STRING,
+    },
+    precio:{
+        type:Sequilize.DOUBLE,
+    },
+    vendedor:{
+        type:Sequilize.STRING,
+    },
+    libro:{
+        type:Sequilize.STRING,
+    },
+    beneficio:{
+        type:Sequilize.DOUBLE,
     },
 }
 );

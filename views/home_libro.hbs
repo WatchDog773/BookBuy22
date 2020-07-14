@@ -1,5 +1,6 @@
+
 <hr>
-<h3 class="mt-3 text-center"><b>Adquiere el tuyo ¡ahora mismo!</b> </h3>
+<h3 class=" text-center"><b>Adquiere el tuyo ¡ahora mismo! </b> </h3>
   <hr>
 
 
@@ -16,44 +17,91 @@
 
 
 
+
+
+
+
 <div class="container">
-  <div class="card-deck  col-md-12 mb-3  text-center">
-    {{!-- Mostrar los proyectos (si existen) --}}
+    <div class="card-deck  col-md-12 mb-9  text-center">
+          {{!-- Mostrar los proyectos (si existen) --}}
     {{#if libros}}
         {{#each libros}}
           
-<div class="row mr-auto">
-  <div class="col-md-12 ">
-              <div class="card" id="cardHome">
-         <div class="card-body text-left">
-         {{!-- Averiguar como mostrar las imagenes --}}
-         <h5> <b>Nombre :</b>  {{ dataValues.nombre  }}</h5>
-         <h5> <b>Autor:</b> {{ dataValues.autor  }}</h5>
-         <h5> <b>Precio:</b> L.{{ dataValues.precio  }}</h5>
-         <h5> <b>ISBN:</b> {{ dataValues.ISBN  }}</h5>
-         <label for="exampleFormControlTextarea1 text-center"><h5><b> Descripción:</b></h5></label>
-         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled > {{ dataValues.descripcion  }}</textarea>
-            <button id="eliminar-libro" data-libro-url={{dataValues.url}} type="button" class="btn btn-primary btn-lg btn-block mt-2">Comprar</button>
-        <h6 class="text-muted mt-1" >  {{ dataValues.fecha  }}</h6>
+      <div class="row mr-auto">
+        <div class="col-md-12 mb-5">
+          <div class="card " id="cardHome"  id="containerHomeLibros">
+            <img  id="cardImagen" class="card-img-top" src="./images/libros.png">  
+              <div class="card-body text-left">
+                   <div class="card-block">
+                    <figure class="profile">
+                        <img src="../images/book.png" class="profile-avatar" alt="">
+                    </figure>
+                    <h4 class="card-title mt-3 text-center">{{ dataValues.nombre  }}</h4>
+                      <div class="card-text text-center"><b>Autor: </b>
+                       {{ dataValues.autor  }} 
+                    </div>
+                      <div class="card-text text-center"><b>ISBN: </b>
+                       {{ dataValues.ISBN  }} 
+                    </div>
+                    <div class="card-text text-center"><b>Descripción: </b> <hr>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled > {{ dataValues.descripcion  }}</textarea> <hr>
+                    </div>
+                  
+                  <div class="card-text text-center mt-4"><h4> <Strong>Precio L.{{ dataValues.precio  }}</Strong>  </h4> <hr>
+                    </div>
+                </div>
+                <div class="card-footer">
+                     <button name="eliminar-libro" data-libro-url={{dataValues.url}} type="button" class="btn btn-primary btn-lg btn-block mt-2">Comprar</button>
+                      <small> Publicado {{ dataValues.fecha  }}</small>
+                </div>
+              </div>
+          </div>
         </div>
-       </div>
-       <br>
-  </div>
-</div>
-
+      </div>
         {{/each}}
     {{else}}
       <h4 class="text-center">Se el primero en vender un libro con nosotros</h4>
          {{/if}}
-  </div>
+    </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <hr>
  <div class="container">
   <div class="row">
-    <div class="col text-center mb-3">
+    <div class="col text-center mb-3 mt-6">
        <a href="/crear_libro" class="btn btn-success btn-lg text-center">Vender un nuevo libro</a>
     </div>
-<div class="container">
+ <br>
 
+
+{{!-- 
+<div class="container mt-5">
+
+  <div class="w3-content mb-3">
+ <img class="mySlides" src="./images/anuncio.png" alt="custom_html_banner1" style="width:100%">
+ <img class="mySlides" src="./images/anuncio2.png" alt="custom_html_banner3" style="width:100%">
+ <img class="mySlides" src="./images/anuncio.png" alt="custom_html_banner1" style="width:100%">
+  <img class="mySlides" src="./images/anuncio2.png" alt="custom_html_banner3" style="width:100%">
+ 
+
+ <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+ <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 </div>
+
+</div> --}}
+
+
