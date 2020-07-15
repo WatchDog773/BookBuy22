@@ -116,30 +116,6 @@ exports.formularioNuevaCompra = (req, res, next) => {
 };
 
 
-// exports.movimientos = async(req, res, next) => {
-    
-//     const { nombre,autor, precio,descripcion, ISBN, fecha, imagen} = req.body;
-//     const usuario = res.locals.usuario;
-
-//     const movimiento = "Salida del estante de venta";
-//     const vendedor = usuario.id;
-//     // const precio = precio;
-//     const libro = nombre;
-//     const beneficio = precio * 0.15;
-    
-//         try {
-//           await Movimientos.create({ movimiento, precio, vendedor, libro, beneficio});
-//      }
-//       catch (error)
-//     {
-//         mensajes.push({
-//             error: "Ha ocurrido un error en el sercidor, comunicate con el personal de taskily",
-//             type: "alert-warning",
-//         });
-//      }
-
-// };
-
 
 
 exports.comprarLibro = async(req, res, next) =>{
@@ -165,6 +141,76 @@ exports.comprarLibro = async(req, res, next) =>{
         return next;
     }
 
+};
+
+
+// Busca un proyecto por su URL
+exports.obtenerLibroPorUrl = async (req, res, next) => {
+    // Obtener el usuario actual
+    const usuario = res.locals.usuario;
+  
+    try {
+      // Obtener el proyecto mediante la URL
+      const libro = await Libro.findOne({
+        where: {
+          url: req.params.url,
+        },
+      });
+  
+      // Verificar que el proyecto pertenece al usuario
+      if (libro.usuarioId != usuario.id) {
+        res.redirect("/");
+      } else {
+          // Cambiar la visualización de la fecha con Moment.js
+          const hace = moment(libro.dataValues.fecha).fromNow();
+        res.render("ver_libro", {  layout: "auth",
+          libro: libro.dataValues,
+          hace,
+        });
+      }
+    } catch (error) {
+      res.redirect("/");
+    }
+  };
+
+//   res.render("ver_libro", );
+
+
+  // Actualizar los datos de un proyecto
+  exports.actualizarLibro = async (req, res, next) =>{
+    // Obtener los datos de la información enviada
+    const { id, nombre, autor, descripcion, ISBN, precio} = req.body;
+
+    // Obtener la información del usuario actual
+    const usuario = res.locals.usuario;
+
+    const mensajes = [] ;
+
+    // Verificar si el nombre del proyecto es enviado
+    if (!nombre){
+        mensajes.push({
+            error: "El nombre del libro no puede ser vacío!",
+            type: "alert-waning",
+        });
+    }
+
+if (mensajes.length){
+
+  res.render("ver_libro",{
+      mensajes,
+  });
+}else{
+  await Libro.update(
+      {nombre, autor, descripcion, ISBN, precio },
+      {
+          where:{
+              id: req.params.id,
+          },
+      }
+  );
+
+  res.redirect("/mi_estanteria");
+}
 };
 
 
