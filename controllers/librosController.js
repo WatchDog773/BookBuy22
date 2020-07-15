@@ -22,7 +22,7 @@ exports.nuevoLibro =async  (req, res, next) => {
     const usuario = res.locals.usuario;
     console.log(res.locals.usuario);
 
-    const { nombre,autor, precio,descripcion, ISBN, fecha, imagen} = req.body;
+    const { nombre,autor, precio,descripcion, ISBN, fecha, imagen, vendedor} = req.body;
 
     const mensajes = [ ];
     const estado = "En venta";
@@ -41,7 +41,7 @@ if (mensajes.length) {
     });
 } else {
     try {
-      await Libro.create({ nombre, autor,precio, descripcion, ISBN, fecha, imagen, estado, usuarioId: usuario.id});
+      await Libro.create({ nombre, autor,precio, descripcion, ISBN, fecha, imagen, estado, usuarioId: usuario.id, vendedor});
        mensajes.push({
         error: "Libro almacenado satisfactoriamente",
         type: "alert-success",
@@ -57,21 +57,21 @@ if (mensajes.length) {
  }
 }
 
-const movimiento = "Ingreso al estante de venta";
-const vendedor = usuario.id;
-const libro = nombre;
-const beneficio = precio * 0.15;
+// const movimiento = "Ingreso al estante de venta";
+// const vendedor = usuario.id;
+// const libro = nombre;
+// const beneficio = precio * 0.15;
 
-    try {
-      await Movimientos.create({ movimiento, precio, vendedor, libro, beneficio});
- }
-  catch (error)
-{
-    mensajes.push({
-        error: "Ha ocurrido un error en el sercidor, comunicate con el personal de taskily",
-        type: "alert-warning",
-    });
- }
+//     try {
+//       await Movimientos.create({ movimiento, precio, vendedor, libro, beneficio});
+//  }
+//   catch (error)
+// {
+//     mensajes.push({
+//         error: "Ha ocurrido un error en el sercidor, comunicate con el personal de taskily",
+//         type: "alert-warning",
+//     });
+//  }
 
 
 
