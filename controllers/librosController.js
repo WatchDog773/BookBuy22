@@ -9,7 +9,8 @@ moment.locale("es");
 
 exports.formularioNuevoLibro = (req, res, next) => {
     // Vamos a renderizar la vista en este control
-      res.render("crear_libro",{ layout: "auth"});
+      res.render("crear_libro");
+    //   res.render("crear_libro",{ layout: "auth"});
 };
 
 
@@ -43,7 +44,7 @@ if (mensajes.length) {
         error: "Libro almacenado satisfactoriamente",
         type: "alert-success",
        });
-       res.redirect("/home_libro");
+       res.redirect("/mi_estanteria");
  }
   catch (error)
 {

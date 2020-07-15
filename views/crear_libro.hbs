@@ -25,7 +25,17 @@
     <input type="text" class="form-control" id="nombre" name="autor">
 <br>
    <label for="nombre"> <b>Precio</b> </label>
-   <input type="text" class="form-control" id="precio" name="precio">
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">L.</span>
+  </div>
+  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"  id="precio" name="precio">
+  <div class="input-group-append">
+    <span class="input-group-text">.00</span>
+  </div>
+</div>
+
   <br>
    <label for="nombre"> <b>Descripción</b> </label>
    <input type="text" class="form-control" id="descripcion" name="descripcion">
