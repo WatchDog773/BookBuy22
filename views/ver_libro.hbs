@@ -1,0 +1,52 @@
+
+
+
+<div class="formulario">
+<hr>
+<h3 class="mt-3 text-center"> <b>Edición de la venta</b> </h3>
+<hr>
+{{!-- Mostrar los mensajes en caso de existir --}}
+{{#if mensajes}}
+  {{#each mensajes}}
+   <div class="alert {{type}}" role="alert">
+      {{error}}
+    </div>
+  {{/each}}
+{{/if}}
+
+{{!-- Usamos post para el envio de datos --}}
+
+<div class="container col-8 mb-6">
+
+<form method="POST" action="/actualizar_libro/{{libro.id}}">
+  <div class="form-group">
+    <label for="nombre">Título del libro</label>
+    <input type="text" class="form-control" id="nombre" name="nombre" value="{{libro.nombre}}" >
+
+    <label for="nombre">Autor</label>
+    <input type="text" class="form-control" id="nombre" name="autor" value="{{libro.autor}}" >
+
+    <label for="nombre">ISBN</label>
+    <input type="text" class="form-control" id="nombre" name="ISBN" value="{{libro.ISBN}}" >
+
+    <label for="nombre">Descripción</label>
+    <input type="text" class="form-control" id="nombre" name="descripcion" value="{{libro.descripcion}}" >
+
+    <label for="nombre">Precio</label>
+    <input type="text" class="form-control" id="nombre" name="precio" value="{{libro.precio}}" >
+    
+  
+    
+  </div>
+  <div class="row ">
+ <button  type="submit" class="btn btn-primary mr-3">Actualizar</button>
+        <a href="/mi_estanteria"  class="btn btn-danger  ">Regresar</a>
+  </div>
+ 
+</form>
+
+
+</div>
+
+
+</div>

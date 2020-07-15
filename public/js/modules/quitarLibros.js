@@ -55,7 +55,7 @@ botonesQuitar.forEach((botonQuitar) => {
           //   Redireccionar a /
           setTimeout(() => {
             window.location.href = "/mi_estanteria";
-          }, 3000);
+          }, 2300);
         }
       });
     });

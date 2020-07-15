@@ -144,6 +144,39 @@ exports.comprarLibro = async(req, res, next) =>{
 };
 
 
+// Obtener los datos de los libros por usuario logeado
+exports.miEstanteria = async(req, res, next) =>{
+  const usuario = res.locals.usuario;
+  const mensajes = [];
+
+  try {
+     // Variable que almacena todos los proyectos que existem
+     const libros = await Libro.findAll({
+         where:{
+             usuarioId : usuario.id,
+          // usuarioId : usuario.id,
+         } 
+     }).then(function (libros){   // esto es una promesa
+      libros = libros.map(function(libro){
+          libro.dataValues.fecha = moment(libro.dataValues.fecha).fromNow();
+          return libro;
+      });
+     // Luego renderizo la vista que mostrará todos los proyectos que existen
+     res.render("mi_estanteria", { libros });
+     });
+
+  } catch (error) 
+  {
+      mensajes.push({error: "Error al obtener los clientes, favor reintentar",
+      type: "alert-warning"
+      });
+      res.render("mi_estanteria", mensajes);
+  }
+}
+
+
+
+
 // Busca un proyecto por su URL
 exports.obtenerLibroPorUrl = async (req, res, next) => {
     // Obtener el usuario actual
