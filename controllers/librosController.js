@@ -1,6 +1,8 @@
 const Libro= require("../models/Libro.js");
 const Usuario = require("../models/Usuario.js");
 const Movimientos = require("../models/Movimientos.js");
+const { Op } = require("sequelize");
+
 
 
 const moment =require("moment");
@@ -86,10 +88,11 @@ exports.librosHome = async(req, res, next) =>{
     try {
        // Variable que almacena todos los proyectos que existem
        const libros = await Libro.findAll({
-           where:{
-               estado : "En venta"
-            // usuarioId : usuario.id,
-           } 
+        where:{
+          usuarioId: {
+               [Op.ne]: usuario.id // square brackets are needed for property names that aren't plain strings
+             }
+          } 
        }).then(function (libros){   // esto es una promesa
         libros = libros.map(function(libro){
             libro.dataValues.fecha = moment(libro.dataValues.fecha).fromNow();
