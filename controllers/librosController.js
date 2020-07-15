@@ -34,6 +34,35 @@ exports.nuevoLibro =async  (req, res, next) => {
     });
 }
 
+
+if ( !autor) {
+  mensajes.push({
+  error: "El autor del libro no puede estar vacia.",
+  type: "alert-danger",
+});
+}
+
+if ( !descripcion) {
+  mensajes.push({
+  error: "La descripción del libro no puede estar vacia.",
+  type: "alert-danger",
+});
+}
+
+if ( !precio) {
+  mensajes.push({
+  error: "El precio del libro no puede estar vacia.",
+  type: "alert-danger",
+});
+}
+
+if ( !ISBN) {
+  mensajes.push({
+  error: "El ISBN del libro no puede estar vacia.",
+  type: "alert-danger",
+});
+}
+
 // Si hay errores
 if (mensajes.length) {
     res.render("crear_libro", {
@@ -225,14 +254,45 @@ exports.obtenerLibroPorUrl = async (req, res, next) => {
     // Verificar si el nombre del proyecto es enviado
     if (!nombre){
         mensajes.push({
-            error: "El nombre del libro no puede ser vacío!",
-            type: "alert-waning",
+          error: "El nombre del libro no puede ser vacío!",
+            type: "alert-danger",
         });
     }
 
+    
+
+if ( !autor) {
+  mensajes.push({
+  error: "El autor del libro no puede estar vacia.",
+  type: "alert-danger",
+});
+}
+
+if ( !descripcion) {
+  mensajes.push({
+  error: "La descripción del libro no puede estar vacia.",
+  type: "alert-danger",
+});
+}
+
+if ( !precio) {
+  mensajes.push({
+  error: "El precio del libro no puede estar vacia.",
+  type: "alert-danger",
+});
+}
+
+if ( !ISBN) {
+  mensajes.push({
+  error: "El ISBN del libro no puede estar vacia.",
+  type: "alert-danger",
+});
+}
+
+
 if (mensajes.length){
 
-  res.render("ver_libro",{
+  res.render("ver_libro",{ layout: "auth",
       mensajes,
   });
 }else{
