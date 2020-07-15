@@ -47,7 +47,13 @@ module.exports = function ( )
         routes.get("/home_tweets",tweetsController.tweetsHome);
         routes.post("/crear_tweet",tweetsController.nuevoTweet);
 
+        // Rutas para la estanteria 
+        routes.get("/mi_estanteria", authController.usuarioAutenticado, librosController.miEstanteria);
 
+        // Ruta para editar libro
+        routes.get("/libro/:url",authController.usuarioAutenticado,librosController.obtenerLibroPorUrl);
+        routes.post("/actualizar_libro/:id", authController.usuarioAutenticado, librosController.actualizarLibro);
+   
         // routes.get("/comprar_libro", authController.usuarioAutenticado, librosController.formularioNuevaCompra);
         // routes.post("/comprar_libro", authController.usuarioAutenticado, librosController.comprarLibro);
 
