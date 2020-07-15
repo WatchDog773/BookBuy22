@@ -13,7 +13,7 @@
 
 {{!-- Usamos post para el envio de datos --}}
 
-<div class="container col-8">
+<div class="container col-8 mb-5">
 
 <form method="POST" action="/crear_libro">
   <div class="form-group">
@@ -42,6 +42,9 @@
    <br>
     <label for="nombre"> <b> ISBN del libro</b></label>
     <input type="text" class="form-control" id="nombre" name="ISBN">
+
+     <input type="text" class="form-control" id="vendedor"  name="vendedor" value="{{usuario.fullname}}" hidden>
+
 <br>
      
 <input type="file" name="imagen" />
