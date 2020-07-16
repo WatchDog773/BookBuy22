@@ -1,0 +1,64 @@
+<h5 class="ml-5"><strong>Comunidad</strong> </h5>
+<br>
+<div class="container mr-12">
+          {{!-- Mostrar los proyectos (si existen) --}}
+    {{#if comentarios}}
+        {{#each comentarios}}
+  
+{{!-- {{#ifCond data.values.autor "==" "u"}}
+    <a href="">hola</a>
+{{/ifCond}} --}}
+
+
+<div class="row justify-content ">
+  <div class="row">
+        <a class="text-muted">{{ dataValues.autor  }}</a>
+  </div>
+
+<div class="row mt-3 mb-4">
+    <div class="comentario normal ">
+            <div class="imgUser">
+                <img src="https://www.pinpng.com/pngs/m/53-531868_person-icon-png-transparent-png.png" alt="">
+            </div>
+            <div class="caja">
+                <p>
+                    {{ dataValues.contenido  }}
+                </p>
+            </div>
+        </div>
+</div>
+
+  </div>
+
+
+        {{/each}}
+    {{else}}
+    <li class="list-group-item list-group-item-primary text-center"><h6>Aún no hay conversaciones, ¡Inicia una!</h6> </li>
+         {{/if}}
+    </div>
+
+
+
+<div class="container ">
+<div class="col">
+<form method="POST" action="/crear_comentarios">
+  <div class="form-group mt-4">
+   
+    <textarea name="contenido" rows="5" cols="40" placeholder="Escribe tu comentario aquí"></textarea>
+<br>
+       
+    <input type="text" class="form-control" id="vendedor"  name="autor" value="{{usuario.fullname}}" hidden>
+
+
+    </div>
+      <button  type="submit" class="btn btn-success  mt-3 mb-5" >Comentar</button>
+      <a href="/home_libro"  class="btn btn-danger mt-3 mb-5">Regresar</a>
+</form>
+</div>
+
+
+</div>
+
+
+
+

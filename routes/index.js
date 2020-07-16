@@ -6,6 +6,7 @@ const librosController = require("../controllers/librosController.js");
 const usuariosController = require("../controllers/usuariosControllers");
 const tweetsController = require("../controllers/tweetsControllers");
 const authController = require("../controllers/authController");
+const comentariosController = require("../controllers/comentariosController");
 
 module.exports = function ( )
 {
@@ -63,7 +64,7 @@ module.exports = function ( )
         routes.get("/home_comentarios",authController.usuarioAutenticado,  comentariosController.comentariosHome);
         routes.post("/crear_comentarios", authController.usuarioAutenticado, comentariosController.nuevoComentario);
    
-        
+
         routes.get("/cerrar_sesion", authController.cerrarSesion);
 
 
