@@ -437,3 +437,133 @@ top: 32%;
 }
 
 
+
+
+
+.list-type4{
+  width:410px;
+  margin:0 auto;
+  }
+  
+  .list-type4 ol{
+  counter-reset: li;
+  list-style: none;
+  *list-style: decimal;
+  font-size: 15px;
+  font-family: 'Raleway', sans-serif;
+  padding: 0;
+  margin-bottom: 4em;
+  }
+  .list-type4 a{
+  position: relative;
+  display: block;
+  padding: .4em .4em .4em 2em;
+  *padding: .4em;
+  margin: .5em 0;
+  background: #5975D9;
+  color: white;
+  text-decoration: none;
+  box-shadow:inset 0.5em 0 black;
+  -webkit-transition: box-shadow 1s; /* For Safari 3.1 to 6.0 */
+  transition: box-shadow 1s;
+  }
+  
+  .list-type4 a:hover{
+  box-shadow:inset 2em 0 black;
+  }
+
+  
+  
+
+  
+
+
+  
+  .centerText{
+    text-align: center;
+  }
+  
+  .comentario{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 10px;
+  }
+  .normal{
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin-right: 80px;
+  }
+  .inverted{
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    margin-left: 80px;
+  }
+  .imgUser > img{
+    border-radius: 50%;
+    width: 50px;
+    padding: 10px;
+    padding-top: 0px;
+  
+  }
+  .caja{
+    background: #64a2ff;
+    position: relative;
+    border-radius: 3px;
+    color: white;
+    width: 100%;
+  }
+  .normal .caja::before{
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 20px solid #64a2ff;
+    border-left: 20px solid transparent;
+    left: -15px;
+  }
+  .inverted .caja::after{
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 20px solid #64a2ff;
+    border-right: 20px solid transparent;
+    right: -15px;
+    top: 0px;
+  }
+  .caja  p{
+    margin: 0px;
+    padding: 5px;
+  }
+  
+  
+  .mensajes{
+    overflow-y: scroll;
+  }
+  
+  .mensajes::-webkit-scrollbar{
+    width: 4px;
+    background: #DFDFDF;
+  }
+  .mensajes::-webkit-scrollbar-button{
+    width:8px;
+    height: 5px;
+  }
+  .mensajes::-webkit-scrollbar-track{
+    background: white;
+    border-radius: 10px;
+  }
+  .mensajes::-webkit-scrollbar-thumb{
+    background: silver;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+  }
+  .mensajes::-webkit-scrollbar-thumb:hover{
+    background: white;
+  }
+  
+
+
