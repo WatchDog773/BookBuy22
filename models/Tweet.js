@@ -8,7 +8,7 @@ const db = require("../config/db");
 
 
 // Definición del modelo
-const  Tweet = db.define("tweet", {
+const  Comentario= db.define("comentario", {
     id:{
         type: Sequilize.INTEGER,
         primaryKey: true,
@@ -17,11 +17,14 @@ const  Tweet = db.define("tweet", {
      contenido:{
         type: Sequilize.STRING (280),
     },
+    autor:{
+        type: Sequilize.STRING (280),
+    },
 }
 );
 
 
 // Importar el modulo para poder utilizarlo
-module.exports =Tweet;
+module.exports =Comentario;
 
 

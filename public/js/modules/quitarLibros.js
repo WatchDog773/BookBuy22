@@ -6,27 +6,27 @@ import { locale } from "moment";
 
 
 // Obtener el nombre del botón desde el DOM
-const botonesEliminar = document.querySelectorAll(
-    "button[name='eliminar-libro']"
+const botonesQuitar = document.querySelectorAll(
+    "button[name='quitar-libro']"
   );
   
 
   
-botonesEliminar.forEach((botonEliminar) => {
+botonesQuitar.forEach((botonQuitar) => {
     // Agregar un evento al click del botón
-    botonEliminar.addEventListener("click", (e) => {
+    botonQuitar.addEventListener("click", (e) => {
       //  Capturar la URL del proyecto que se encuentra en una propiedad data HTML5
       const urlLibro = e.target.dataset.libroUrl;
   
       //sweetalert2.github.io/
       https: Swal.fire({
-        title:"¿Estás seguro que deseas comprar este libro?",
-        text:"Si compras este libro ¡No hay vuelta atrás!",
+        title:"¿Estás seguro que deseas quitar este libro de tu estantería?",
+        // text:"Si quitas este libro ¡No hay vuelta atrás!",
         icon: "info",
         showCancelButton: true,
         confirmButtonText: "Si",
         cancelButtonText: "Cancelar",
-        confirmButtonColor: " #008f39",
+        confirmButtonColor: "#3b83bd",
         cancelButtonColor: "#d33",
       }).then((result) => {
         if (result.value) {
@@ -42,24 +42,24 @@ botonesEliminar.forEach((botonEliminar) => {
               },
             })
             .then(function (response) {
-                Swal.fire( "¡Genial !",response.data, "success" );
+                Swal.fire( "¡Listo! el libro ya no esta disponible" ,response, "success" );
             })
             .catch(() => {
                 Swal.fire({
                     icon: "error",
                     title: "¡Error!",
-                    text: "No se ha podido comprar el libro...",
+                    text: "No se ha podido quitar el libro...",
               });
             });
   
           //   Redireccionar a /
           setTimeout(() => {
-            window.location.href = "/";
-          }, 1000);
+            window.location.href = "/mi_estanteria";
+          }, 2300);
         }
       });
     });
   });
   
-  export default botonesEliminar;
+  export default botonesQuitar;
   

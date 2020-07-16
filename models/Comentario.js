@@ -4,33 +4,30 @@ const  Sequilize = require("sequelize");
 // Importar la conf2iguración de la base de datos
 const db = require("../config/db");
 
+
+
+
 // Definición del modelo
-const  Movimiento = db.define("movimiento", {
+const  Comentario = db.define("comentario", {
     id:{
         type: Sequilize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    movimiento:{
-        type: Sequilize.STRING,
+     contenido:{
+        type: Sequilize.STRING (280),
     },
-    precio:{
-        type:Sequilize.DOUBLE,
+    autor:{
+        type: Sequilize.STRING (280),
     },
-    vendedor:{
-        type:Sequilize.STRING,
-    },
-    libro:{
-        type:Sequilize.STRING,
-    },
-    beneficio:{
-        type:Sequilize.DOUBLE,
-    },
+
 }
 );
 
 
+
 // Importar el modulo para poder utilizarlo
-module.exports =Movimiento;
+module.exports =Comentario;
+
 
 

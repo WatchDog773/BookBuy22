@@ -6,6 +6,7 @@ const librosController = require("../controllers/librosController.js");
 const usuariosController = require("../controllers/usuariosControllers");
 const tweetsController = require("../controllers/tweetsControllers");
 const authController = require("../controllers/authController");
+const comentariosController = require("../controllers/comentariosController");
 
 module.exports = function ( )
 {
@@ -27,8 +28,11 @@ module.exports = function ( )
     routes.get("/home_cliente",authController.usuarioAutenticado, clientesController.clientesHome);
     routes.get("/home_libro", authController.usuarioAutenticado, librosController.librosHome);
 
+
     // Compra de un libro según su url
+    // routes.post("/libro/:url", authController.usuarioAutenticado, librosController.comprarLibro);
     routes.delete("/libro/:url", authController.usuarioAutenticado, librosController.comprarLibro);
+ 
   
         // Rutas para autenticación
 
@@ -44,10 +48,25 @@ module.exports = function ( )
         routes.get("/home_tweets",tweetsController.tweetsHome);
         routes.post("/crear_tweet",tweetsController.nuevoTweet);
 
+        // Rutas para la estanteria 
+        routes.get("/mi_estanteria", authController.usuarioAutenticado, librosController.miEstanteria);
 
+        // Ruta para editar libro
+        routes.get("/libro/:url",authController.usuarioAutenticado,librosController.obtenerLibroPorUrl);
+        routes.post("/actualizar_libro/:id", authController.usuarioAutenticado, librosController.actualizarLibro);
+   
         // routes.get("/comprar_libro", authController.usuarioAutenticado, librosController.formularioNuevaCompra);
         // routes.post("/comprar_libro", authController.usuarioAutenticado, librosController.comprarLibro);
 
+        
+        // // comentarios
+        // routes.get("/comentario", authController.usuarioAutenticado, comentarios)
+        routes.get("/home_comentarios",authController.usuarioAutenticado,  comentariosController.comentariosHome);
+        routes.post("/crear_comentarios", authController.usuarioAutenticado, comentariosController.nuevoComentario);
+   
+
         routes.get("/cerrar_sesion", authController.cerrarSesion);
+
+
     return routes;
 };
