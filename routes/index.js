@@ -57,6 +57,13 @@ module.exports = function ( )
         // routes.get("/comprar_libro", authController.usuarioAutenticado, librosController.formularioNuevaCompra);
         // routes.post("/comprar_libro", authController.usuarioAutenticado, librosController.comprarLibro);
 
+        
+        // // comentarios
+        // routes.get("/comentario", authController.usuarioAutenticado, comentarios)
+        routes.get("/home_comentarios",authController.usuarioAutenticado,  comentariosController.comentariosHome);
+        routes.post("/crear_comentarios", authController.usuarioAutenticado, comentariosController.nuevoComentario);
+   
+        
         routes.get("/cerrar_sesion", authController.cerrarSesion);
 
 
