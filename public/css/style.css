@@ -515,6 +515,12 @@ top: 32%;
     color: white;
     width: 100%;
   }
+
+  
+ 
+
+
+  
   .normal .caja::before{
     position: absolute;
     content: '';
@@ -538,7 +544,7 @@ top: 32%;
     margin: 0px;
     padding: 5px;
   }
-  
+
   
   .mensajes{
     overflow-y: scroll;
