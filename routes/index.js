@@ -60,7 +60,8 @@ module.exports = function ( )
         routes.get("/ver_usuario", authController.usuarioAutenticado, usuariosController.formularioVerUsuario);
         routes.post("/actualizar_usuario", authController.usuarioAutenticado, usuariosController.actualizarUsuario);
         
-
+       // Uso de Stripe para mediar los pagos
+        routes.post("/checkout", authController.usuarioAutenticado, checkOutController.checkOut);
 
         routes.get("/cerrar_sesion", authController.cerrarSesion);
 
