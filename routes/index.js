@@ -33,17 +33,14 @@ module.exports = function ( )
     // routes.post("/libro/:url", authController.usuarioAutenticado, librosController.comprarLibro);
     routes.delete("/libro/:url", authController.usuarioAutenticado, librosController.comprarLibro);
  
-  
         // Rutas para autenticación
 
         routes.get("/registrate", usuariosController.formularioCrearCuenta);
         routes.post("/registrate", usuariosController.crearCuenta);
    
-
         routes.get("/iniciar_sesion", usuariosController.formularioIniciarSesion);
         routes.post("/iniciar_sesion", authController.autenticarUsuario);
       
-
         // Rutas para los tweets
         routes.get("/home_tweets",tweetsController.tweetsHome);
         routes.post("/crear_tweet",tweetsController.nuevoTweet);
@@ -55,15 +52,15 @@ module.exports = function ( )
         routes.get("/libro/:url",authController.usuarioAutenticado,librosController.obtenerLibroPorUrl);
         routes.post("/actualizar_libro/:id", authController.usuarioAutenticado, librosController.actualizarLibro);
    
-        // routes.get("/comprar_libro", authController.usuarioAutenticado, librosController.formularioNuevaCompra);
-        // routes.post("/comprar_libro", authController.usuarioAutenticado, librosController.comprarLibro);
-
-        
         // // comentarios
-        // routes.get("/comentario", authController.usuarioAutenticado, comentarios)
         routes.get("/home_comentarios",authController.usuarioAutenticado,  comentariosController.comentariosHome);
         routes.post("/crear_comentarios", authController.usuarioAutenticado, comentariosController.nuevoComentario);
-   
+
+        // Usuario
+        routes.get("/ver_usuario", authController.usuarioAutenticado, usuariosController.formularioVerUsuario);
+        routes.post("/actualizar_usuario", authController.usuarioAutenticado, usuariosController.actualizarUsuario);
+        
+
 
         routes.get("/cerrar_sesion", authController.cerrarSesion);
 
