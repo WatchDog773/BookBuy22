@@ -8,7 +8,7 @@ const db = require("../config/db");
 
 
 // Definición del modelo
-const  Comentario= db.define("comentario", {
+const  Comentario = db.define("comentario", {
     id:{
         type: Sequilize.INTEGER,
         primaryKey: true,
@@ -20,11 +20,14 @@ const  Comentario= db.define("comentario", {
     autor:{
         type: Sequilize.STRING (280),
     },
+
 }
 );
 
 
+
 // Importar el modulo para poder utilizarlo
 module.exports =Comentario;
+
 
 

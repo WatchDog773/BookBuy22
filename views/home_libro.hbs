@@ -1,7 +1,8 @@
 
 <hr>
-<h3 class=" text-center"><b>Adquiere el tuyo ¡ahora mismo! </b> </h3>
+<h4 class=" text-center"><b>¿Qué esperas? ¡Consigue el tuyo ahora mismo! </b> </h4>
   <hr>
+  
 
 
 {{!-- Mostrar los mensajes en caso de existir --}}
@@ -13,12 +14,6 @@
   {{/each}}
 {{/if}}
 
-{{!--  Mostrar si existen los proyectos --}}
-
-
-
-
-
 
 
 <div class="container">
@@ -29,9 +24,9 @@
           
       <div class="row mr-auto">
         <div class="col-md-12 mb-5">
-          <div class="card " id="cardHome"  id="containerHomeLibros">
-            <img  id="cardImagen" class="card-img-top" src="./images/libros.png">  
-              <div class="card-body text-left">
+          <div class="card " id="cardHome"  id="containerHomeLibros" >
+            <img  id="cardImagen" class="card-img-top" src="./images/libros2.png">  
+              <div class="card-body text-left" >
                    <div class="card-block">
                     <figure class="profile">
                         <img src="../images/book.png" class="profile-avatar" alt="">
@@ -43,7 +38,10 @@
                       <div class="card-text text-center"><b>ISBN: </b>
                        {{ dataValues.ISBN  }} 
                     </div>
-                    <div class="card-text text-center"><b>Descripción: </b> <hr>
+                     <div class="card-text text-center"><b>Vendedor: </b>
+                       {{ dataValues.vendedor  }} 
+                    </div>
+                    <div class="card-text  text-center "><b>Descripción: </b> <hr>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled > {{ dataValues.descripcion  }}</textarea> <hr>
                     </div>
                   

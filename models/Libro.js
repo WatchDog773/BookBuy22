@@ -44,6 +44,9 @@ const  Libro = db.define("libro", {
     imagen: {
         type: Sequilize.BLOB,
      },
+     vendedor: {
+        type:Sequilize.STRING,
+    },
      estado:{
          type: Sequilize.STRING,
      },
