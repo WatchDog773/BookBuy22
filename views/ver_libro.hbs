@@ -21,19 +21,19 @@
 <form method="POST" action="/actualizar_libro/{{libro.id}}">
   <div class="form-group">
     <label for="nombre">Título del libro</label>
-    <input type="text" class="form-control" id="nombre" name="nombre" value="{{libro.nombre}}" >
+    <input required  type="text" class="form-control" id="nombre" name="nombre" value="{{libro.nombre}}" >
 
     <label for="nombre">Autor</label>
-    <input type="text" class="form-control" id="nombre" name="autor" value="{{libro.autor}}" >
+    <input  required type="text" class="form-control" id="nombre" name="autor" value="{{libro.autor}}" >
 
     <label for="nombre">ISBN</label>
-    <input type="text" class="form-control" id="nombre" name="ISBN" value="{{libro.ISBN}}" >
+    <input  required type="text" class="form-control" id="nombre" name="ISBN" value="{{libro.ISBN}}" >
 
     <label for="nombre">Descripción</label>
-    <input type="text" class="form-control" id="nombre" name="descripcion" value="{{libro.descripcion}}" >
+    <input required  type="text" class="form-control" id="nombre" name="descripcion" value="{{libro.descripcion}}" >
 
     <label for="nombre">Precio</label>
-    <input type="text" class="form-control" id="nombre" name="precio" value="{{libro.precio}}" >
+    <input required type="text" class="form-control" id="nombre" name="precio" value="{{libro.precio}}" >
     
   </div>
 

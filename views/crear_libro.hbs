@@ -2,7 +2,7 @@
 
 <div class="formulario">
 <hr>
-<h1 class="mt-3 text-center"> <b>Datos del libro</b> </h1>
+<h5 class="mt-3 text-center"> <b>Datos del libro</b> </h5>
 <hr>
 
 {{!-- Usamos post para el envio de datos --}}
@@ -13,10 +13,10 @@
   <div class="form-group">
    
     <label for="nombre"> <b>Nombre del libro</b> </label>
-    <input type="text" class="form-control" id="nombre" name="nombre">
+    <input required type="text" class="form-control" id="nombre" name="nombre">
 <br>
        <label for="nombre"> <b>Autor del libro</b> </label>
-    <input type="text" class="form-control" id="nombre" name="autor">
+    <input required type="text" class="form-control" id="nombre" name="autor">
 <br>
    <label for="nombre"> <b>Precio</b> </label>
 
@@ -24,7 +24,7 @@
   <div class="input-group-prepend">
     <span class="input-group-text">L.</span>
   </div>
-  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"  id="precio" name="precio">
+  <input required type="text" class="form-control" aria-label="Amount (to the nearest dollar)"  id="precio" name="precio">
   <div class="input-group-append">
     <span class="input-group-text">.00</span>
   </div>
@@ -32,10 +32,10 @@
 
   <br>
    <label for="nombre"> <b>Descripción</b> </label>
-   <input type="text" class="form-control" id="descripcion" name="descripcion">
+   <input required type="text" class="form-control" id="descripcion" name="descripcion">
    <br>
     <label for="nombre"> <b> ISBN del libro</b></label>
-    <input type="text" class="form-control" id="nombre" name="ISBN">
+    <input  type="text" class="form-control" id="nombre" name="ISBN">
 
      <input type="text" class="form-control" id="vendedor"  name="vendedor" value="{{usuario.fullname}}" hidden>
 

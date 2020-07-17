@@ -254,7 +254,7 @@ exports.obtenerLibroPorUrl = async (req, res, next) => {
     // Verificar si el nombre del proyecto es enviado
     if (!nombre){
         mensajes.push({
-          error: "El nombre del libro no puede ser vacío!",
+          error: "¡El nombre del libro no puede ser vacío!",
             type: "alert-danger",
         });
     }
@@ -263,28 +263,28 @@ exports.obtenerLibroPorUrl = async (req, res, next) => {
 
 if ( !autor) {
   mensajes.push({
-  error: "El autor del libro no puede estar vacia.",
+  error: "¡El autor del libro no puede estar vacia!",
   type: "alert-danger",
 });
 }
 
 if ( !descripcion) {
   mensajes.push({
-  error: "La descripción del libro no puede estar vacia.",
+  error: "¡La descripción del libro no puede estar vacia!",
   type: "alert-danger",
 });
 }
 
 if ( !precio) {
   mensajes.push({
-  error: "El precio del libro no puede estar vacia.",
+  error: "¡El precio del libro no puede estar vacio!",
   type: "alert-danger",
 });
 }
 
 if ( !ISBN) {
   mensajes.push({
-  error: "El ISBN del libro no puede estar vacia.",
+  error: "¡El ISBN del libro no puede estar vacio!",
   type: "alert-danger",
 });
 }
