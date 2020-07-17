@@ -1,9 +1,12 @@
 {{!-- Formulario de Registro --}}
 
 
+
 {{!-- Validacion de sequelize que la trae a traves del modelo --}}
 {{#if error}}
-    <p>{{error}}</p>
+    <div class="alert alert-danger text-center" role="alert">
+  {{error}}
+</div>
 {{/if}}
 
 
