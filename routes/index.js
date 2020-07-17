@@ -7,6 +7,7 @@ const usuariosController = require("../controllers/usuariosControllers");
 const tweetsController = require("../controllers/tweetsControllers");
 const authController = require("../controllers/authController");
 const comentariosController = require("../controllers/comentariosController");
+const checkOutController= require("../controllers/checkoutController");
 
 module.exports = function ( )
 {
