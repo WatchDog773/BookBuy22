@@ -1,4 +1,5 @@
 const Libro= require("../models/Libro.js");
+const Venta= require("../models/Venta");
 
 // // Obtener los datos del proyecto
 const stripe = require('stripe')('sk_test_51H5se7H7MJGBcY4YlByenr4aAhLgEPn3KHXeJ1LJciqLYNPsIkzFNqT1t37XaZXuQ0HlSUr4pnkxQl3DRzkYjkl200i3BzYqYT');
@@ -7,7 +8,7 @@ const stripe = require('stripe')('sk_test_51H5se7H7MJGBcY4YlByenr4aAhLgEPn3KHXeJ
 //   const precio = 1000;
 
 
-const { precio, nombreLibro, idLibro} = req.body;
+const { precio, nombreLibro, idLibro, vendedor, emailVendedor, idVendedor} = req.body;
 const  total = precio * 100;
 
 // var str1 = 'Venta del libro ';
@@ -25,6 +26,8 @@ const  total = precio * 100;
        description : nombreLibro
    });
    console.log(charge.id);
+
+   await Venta.create({ nombreLibro, idVendedor, emailVendedor, precio});
 
    await Libro.destroy(
     {
