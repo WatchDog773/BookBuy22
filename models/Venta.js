@@ -27,6 +27,14 @@ const  Venta = db.define("Ventas", {
     precio:{
         type:Sequilize.DOUBLE,
     },
+},
+{
+    hooks: {
+        beforeCreate(Ventas){
+            const date = new Date();
+            Ventas.fecha = date.toISOString();
+        }
+    },
 }
 );
 

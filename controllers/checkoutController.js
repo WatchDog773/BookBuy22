@@ -8,8 +8,9 @@ const stripe = require('stripe')('sk_test_51H5se7H7MJGBcY4YlByenr4aAhLgEPn3KHXeJ
 //   const precio = 1000;
 
 
-const { precio, nombreLibro, idLibro, vendedor, emailVendedor, idVendedor} = req.body;
+const { precio, nombreLibro, idLibro, vendedor, emailVendedor, idVendedor, fecha} = req.body;
 const  total = precio * 100;
+console.log(nombreLibro);
 
 // var str1 = 'Venta del libro ';
 // var str2 = nombreLibro;
@@ -27,7 +28,7 @@ const  total = precio * 100;
    });
    console.log(charge.id);
 
-   await Venta.create({ nombreLibro, idVendedor, emailVendedor, precio});
+   await Venta.create({ fecha, nombreLibro, idVendedor, emailVendedor, precio});
 
    await Libro.destroy(
     {
