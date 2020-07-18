@@ -22,7 +22,7 @@ exports.nuevoLibro =async  (req, res, next) => {
     const usuario = res.locals.usuario;
     console.log(res.locals.usuario);
 
-    const { nombre,autor, precio,descripcion, ISBN, fecha, imagen, vendedor} = req.body;
+    const { nombre,autor, precio,descripcion, ISBN, fecha, imagen, vendedor, emailVendedor} = req.body;
 
     const mensajes = [ ];
     const estado = "En venta";
@@ -70,7 +70,7 @@ if (mensajes.length) {
     });
 } else {
     try {
-      await Libro.create({ nombre, autor,precio, descripcion, ISBN, fecha, imagen, estado, usuarioId: usuario.id, vendedor});
+      await Libro.create({ nombre, autor,precio, descripcion, ISBN, fecha, imagen, estado, usuarioId: usuario.id, vendedor, emailVendedor});
        mensajes.push({
         error: "Libro almacenado satisfactoriamente",
         type: "alert-success",
