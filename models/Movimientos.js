@@ -3,27 +3,28 @@ const  Sequilize = require("sequelize");
 
 // Importar la conf2iguración de la base de datos
 const db = require("../config/db");
+const { Sequelize } = require("sequelize");
 
 // Definición del modelo
-const  Movimiento = db.define("movimiento", {
+const  Venta = db.define("Ventas", {
     id:{
         type: Sequilize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    movimiento:{
+    fecha:{
+        type: Sequilize.DATE ,       // DataTypes.DATEONLY   // DATE without time
+    },
+    nombreLibro:{
         type: Sequilize.STRING,
     },
+    idVendedor:{
+        type: Sequilize.INTEGER,
+    },
+    emailVendedor:{
+        type: Sequelize.STRING(50),
+    },
     precio:{
-        type:Sequilize.DOUBLE,
-    },
-    vendedor:{
-        type:Sequilize.STRING,
-    },
-    libro:{
-        type:Sequilize.STRING,
-    },
-    beneficio:{
         type:Sequilize.DOUBLE,
     },
 }
@@ -31,6 +32,6 @@ const  Movimiento = db.define("movimiento", {
 
 
 // Importar el modulo para poder utilizarlo
-module.exports =Movimiento;
+module.exports =Venta;
 
 
