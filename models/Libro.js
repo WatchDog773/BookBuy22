@@ -47,9 +47,9 @@ const  Libro = db.define("libro", {
      vendedor: {
         type:Sequilize.STRING,
     },
-     estado:{
-         type: Sequilize.STRING,
-     },
+    emailVendedor:{
+        type: Sequilize.STRING(50),
+    },
      url:{
         type: Sequilize.STRING
     },

@@ -8,14 +8,14 @@ exports.formularioCrearCuenta = (req, res, next) =>{
 exports.crearCuenta = async (req, res, next) =>{
     // Obtener los daos de la nueva cuenta
     // Obtenerlos por destructuring
-    const {fullname, email, password}= req.body;
+    const {username, email, password}= req.body;
 
     // Intentar crear el usuario
 
     try {
         // crear el usuario
         await Usuario.create({
-            fullname,
+            username,
             email,
             password,
         });
