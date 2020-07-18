@@ -52,7 +52,7 @@
                      {{!-- <button name="eliminar-libro" data-libro-url={{dataValues.url}} type="button" class="btn btn-primary btn-lg btn-block mt-2">Comprar</button> --}}
                        <form action="/checkout" method="POST">
                             <input type="text" value={{ dataValues.precio}} name="precio" hidden>
-                            <input type="text" value={{dataValues.nombre}} name="nombreLibro" hidden>
+                            <input type="text" value="{{dataValues.nombre}}" name="nombreLibro" hidden>
                             <input type="text" value={{ dataValues.emailVendedor}} name="emailVendedor" hidden>
                             <input type="text" value={{dataValues.id}} name="idLibro" hidden>
                             <input type="text" value={{ dataValues.usuarioId}} name="idVendedor" hidden>

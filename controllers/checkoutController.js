@@ -12,9 +12,9 @@ const { precio, nombreLibro, idLibro, vendedor, emailVendedor, idVendedor, fecha
 const  total = precio * 100;
 console.log(nombreLibro);
 
-// var str1 = 'Venta del libro ';
-// var str2 = nombreLibro;
-// var descrip = str1.concat(str2);
+ var str1 = 'Venta del libro: ';
+ var str2 = nombreLibro;
+ var descrip = str1.concat(str2);
 
    const customer = await stripe.customers.create({
         email: req.body.stripeEmail,
@@ -24,7 +24,7 @@ console.log(nombreLibro);
        amount : total,
        currency: 'hnl',
        customer: customer.id,
-       description : nombreLibro
+       description : descrip
    });
    console.log(charge.id);
 
