@@ -8,6 +8,7 @@ const tweetsController = require("../controllers/tweetsControllers");
 const authController = require("../controllers/authController");
 const comentariosController = require("../controllers/comentariosController");
 const checkOutController= require("../controllers/checkoutController");
+const ventasController= require("../controllers/ventasController");
 
 module.exports = function ( )
 {
@@ -63,6 +64,8 @@ module.exports = function ( )
         
        // Uso de Stripe para mediar los pagos
         routes.post("/checkout", authController.usuarioAutenticado, checkOutController.checkOut);
+
+         routes.get("/mis_ventas", authController.usuarioAutenticado, ventasController.misVentas);
 
         routes.get("/cerrar_sesion", authController.cerrarSesion);
 

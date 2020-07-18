@@ -85,26 +85,6 @@ if (mensajes.length) {
     });
  }
 }
-
-// const movimiento = "Ingreso al estante de venta";
-// const vendedor = usuario.id;
-// const libro = nombre;
-// const beneficio = precio * 0.15;
-
-//     try {
-//       await Movimientos.create({ movimiento, precio, vendedor, libro, beneficio});
-//  }
-//   catch (error)
-// {
-//     mensajes.push({
-//         error: "Ha ocurrido un error en el sercidor, comunicate con el personal de taskily",
-//         type: "alert-warning",
-//     });
-//  }
-
-
-
-
 };
 
 
