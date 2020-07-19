@@ -13,11 +13,11 @@ const ventasController= require("../controllers/ventasController");
 module.exports = function ( )
 {
    
-      routes.get("/",authController.usuarioAutenticado, librosController.librosHome);  // esta petición es con get, aunque existen más
+      routes.get("/",authController.usuarioAutenticado, librosController.administradorVerificacion,  librosController.librosHome);  // esta petición es con get, aunque existen más
      //  routes.get("/holaMundo", proyectosController.holaMundo);
    
      // Nos permitira crear un nuevo proyecto
-    routes.post("/crear_cliente",authController.usuarioAutenticado, clientesController.nuevoCliente);
+    routes.post("/crear_cliente",authController.usuarioAutenticado,  clientesController.nuevoCliente);
     routes.get("/crear_cliente",authController.usuarioAutenticado,  clientesController.formularioNuevoCliente);
     
     // Solamente si lo coloco como get " routes.get" me permite leer la plnatilla crear_libro.hbs

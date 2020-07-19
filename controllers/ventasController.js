@@ -13,11 +13,10 @@ exports.misVentas = async(req, res, next) =>{
           } 
        });
 
-       ventas.forEach(function(total){
-       var total = total + ventas.precio;
-      });
 
-       // Luego renderizo la vista que mostrará todos los proyectos que existen
+      
+      
+      // Luego renderizo la vista que mostrará todos los proyectos que existen
        res.render("mis_ventas", { ventas});
 
     } catch (error) 

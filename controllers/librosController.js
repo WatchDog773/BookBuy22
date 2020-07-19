@@ -87,7 +87,18 @@ if (mensajes.length) {
 }
 };
 
+// Verificación de ingreso del administrador
+exports.administradorVerificacion = async(req, res, next)=>{
+  const usuario = res.locals.usuario;
 
+  if (usuario.id == 2) {
+    // Si el usario que ha ingresado que renderize la siguiente vista
+    res.render("home_admin",{  layout: "admin"});
+  } else {
+    // Si no es el usario administrado, debe renderizar la vista para los usuarios particulares
+    next();
+  }
+}
 
 // Obtener los datos del proyecto
 exports.librosHome = async(req, res, next) =>{
