@@ -71,5 +71,7 @@ module.exports = function ( )
 
         routes.get("/ventas_globales", authController.usuarioAutenticado, ventasController.ventasGlobales);
 
+        routes.get("/control_usuarios", authController.usuarioAutenticado, usuariosController.controlUsuarios);
+        
     return routes;
 };

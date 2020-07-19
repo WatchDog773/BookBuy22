@@ -106,3 +106,24 @@ if (mensajes.length){
 }
 };
 
+
+
+exports.controlUsuarios =  async (req, res, next) =>{
+    const usuario = res.locals.usuario;
+    const mensajes = [];
+
+    try {
+        // Variable que almacena todos los proyectos que existem
+        const usuariosAll= await Usuario.findAll({
+        });
+        // Luego renderizo la vista que mostrará todos los proyectos que existen
+        res.render("control_usuarios", { layout: "admin",usuariosAll } );
+     } catch (error) 
+     {
+         mensajes.push({error: "Error al obtener los datos del los usuario, favor reintentar",
+         type: "alert-warning"
+         });
+         res.render("control_usuarios", mensajes);
+     }
+  };
+
