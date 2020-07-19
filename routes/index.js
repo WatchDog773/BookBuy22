@@ -69,6 +69,7 @@ module.exports = function ( )
 
         routes.get("/cerrar_sesion", authController.cerrarSesion);
 
+        routes.get("/ventas_globales", authController.usuarioAutenticado, ventasController.ventasGlobales);
 
     return routes;
 };

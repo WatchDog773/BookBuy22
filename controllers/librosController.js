@@ -90,8 +90,7 @@ if (mensajes.length) {
 // Verificación de ingreso del administrador
 exports.administradorVerificacion = async(req, res, next)=>{
   const usuario = res.locals.usuario;
-
-  if (usuario.id == 2) {
+  if (usuario.id == 1) {
     // Si el usario que ha ingresado que renderize la siguiente vista
     res.render("home_admin",{  layout: "admin"});
   } else {

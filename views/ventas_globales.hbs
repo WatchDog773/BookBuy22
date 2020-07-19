@@ -1,0 +1,65 @@
+<hr>
+<h4 class=" text-center mb-5"><b>Historial de ventas</h4>
+  <hr>
+
+  
+{{!-- Mostrar los mensajes en caso de existir --}}
+{{#if mensajes}}
+  {{#each mensajes}}
+   <div class="alert {{type}}" role="alert">
+      {{error}}
+    </div>
+  {{/each}}
+{{/if}}
+
+  <div class="container text-center">
+       <div class="row mr-auto mb-2">
+            <div class="row col-8 mb-2 text-justify">
+                  {{!-- <a class="text-justify"><b>Libro</b></a>  --}}
+            </div>
+            <div class="row col-4 ml-2 mb-2 ">
+                 <div class="col-sm">
+                     <a><b>Beneficio</b></a>
+                </div>
+            </div>
+       </div>
+</div>
+
+
+<div class="container text-center">
+          {{!-- Mostrar los proyectos (si existen) --}}
+    {{#if ventasGlobales}}
+        {{#each ventasGlobales}}
+        <div class="row mr-auto mb-2">
+          <div class="row col-8 mb-2"> 
+            <a  class="list-group-item list-group-item-action list-group-item-info">{{ dataValues.nombreLibro}}</a> 
+          </div>
+          <div class="row col-4 ml-2 mb-2">
+                <a  class="list-group-item list-group-item-action list-group-item-success">L.{{ dataValues.precio }}</a> 
+          </div>
+        </div>
+
+
+
+        {{/each}}
+    {{else}}
+    {{!-- <div class="container text-center">
+      <li class="list-group-item list-group-item-primary"><h5>Aún no tienes registros de ventas :(</h5> </li>
+    </div> --}}
+{{/if}}
+</div>
+ <hr >
+
+
+<div class="container text-center">
+      <div class="row mr-auto mb-2">
+          <div class="row col-8 mb-2"> 
+            <a  class="list-group-item list-group-item-action list-group-item-success"><b> Beneficios Obtenidos</b></a> 
+           </div>
+          <div class="row col-4 ml-2 mb-2">
+            <a  class="list-group-item list-group-item-action list-group-item-success "><b>L. </b> </a> 
+          </div>
+        </div>
+</div>
+
+

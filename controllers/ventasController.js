@@ -1,6 +1,6 @@
 const Venta= require("../models/Venta");
 
-// Obtener los datos del proyecto
+// Obtener los datos de la venta por usuario
 exports.misVentas = async(req, res, next) =>{
     const usuario = res.locals.usuario;
     const mensajes = [];
@@ -25,5 +25,28 @@ exports.misVentas = async(req, res, next) =>{
         type: "alert-warning"
         });
         res.render("mis_ventas", mensajes);
+    }
+}
+
+
+
+// Obtener los datos de las ventas globales
+exports.ventasGlobales = async(req, res, next) =>{
+    const usuario = res.locals.usuario;
+    const mensajes = [];
+
+    try {
+       // Variable que almacena todos los proyectos que existem
+       const ventasGlobales = await Venta.findAll();
+
+      // Luego renderizo la vista que mostrará todos los proyectos que existen
+       res.render("ventas_globales", { layout: "admin", ventasGlobales });
+
+    } catch (error) 
+    {
+        mensajes.push({error: "Error al obtener los datos, intente de nuevo",
+        type: "alert-warning"
+        });
+        res.render("ventas_globales", mensajes);
     }
 }
