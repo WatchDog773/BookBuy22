@@ -1,10 +1,6 @@
 <h4 class="text-center mt-4 mb-4"><i class="far fa-edit mr-3"></i>Mi Perfíl </h4>
 <div class="container col-8 mb-6">
 
-
-
-
-
   {{#if usuarios }}
     {{#each usuarios}}
 
@@ -27,13 +23,9 @@
 
     <label for="nombre">Dirección</label>
     <input required type="text" class="form-control" name="address" value="{{dataValues.address}}" >
-    
-
     {{/each}}
 {{/if}}
-
-    
-  </div>
+</div>
   <div class="row ">
 
 <!-- Button trigger modal -->
@@ -65,8 +57,5 @@
  <button  type="submit" class="btn btn-primary mr-3">Actualizar</button> --}}
         <a href="/mi_estanteria"  class="btn btn-danger  ">Regresar</a>
   </div>
- 
 </form>
-
-
 </div>

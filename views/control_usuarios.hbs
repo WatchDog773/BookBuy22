@@ -1,54 +1,78 @@
-<hr>
-<h4 class=" text-center mb-5"><b>Usuarios de  BookBuy™</h4>
-  <hr>
+<hr />
+<h4 class="text-center mb-5">
+  <b>
+    Usuarios de  BookBuy™
+  </b>
+</h4>
+<hr />
 
-  
-{{!-- Mostrar los mensajes en caso de existir --}}
+{{! Mostrar los mensajes en caso de existir }}
 {{#if mensajes}}
   {{#each mensajes}}
-   <div class="alert {{type}}" role="alert">
+    <div class="alert {{type}}" role="alert">
       {{error}}
     </div>
   {{/each}}
 {{/if}}
 
-
-
 <div class="container text-center">
-          {{!-- Mostrar los proyectos (si existen) --}}
+  {{! Mostrar los proyectos (si existen) }}
 
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col"><b>No.</b></th>
-      <th scope="col"><b>Nombre Completo</b></th>
-      <th scope="col"><b>Nombre de Usuario</b></th>
-      <th scope="col"><b>Teléfono</b></th>
-      <th scope="col"><b>Correo Eléctronico</b></th>
-    </tr>
-  </thead>
-  <tbody>
-
-    {{#if usuariosAll}}
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">
+          <b>
+            No.
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            Nombre Completo
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            Nombre de Usuario
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            Teléfono
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            Correo Eléctronico
+          </b>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#if usuariosAll}}
         {{#each usuariosAll}}
-
-    <tr>
-      <th scope="row">{{ dataValues.id}}</th>
-      <td>{{ dataValues.fullname}}</td>
-      <td>{{ dataValues.username}}</td>
-      <td>{{ dataValues.phone}}</td>
-      <td>{{ dataValues.email}}</td>
-    </tr>
-
-
+          <tr>
+            <th scope="row">
+              {{dataValues.id}}
+            </th>
+            <td>
+              {{dataValues.fullname}}
+            </td>
+            <td>
+              {{dataValues.username}}
+            </td>
+            <td>
+              {{dataValues.phone}}
+            </td>
+            <td>
+              {{dataValues.email}}
+            </td>
+          </tr>
         {{/each}}
-    {{else}}
-{{/if}}
+      {{else}}
 
-  </tbody>
-</table>
-
-
-
+      {{/if}}
+    </tbody>
+  </table>
 </div>
- <hr >
+<hr />

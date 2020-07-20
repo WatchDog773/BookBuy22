@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
-    
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link href="css/simple-sidebar.css" rel="stylesheet">
    <title>BookBuy 2020</title>
@@ -19,35 +18,28 @@
       <hr>
       <div  class="list-group list-group-flush ">
        <a  id="color" href="/crear_libro"  class="list-group-item list-group-item-action bg-light" ><i class="fas fa-plus-circle mr-3"></i>Vender libros</a>
-        <a href="/mi_estanteria"  class="list-group-item list-group-item-action bg-light"><i class="fas fa-book mr-3"></i>Mi Estantería</a> 
-        <a href="/ver_usuario"   class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-edit mr-3"></i>Perfíl</a>
-         <a href="/mis_ventas"   class="list-group-item list-group-item-action bg-light"><i class="fas fa-search-dollar mr-3"></i>Mis Ventas</a>
-        <a href="/home_comentarios"   class="list-group-item list-group-item-action bg-light"><i class="fas fa-comments mr-3"></i>Comunidad</a>
-        <a href="/home_libro"   class="list-group-item list-group-item-action bg-light"><i class="fas fa-store mr-3"></i>Ir a la Tienda</a>
-        <a href="https://i.makeagif.com/media/12-09-2015/IVlPoq.gif"   class="list-group-item list-group-item-action bg-light"><i class="fas fa-info-circle mr-3"></i>Ayuda</a>
-        <a  href="/cerrar_sesion" class="list-group-item list-group-item-action bg-light"><i class="fas fa-sign-out-alt mr-3"></i></i>Cerrar Sesión</a>  
+       <a href="/mi_estanteria"  class="list-group-item list-group-item-action bg-light"><i class="fas fa-book mr-3"></i>Mi Estantería</a> 
+       <a href="/ver_usuario"   class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-edit mr-3"></i>Perfíl</a>
+       <a href="/mis_ventas"   class="list-group-item list-group-item-action bg-light"><i class="fas fa-search-dollar mr-3"></i>Mis Ventas</a>
+       <a href="/home_comentarios"   class="list-group-item list-group-item-action bg-light"><i class="fas fa-comments mr-3"></i>Comunidad</a>
+       <a href="/home_libro"   class="list-group-item list-group-item-action bg-light"><i class="fas fa-store mr-3"></i>Ir a la Tienda</a>
+       <a href="https://i.makeagif.com/media/12-09-2015/IVlPoq.gif"   class="list-group-item list-group-item-action bg-light"><i class="fas fa-info-circle mr-3"></i>Ayuda</a>
+       <a  href="/cerrar_sesion" class="list-group-item list-group-item-action bg-light"><i class="fas fa-sign-out-alt mr-3"></i>Cerrar Sesión</a>  
         {{!-- <img id="imagenLateral"  src="https://i.pinimg.com/originals/95/a2/4c/95a24ca136b9a0ff1d260fcdb5eb60f2.gif" alt=""> --}}
       </div>
     </div>
 
-
-
-    <!-- Page Content -->
     <div id="page-content-wrapper">
          <nav    class="navbar navbar-expand-lg navbar-light  text-center border-bottom" style="background-color: #f1f1f1;" >
                    <a  type="button"   class="nav-link mt-1"  id="menu-toggle"   ><i class="fas fa-bars"></i></a>
                     <a  class="navbar-brand"  href="#">
                     <img src="./images/bookMain.png" width="30" height="30" alt=""> <b>BookBuy™</b>
                     </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                     </button>
      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav m-auto">
-          {{!-- <li class="nav-item active">
-            <a class="nav-link" href="#" id="mainLetter"><strong>Comunidad</strong></a>
-          </li> --}}
           <li class="nav-item dropdown active">
             <a class="nav-link dropdown-toggle" id="mainLetter" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <strong>Categorias</strong> 
@@ -79,21 +71,10 @@
            {{{body}}}
       </div>
   </div>
-   
 </main>
    </div>
-  
-
-
     </div>
- </div>
-    <!-- /#page-content-wrapper -->
-
-    <!-- /#page-content-wrapper -->
-
-      <!-- Menu Toggle Script -->
-
-      
+ </div>   
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>

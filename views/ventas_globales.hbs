@@ -1,61 +1,84 @@
-<hr>
-<h4 class=" text-center mb-5"><b>Historial de ventas</h4>
-  <hr>
+<hr />
+<h4 class="text-center mb-5">
+  <b>
+    Historial de ventas
+  </b>
+</h4>
+<hr />
 
-  
-{{!-- Mostrar los mensajes en caso de existir --}}
+{{! Mostrar los mensajes en caso de existir }}
 {{#if mensajes}}
   {{#each mensajes}}
-   <div class="alert {{type}}" role="alert">
+    <div class="alert {{type}}" role="alert">
       {{error}}
     </div>
   {{/each}}
 {{/if}}
 
-
-
 <div class="container text-center">
-          {{!-- Mostrar los proyectos (si existen) --}}
+  {{! Mostrar los proyectos (si existen) }}
 
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col"><b>No</b>.</th>
-      <th scope="col"><b>Libro</b></th>
-      <th scope="col"><b>Vendedor</b></th>
-      <th scope="col"><b>Fecha</b></th>
-      <th scope="col"><b>Precio</b></th>
-    </tr>
-  </thead>
-  <tbody>
-
-    {{#if ventasGlobales}}
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">
+          <b>
+            No
+          </b>
+          .
+        </th>
+        <th scope="col">
+          <b>
+            Libro
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            Vendedor
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            Fecha
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            Precio
+          </b>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#if ventasGlobales}}
         {{#each ventasGlobales}}
-
-
-    <tr>
-      <th scope="row">{{ dataValues.id}}</th>
-      <td>{{ dataValues.nombreLibro}}</td>
-      <td>{{ dataValues.emailVendedor}}</td>
-      <td>{{ dataValues.fecha}}</td>
-      <td>{{ dataValues.precio}}</td>
-    </tr>
-
-
+          <tr>
+            <th scope="row">
+              {{dataValues.id}}
+            </th>
+            <td>
+              {{dataValues.nombreLibro}}
+            </td>
+            <td>
+              {{dataValues.emailVendedor}}
+            </td>
+            <td>
+              {{dataValues.fecha}}
+            </td>
+            <td>
+              L.{{dataValues.precio}}
+            </td>
+          </tr>
         {{/each}}
-    {{else}}
-{{/if}}
+      {{else}}
 
-  </tbody>
-</table>
-
-
-
+      {{/if}}
+    </tbody>
+  </table>
 </div>
- <hr >
+<hr />
 
-
-{{!-- <div class="container text-center">
+{{! <div class="container text-center">
       <div class="row mr-auto mb-2">
           <div class="row col-8 mb-2"> 
             <a  class="list-group-item list-group-item-action list-group-item-success"><b> Beneficios Obtenidos</b></a> 
@@ -64,7 +87,4 @@
             <a  class="list-group-item list-group-item-action list-group-item-success "><b>L. </b> </a> 
           </div>
         </div>
-</div> --}}
-
-
-
+</div> }}
