@@ -1,8 +1,8 @@
 <hr />
 <h4 class="text-center mb-5">
   <b>
-    <i class="fas fa-users mr-2"></i>
-    Usuarios de  BookBuy™
+    <i class="fas fa-globe mr-2"></i>
+    Estanteria Global
   </b>
 </h4>
 <hr />
@@ -17,56 +17,46 @@
 {{/if}}
 
 <div class="container text-center">
-  {{! Mostrar los proyectos (si existen) }}
-
   <table class="table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">
           <b>
-            No.
+            Titulo del libro
           </b>
         </th>
         <th scope="col">
           <b>
-            Nombre Completo
+            Vendedor
           </b>
         </th>
         <th scope="col">
           <b>
-            Nombre de Usuario
+            Fecha
           </b>
         </th>
         <th scope="col">
           <b>
-            Teléfono
-          </b>
-        </th>
-        <th scope="col">
-          <b>
-            Correo Eléctronico
+            Precio
           </b>
         </th>
       </tr>
     </thead>
     <tbody>
-      {{#if usuariosAll}}
-        {{#each usuariosAll}}
+      {{#if librosAll}}
+        {{#each librosAll}}
           <tr>
-            <th scope="row">
-              {{dataValues.id}}
-            </th>
             <td>
-              {{dataValues.fullname}}
+              {{dataValues.nombre}}
             </td>
             <td>
-              {{dataValues.username}}
+              {{dataValues.emailVendedor}}
             </td>
             <td>
-              {{dataValues.phone}}
+              {{dataValues.fecha}}
             </td>
             <td>
-              {{dataValues.email}}
+              L.{{dataValues.precio}}
             </td>
           </tr>
         {{/each}}
@@ -76,4 +66,3 @@
     </tbody>
   </table>
 </div>
-<hr />

@@ -70,5 +70,8 @@ module.exports = function () {
     // Ruta para ver los usarios desde el administrador
     routes.get("/control_usuarios", authController.usuarioAutenticado, usuariosController.controlUsuarios);
 
+    // Ruta para ver los libros en venta desde el administrador
+    routes.get("/estanteria_global", authController.usuarioAutenticado, librosController.estanteriaGlobal);
+
     return routes;
 };
