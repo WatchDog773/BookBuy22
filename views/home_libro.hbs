@@ -14,7 +14,6 @@
 
 <div class="container">
     <div class="card-deck  col-md-12 mb-9  text-center">
-          {{!-- Mostrar los proyectos (si existen) --}}
     {{#if libros}}
         {{#each libros}}
           
@@ -52,6 +51,9 @@
                             <input type="text" value={{ dataValues.emailVendedor}} name="emailVendedor" hidden>
                             <input type="text" value={{dataValues.id}} name="idLibro" hidden>
                             <input type="text" value={{ dataValues.usuarioId}} name="idVendedor" hidden>
+                            <input type="text" value={{ dataValues.beneficioBookBuy}} name="beneficioBookBuy" hidden>
+                            <input type="text" value={{ dataValues.beneficioUsuario}} name="beneficioUsuario" hidden>
+                            
                                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                    data-key="pk_test_51H5se7H7MJGBcY4YCYjUeBwgg0jBunZDEGDZZ7kPIqs3rhk8FvnWPQ3gHMhQ7VOx7KaeYBZlhEnjNq0clLnPi24C00rEkpgYmn"
                                   {{!-- data-amount= {{ dataValues.precio }}  --}}

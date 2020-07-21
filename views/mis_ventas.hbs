@@ -1,48 +1,103 @@
-{{!-- <hr>
+{{! <hr>
 <h5 class=" text-center mb-5"><b>Inspecciona tu historial de ventas</h4>
-  <hr> --}}
+  <hr> }}
 
-  
-{{!-- Mostrar los mensajes en caso de existir --}}
+{{! Mostrar los mensajes en caso de existir }}
 {{#if mensajes}}
   {{#each mensajes}}
-   <div class="alert {{type}}" role="alert">
+    <div class="alert {{type}}" role="alert">
       {{error}}
     </div>
   {{/each}}
 {{/if}}
 
-
-
-
 <div class="container text-center mt-3">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">
+          <b>
+            Título del libro
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            Precio
+          </b>
+        </th>
+        <th scope="col">
+          <b>Mi Beneficio</b>
+<a
+  data-toggle="modal"
+  data-target="#exampleModalCenter">
+  <i class="fas fa-info-circle"></i>
+</a>
 
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col"><b>Titulo</b></th>
-      <th scope="col"><b>Precio</b></th>
-    </tr>
-  </thead>
-  <tbody>
-
-    {{#if ventas}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#if ventas}}
         {{#each ventas}}
-    <tr>
-      <td>{{ dataValues.nombreLibro}}</td>
-      <td>L.{{ dataValues.precio}}</td>
-    </tr>
-
+          <tr>
+            <td>
+              {{dataValues.nombreLibro}}
+            </td>
+            <td>
+              L.{{dataValues.precio}}
+            </td>
+            <td>
+              L.{{dataValues.beneficioUsuario}}
+            </td>
+          </tr>
         {{/each}}
-    {{else}}
-{{/if}}
+      {{else}}
 
-  </tbody>
-</table>
-
-
+      {{/if}}
+    </tbody>
+  </table>
 </div>
 
+
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModalCenter"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          <i class="fas fa-money-check-alt mr-3"></i>Políticas de Pago
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">
+            &times;
+          </span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <p>
+        Recuerda que BookBuy obtiene un 15% de la comisión de cada una
+        de las ventas que realiaces en nuestra plataforma de servicios
+      </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="tn btn-primary" data-dismiss="modal"> Entiendo</button>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
 {{!-- <div class="container text-center">
       <div class="row mr-auto mb-2">
@@ -54,5 +109,3 @@
           </div>
         </div>
 </div> --}}
-
-

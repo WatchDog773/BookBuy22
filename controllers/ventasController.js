@@ -1,7 +1,7 @@
 const Venta = require("../models/Venta");
 
 // Obtener los datos de la venta por usuario
-exports.misVentas = async (req, res, next) => {
+exports.misVentas = async(req, res, next) => {
     const usuario = res.locals.usuario;
     const mensajes = [];
     try {
@@ -22,7 +22,7 @@ exports.misVentas = async (req, res, next) => {
 }
 
 // Obtener los datos de las ventas globales
-exports.ventasGlobales = async (req, res, next) => {
+exports.ventasGlobales = async(req, res, next) => {
     const usuario = res.locals.usuario;
     const mensajes = [];
     try {
@@ -33,6 +33,12 @@ exports.ventasGlobales = async (req, res, next) => {
             error: "Error al obtener los datos, intente de nuevo",
             type: "alert-warning"
         });
-        res.render("ventas_globales", mensajes);
+
+        for (const precio in this.ventasGlobales) {
+            var total;
+            total = total + this.ventasGlobales[precio];
+        };
+
+        res.render("ventas_globales", mensajes, total);
     }
 }

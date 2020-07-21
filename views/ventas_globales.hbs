@@ -48,6 +48,11 @@
             Precio
           </b>
         </th>
+            <th scope="col">
+          <b>
+            Beneficio
+          </b>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -69,6 +74,9 @@
             <td>
               L.{{dataValues.precio}}
             </td>
+            <td>
+              L.{{dataValues.beneficioBookBuy}}
+            </td>
           </tr>
         {{/each}}
       {{else}}
@@ -78,6 +86,25 @@
   </table>
 </div>
 <hr />
+
+
+<script>
+  function Pluss(){
+  var result = 0;
+        {{#if ventasGlobales}}
+        {{#each ventasGlobales}}
+              result = result +{{dataValues.precio}} ;
+                {{/each}}
+          {{/if}}
+    alert("La ganacia total es de:"+result)
+ 
+  }
+
+</script>
+<div class="row">
+<input type="button" name="" id=""  class="tetx-center" value="Ver beneficio total " onclick="Pluss();">
+</div>
+
 
 {{! <div class="container text-center">
       <div class="row mr-auto mb-2">
