@@ -1,0 +1,58 @@
+{{!-- <hr>
+<h5 class=" text-center mb-5"><b>Inspecciona tu historial de ventas</h4>
+  <hr> --}}
+
+  
+{{!-- Mostrar los mensajes en caso de existir --}}
+{{#if mensajes}}
+  {{#each mensajes}}
+   <div class="alert {{type}}" role="alert">
+      {{error}}
+    </div>
+  {{/each}}
+{{/if}}
+
+
+
+
+<div class="container text-center mt-3">
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"><b>Titulo</b></th>
+      <th scope="col"><b>Precio</b></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {{#if ventas}}
+        {{#each ventas}}
+    <tr>
+      <td>{{ dataValues.nombreLibro}}</td>
+      <td>L.{{ dataValues.precio}}</td>
+    </tr>
+
+        {{/each}}
+    {{else}}
+{{/if}}
+
+  </tbody>
+</table>
+
+
+</div>
+
+
+{{!-- <div class="container text-center">
+      <div class="row mr-auto mb-2">
+          <div class="row col-8 mb-2"> 
+            <a  class="list-group-item list-group-item-action list-group-item-success"><b> Beneficios Obtenidos</b></a> 
+           </div>
+          <div class="row col-4 ml-2 mb-2">
+            <a  class="list-group-item list-group-item-action list-group-item-success "><b>L. {{ total}}</b> </a> 
+          </div>
+        </div>
+</div> --}}
+
+

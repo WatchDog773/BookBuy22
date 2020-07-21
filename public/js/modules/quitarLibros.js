@@ -42,7 +42,7 @@ botonesQuitar.forEach((botonQuitar) => {
               },
             })
             .then(function (response) {
-                Swal.fire( "¡Listo! el libro ya no esta disponible" ,response, "success" );
+                Swal.fire( "¡Listo! El libro ya no esta disponible en tu estantería" ,response, "success" );
             })
             .catch(() => {
                 Swal.fire({

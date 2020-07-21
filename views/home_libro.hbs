@@ -1,10 +1,7 @@
-
 <hr>
 <h4 class=" text-center"><b>¿Qué esperas? ¡Consigue el tuyo ahora mismo! </b> </h4>
   <hr>
   
-
-
 {{!-- Mostrar los mensajes en caso de existir --}}
 {{#if mensajes}}
   {{#each mensajes}}
@@ -13,7 +10,6 @@
     </div>
   {{/each}}
 {{/if}}
-
 
 
 <div class="container">
@@ -49,7 +45,22 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                     <button name="eliminar-libro" data-libro-url={{dataValues.url}} type="button" class="btn btn-primary btn-lg btn-block mt-2">Comprar</button>
+                     {{!-- <button name="eliminar-libro" data-libro-url={{dataValues.url}} type="button" class="btn btn-primary btn-lg btn-block mt-2">Comprar</button> --}}
+                       <form action="/checkout" method="POST">
+                            <input type="text" value={{ dataValues.precio}} name="precio" hidden>
+                            <input type="text" value="{{dataValues.nombre}}" name="nombreLibro" hidden>
+                            <input type="text" value={{ dataValues.emailVendedor}} name="emailVendedor" hidden>
+                            <input type="text" value={{dataValues.id}} name="idLibro" hidden>
+                            <input type="text" value={{ dataValues.usuarioId}} name="idVendedor" hidden>
+                                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                   data-key="pk_test_51H5se7H7MJGBcY4YCYjUeBwgg0jBunZDEGDZZ7kPIqs3rhk8FvnWPQ3gHMhQ7VOx7KaeYBZlhEnjNq0clLnPi24C00rEkpgYmn"
+                                  {{!-- data-amount= {{ dataValues.precio }}  --}}
+                                  data-name="Book Buy"
+                                  data-image="./images/book.png"
+                                  data-description="Compra Segura"
+                                  data-locale="auto"></script>
+                               </script>
+                          </form>
                       <small> Publicado {{ dataValues.fecha  }}</small>
                 </div>
               </div>
@@ -58,23 +69,12 @@
       </div>
         {{/each}}
     {{else}}
-      <h4 class="text-center">Se el primero en vender un libro con nosotros</h4>
+       <div class="container">
+           <li class="list-group-item list-group-item-primary"><h5>Aún no hay libros disponibles para realizar compras</h5> </li>
+    </div>
          {{/if}}
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <hr>
