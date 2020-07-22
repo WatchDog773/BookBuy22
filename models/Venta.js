@@ -33,6 +33,9 @@ const Venta = db.define("Ventas", {
     beneficioUsuario: {
         type: Sequilize.DOUBLE,
     },
+    beneficioStripe: {
+        type: Sequilize.DOUBLE,
+    },
 }, {
     hooks: {
         beforeCreate(Ventas) {

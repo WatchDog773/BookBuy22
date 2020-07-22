@@ -38,6 +38,9 @@ const Libro = db.define("libro", {
     beneficioUsuario: {
         type: Sequilize.DOUBLE,
     },
+    beneficioStripe: {
+        type: Sequilize.DOUBLE,
+    },
     descripcion: {
         type: Sequilize.STRING(1234),
     },

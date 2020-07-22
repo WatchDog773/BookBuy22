@@ -23,13 +23,15 @@ exports.nuevoLibro = async(req, res, next) => {
 
     var beneficioUsuario;
     var beneficioBookBuy;
+    var beneficioStripe;
+
     console.log(res.locals.usuario);
 
     const { nombre, autor, precio, descripcion, ISBN, fecha, imagen, vendedor, emailVendedor } = req.body;
 
-
-    beneficioBookBuy = precio * 0.15;
-    beneficioUsuario = precio - beneficioBookBuy;
+    beneficioStripe = (precio * 0.029) + 0.30;
+    beneficioBookBuy = (precio - beneficioStripe) * 0.12;
+    beneficioUsuario = (precio - beneficioStripe) * 0.88;
 
     const mensajes = [];
     const estado = "En venta";
@@ -77,7 +79,7 @@ exports.nuevoLibro = async(req, res, next) => {
         });
     } else {
         try {
-            await Libro.create({ nombre, autor, precio, beneficioBookBuy, beneficioUsuario, descripcion, ISBN, fecha, imagen, estado, usuarioId: usuario.id, vendedor, emailVendedor });
+            await Libro.create({ nombre, autor, precio, beneficioBookBuy, beneficioUsuario, beneficioStripe, descripcion, ISBN, fecha, imagen, estado, usuarioId: usuario.id, vendedor, emailVendedor });
             mensajes.push({
                 error: "Libro almacenado satisfactoriamente",
                 type: "alert-success",

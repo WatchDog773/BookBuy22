@@ -9,7 +9,7 @@ exports.checkOut = async(req, res, next) => {
     //   const precio = 1000;
 
 
-    const { precio, nombreLibro, idLibro, vendedor, emailVendedor, idVendedor, fecha, beneficioBookBuy, beneficioUsuario } = req.body;
+    const { precio, nombreLibro, idLibro, vendedor, emailVendedor, idVendedor, fecha, beneficioBookBuy, beneficioUsuario, beneficioStripe } = req.body;
     const total = precio * 100;
     console.log(nombreLibro);
 
@@ -29,7 +29,7 @@ exports.checkOut = async(req, res, next) => {
     });
     console.log(charge.id);
 
-    await Venta.create({ fecha, nombreLibro, idVendedor, emailVendedor, precio, beneficioBookBuy, beneficioUsuario });
+    await Venta.create({ fecha, nombreLibro, idVendedor, emailVendedor, precio, beneficioBookBuy, beneficioUsuario, beneficioStripe });
 
     await Libro.destroy({
         where: {
