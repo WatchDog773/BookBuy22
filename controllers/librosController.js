@@ -202,8 +202,14 @@ exports.estanteriaGlobal = async(req, res, next) => {
     const usuario = res.locals.usuario;
     const mensajes = [];
     try {
-        const librosAll = await Libro.findAll();
-        res.render("estanteria_global", { layout: "admin", librosAll });
+        const librosAll = await Libro.findAll()
+            .then(function(librosAll) {
+                librosAll = librosAll.map(function(libros) {
+                    libros.dataValues.fecha = moment(libros.dataValues.fecha).format("dddd D MMMM  YYYY");
+                    return libros;
+                });
+                res.render("estanteria_global", { layout: "admin", librosAll });
+            });
     } catch (error) {
         mensajes.push({
             error: "Error al obtener los libros, favor reintentar",
