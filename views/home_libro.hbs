@@ -1,108 +1,175 @@
-<hr>
-<h4 class=" text-center"><b>¿Qué esperas? ¡Consigue el tuyo ahora mismo! </b> </h4>
-  <hr>
-  
-{{!-- Mostrar los mensajes en caso de existir --}}
+<hr />
+<h4 class="text-center">
+  <b>
+    ¿Qué esperas? ¡Consigue el tuyo ahora mismo!
+  </b>
+</h4>
+<hr />
+
+{{! Mostrar los mensajes en caso de existir }}
 {{#if mensajes}}
   {{#each mensajes}}
-   <div class="alert {{type}}" role="alert">
+    <div class="alert {{type}}" role="alert">
       {{error}}
     </div>
   {{/each}}
 {{/if}}
 
+<div class="container d-flex">
 
-<div class="container">
-    <div class="card-deck  col-md-12 mb-9  text-center">
+  <div class="card-deck ">
     {{#if libros}}
-        {{#each libros}}
-          
-      <div class="row mr-auto">
-        <div class="col-md-12 mb-5">
-          <div class="card " id="cardHome"  id="containerHomeLibros" >
-            <img  id="cardImagen" class="card-img-top" src="./images/libros2.png">  
-              <div class="card-body text-left" >
-                   <div class="card-block">
-                    <figure class="profile">
-                        <img src="../images/book.png" class="profile-avatar" alt="">
-                    </figure>
-                    <h4 class="card-title mt-3 text-center">{{ dataValues.nombre  }}</h4>
-                      <div class="card-text text-center"><b>Autor: </b>
-                       {{ dataValues.autor  }} 
-                    </div>
-                      <div class="card-text text-center"><b>ISBN: </b>
-                       {{ dataValues.ISBN  }} 
-                    </div>
-                     <div class="card-text text-center"><b>Vendedor: </b>
-                       {{ dataValues.vendedor  }} 
-                    </div>
-                    <div class="card-text  text-center "><b>Descripción: </b> <hr>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled > {{ dataValues.descripcion  }}</textarea> <hr>
-                    </div>
-                  
-                  <div class="card-text text-center mt-4"><h4> <Strong>Precio L.{{ dataValues.precio  }}</Strong>  </h4> <hr>
-                    </div>
-                </div>
-                <div class="card-footer">
-                     {{!-- <button name="eliminar-libro" data-libro-url={{dataValues.url}} type="button" class="btn btn-primary btn-lg btn-block mt-2">Comprar</button> --}}
-                       <form action="/checkout" method="POST">
-                            <input type="text" value={{ dataValues.precio}} name="precio" hidden>
-                            <input type="text" value="{{dataValues.nombre}}" name="nombreLibro" hidden>
-                            <input type="text" value={{ dataValues.emailVendedor}} name="emailVendedor" hidden>
-                            <input type="text" value={{dataValues.id}} name="idLibro" hidden>
-                            <input type="text" value={{ dataValues.usuarioId}} name="idVendedor" hidden>
-                            <input type="text" value={{ dataValues.beneficioBookBuy}} name="beneficioBookBuy" hidden>
-                            <input type="text" value={{ dataValues.beneficioUsuario}} name="beneficioUsuario" hidden>
-                            <input type="text" value={{ dataValues.beneficioStripe}} name="beneficioStripe" hidden>
-                            
-                                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                   data-key="pk_test_51H5se7H7MJGBcY4YCYjUeBwgg0jBunZDEGDZZ7kPIqs3rhk8FvnWPQ3gHMhQ7VOx7KaeYBZlhEnjNq0clLnPi24C00rEkpgYmn"
-                                  {{!-- data-amount= {{ dataValues.precio }}  --}}
-                                  data-name="Book Buy"
-                                  data-image="./images/book.png"
-                                  data-description="Compra Segura"
-                                  data-locale="auto"></script>
-                               </script>
-                          </form>
-                      <small> Publicado {{ dataValues.fecha  }}</small>
+      {{#each libros}}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-4 mb-3" id="body">
+          <div class="card mt-3" id="cardHome">
+            <img
+              src="./images/libroVector3.png"
+              class="card-img-top"
+              alt="..."
+            />
+            
+            <div class="card-text text-center">
+
+<div class="collapse  mt-2" id="collapseExample">
+  <div class="card card-body">
+    {{dataValues.descripcion}}
+    </div>
+</div>
+
+
+<button type="button" title="{{dataValues.nombre}}" class="btn btn-success " data-container="body" data-toggle="popover" data-placement="right" data-content="{{dataValues.descripcion}}">
+ <i class="fas fa-eye">
+                  Ver resumen
+                </i>
+</button>
+
+            </div>
+
+            <div class="card-body">
+              <h4 class="card-title mt-3 text-center">
+                {{dataValues.nombre}}
+              </h4>
+              <div class="card-text text-center">
+                <b>
+                  Autor:
+                </b>
+                {{dataValues.autor}}
+              </div>
+              <div class="card-text text-center">
+                <b>
+                  ISBN:
+                </b>
+                {{dataValues.ISBN}}
+              </div>
+              <div class="card-text text-center">
+                <b>
+                  Vendedor:
+                </b>
+                {{dataValues.vendedor}}
+              </div>
+             
+              <div class="card-text text-center mt-4">
+                <h4>
+                  <Strong>
+                    Precio L.{{dataValues.precio}}
+                  </Strong>
+                </h4>
+                <form action="/checkout" method="POST">
+                  <input
+                    type="text"
+                    value={{dataValues.precio}}
+                    name="precio"
+                    hidden
+                  />
+                  <input
+                    type="text"
+                    value="{{dataValues.nombre}}"
+                    name="nombreLibro"
+                    hidden
+                  />
+                  <input
+                    type="text"
+                    value={{dataValues.emailVendedor}}
+                    name="emailVendedor"
+                    hidden
+                  />
+                  <input
+                    type="text"
+                    value={{dataValues.id}}
+                    name="idLibro"
+                    hidden
+                  />
+                  <input
+                    type="text"
+                    value={{dataValues.usuarioId}}
+                    name="idVendedor"
+                    hidden
+                  />
+                  <input
+                    type="text"
+                    value={{dataValues.beneficioBookBuy}}
+                    name="beneficioBookBuy"
+                    hidden
+                  />
+                  <input
+                    type="text"
+                    value={{dataValues.beneficioUsuario}}
+                    name="beneficioUsuario"
+                    hidden
+                  />
+                  <input
+                    type="text"
+                    value={{dataValues.beneficioStripe}}
+                    name="beneficioStripe"
+                    hidden
+                  />
+                  <script
+                    src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button oculto"
+                    data-key="pk_test_51H5se7H7MJGBcY4YCYjUeBwgg0jBunZDEGDZZ7kPIqs3rhk8FvnWPQ3gHMhQ7VOx7KaeYBZlhEnjNq0clLnPi24C00rEkpgYmn"
+                    data-name="Book Buy"
+                    data-image="./images/book.png"
+                    data-description="Compra Segura"
+                    data-locale="auto"></script>
+                </form>
+
+                <hr />
+                <div class="text-left">
+                  <small>
+                    Publicado {{dataValues.fecha}}
+                  </small>
                 </div>
               </div>
+            </div>
           </div>
+          
         </div>
-      </div>
-        {{/each}}
+    
+      {{/each}}
+      
     {{else}}
-       <div class="container">
-           <li class="list-group-item list-group-item-primary"><h5>Aún no hay libros disponibles para realizar compras</h5> </li>
-    </div>
-         {{/if}}
-    </div>
+      <div class="container">
+        <li class="list-group-item list-group-item-primary">
+          <h5>
+            Aún no hay libros disponibles para realizar compras
+          </h5>
+        </li>
+      </div>
+    {{/if}}
+  </div>
 </div>
 
-
-<hr>
- <div class="container">
-  <div class="row">
-    <div class="col text-center mb-3 mt-6">
-       <a href="/crear_libro" class="btn btn-success btn-lg text-center">Vender un nuevo libro</a>
-    </div>
- <br>
-
-
-{{!-- 
-<div class="container mt-5">
-
-  <div class="w3-content mb-3">
- <img class="mySlides" src="./images/anuncio.png" alt="custom_html_banner1" style="width:100%">
- <img class="mySlides" src="./images/anuncio2.png" alt="custom_html_banner3" style="width:100%">
- <img class="mySlides" src="./images/anuncio.png" alt="custom_html_banner1" style="width:100%">
-  <img class="mySlides" src="./images/anuncio2.png" alt="custom_html_banner3" style="width:100%">
- 
-
- <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
- <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+<div class="row mt-5">
+  <div class="col text-center mb-3 mt-6">
+    <a href="/crear_libro" class="btn btn-success btn-lg text-center">
+      Vender un nuevo libro
+    </a>
+  </div>
 </div>
+<br />
 
-</div> --}}
 
 
+<style>
+#boton{display:none;}
+</style>
