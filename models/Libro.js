@@ -12,7 +12,7 @@ const shortid = require("shortid");
 
 const { Sequelize } = require("sequelize");
 
-
+const Envio = require("../models/Envio");
 
 
 
@@ -83,7 +83,7 @@ const Libro = db.define("libro", {
 });
 
 
-
+// Libro.hasOne(Envio, { as: 'envios', foreignKey: 'libroId' })
 
 // Importar el modulo para poder utilizarlo
 module.exports = Libro;

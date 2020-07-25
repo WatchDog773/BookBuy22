@@ -1,8 +1,8 @@
 <hr />
 <h4 class="text-center mb-3">
   <b>
-    <i class="fas fa-table mr-2"></i>
-    Historial de ventas
+    <i class="fas fa-shipping-fast mr-2"></i>
+    Envios pendientes
   </b>
 </h4>
 <hr />
@@ -24,23 +24,22 @@
       <tr>
         <th scope="col">
           <b>
-            No
-          </b>
-          .
-        </th>
-        <th scope="col">
-          <b>
-            Libro
+            Comprador
           </b>
         </th>
         <th scope="col">
           <b>
-            Vendedor
+            Nombre del libro
           </b>
         </th>
         <th scope="col">
           <b>
-            Fecha de Venta
+            Dirección de Entrega
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            teléfono
           </b>
         </th>
         <th scope="col">
@@ -48,62 +47,38 @@
             Precio
           </b>
         </th>
-            <th scope="col">
-          <b>
-            Beneficio
-          </b>
-        </th>
       </tr>
     </thead>
     <tbody>
-      {{#if ventasGlobales}}
-        {{#each ventasGlobales}}
+      {{#if envios}}
+        {{#each envios}}
           <tr>
             <th scope="row">
-              {{dataValues.id}}
+              {{dataValues.emailComprador}}
             </th>
             <td>
               {{dataValues.nombreLibro}}
             </td>
             <td>
-              {{dataValues.emailVendedor}}
+              {{dataValues.direccionComprador}}
             </td>
             <td>
-              {{dataValues.fecha}}
+              {{dataValues.telefono}}
             </td>
             <td>
-              L.{{dataValues.precio}}
-            </td>
-            <td>
-              L.{{dataValues.beneficioBookBuy}}
+              L.{{dataValues.precioCompra}}
             </td>
           </tr>
         {{/each}}
       {{else}}
- <div class="alert alert-info mt-4" role="alert">
-          Aún no hay ventas registradas
+        <div class="alert alert-info mt-4" role="alert">
+          Aún no hay envios pendientes
         </div>
       {{/if}}
     </tbody>
   </table>
 </div>
 <hr />
-
-
-<script>
-  function Pluss(){
-  var result = 0;
-        {{#if ventasGlobales}}
-        {{#each ventasGlobales}}
-              result = result +{{dataValues.precio}} ;
-                {{/each}}
-          {{/if}}
-    alert("La ganacia total es de:"+result)
- 
-  }
-
-</script>
-
 
 <div style="height: 210px;">
 </div>

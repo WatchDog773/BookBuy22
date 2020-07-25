@@ -1,13 +1,13 @@
-{{! <h6 class="ml-5"><strong>Participa en la Comunidad</strong> </h6> }}
-<br />
-<div class="container mr-12">
+<hr>
+<div class="container mr-12 mt-4">
   {{! Mostrar los proyectos (si existen) }}
   {{#if comentarios}}
     {{#each comentarios}}
       <div class="row justify-content-center">
         <div class="col-2 text-right">
-          <a class="text-muted">
-            {{dataValues.autor}}
+          <a >
+            <b> {{dataValues.autor}}</b>
+           
           </a>
         </div>
 
@@ -20,7 +20,7 @@
               />
             </div>
             <div class="caja">
-              <p>
+              <p  style="color:rgb(255, 255, 255);">
                 "{{dataValues.contenido}}"
               </p>
             </div>
@@ -36,19 +36,20 @@
     </li>
   {{/if}}
 </div>
-
+<hr>
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <form method="POST" action="/crear_comentarios">
         <div class="form-group mt-4">
           <textarea
+          class="textarea"
             tabindex="0"
             id="textComments"
             name="contenido"
             rows="3"
             cols="32"
-            placeholder="Escribe tu comentario aquí"
+            placeholder="Escribe tu comentario aquí..."
           ></textarea>
           <br />
 

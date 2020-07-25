@@ -217,7 +217,7 @@ exports.estanteriaGlobal = async(req, res, next) => {
             error: "Error al obtener los libros, favor reintentar",
             type: "alert-warning"
         });
-        res.render("estanteria_global", mensajes);
+        res.render("estanteria_global", { layout: "admin", mensajes });
     }
 }
 

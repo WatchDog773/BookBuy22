@@ -24,6 +24,9 @@ const Venta = db.define("Ventas", {
     emailVendedor: {
         type: Sequelize.STRING(50),
     },
+    idComprador: {
+        type: Sequilize.INTEGER,
+    },
     precio: {
         type: Sequilize.DOUBLE,
     },

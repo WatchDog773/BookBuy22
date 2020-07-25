@@ -1,11 +1,4 @@
-<hr />
-<h5 class="text-center mb-5">
-  <b>
-    {{usuario.username}}
-  </b>
-  estos son los libros que tienes tu estantería de venta
-</h5>
-<hr />
+
 
 {{! Mostrar los mensajes en caso de existir }}
 {{#if mensajes}}
@@ -16,7 +9,7 @@
   {{/each}}
 {{/if}}
 
-<div class="container text-center">
+<div class="container text-center mt-4">
   <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -59,7 +52,9 @@
           </tr>
         {{/each}}
       {{else}}
-
+   <div class="alert alert-info mt-4" role="alert">
+            {{usuario.username}} aún no has estas vendiendo ningún libro ¿Qué esperas?
+        </div>
       {{/if}}
     </tbody>
   </table>

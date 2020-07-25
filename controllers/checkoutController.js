@@ -1,12 +1,15 @@
 const Libro = require("../models/Libro.js");
 const Venta = require("../models/Venta");
+const Envio = require("../models/Envio");
 
 // // Obtener los datos del proyecto
 const stripe = require('stripe')(process.env.STRIPE);
 
 
 exports.checkOut = async(req, res, next) => {
-    //   const precio = 1000;
+    // Usuario actual
+    const usuario = res.locals.usuario;
+
 
 
     const { precio, nombreLibro, idLibro, vendedor, emailVendedor, idVendedor, fecha, beneficioBookBuy, beneficioUsuario, beneficioStripe } = req.body;
@@ -29,12 +32,23 @@ exports.checkOut = async(req, res, next) => {
     });
     console.log(charge.id);
 
-    await Venta.create({ fecha, nombreLibro, idVendedor, emailVendedor, precio, beneficioBookBuy, beneficioUsuario, beneficioStripe });
+    try {
+        await Venta.create({ fecha, nombreLibro, idVendedor, emailVendedor, idComprador: usuario.id, precio, beneficioBookBuy, beneficioUsuario, beneficioStripe });
+    } catch (error) {
+        console.log("Error, revisar");
+    }
+
+    try {
+        await Envio.create({ emailComprador: usuario.email, nombreLibro, direccionComprador: usuario.address, telefono: usuario.phone, precioCompra: precio });
+    } catch (error) {
+        console.log("Error, revisar ");
+    }
+
 
     await Libro.destroy({
         where: {
             id: idLibro,
         },
     });
-    res.redirect("/home_libro");
+    res.redirect("/mis_compras");
 };
