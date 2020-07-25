@@ -1,9 +1,12 @@
 {{!-- Formulario de Registro --}}
 
 
+
 {{!-- Validacion de sequelize que la trae a traves del modelo --}}
 {{#if error}}
-    <p>{{error}}</p>
+    <div class="alert alert-danger text-center" role="alert">
+  {{error}}
+</div>
 {{/if}}
 
 
@@ -14,7 +17,7 @@
                 <span><i class="icon icon-user"> </i></span>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control item" name="fullname" id="fullname" placeholder="Ingresa tu nombre completo" required autofocus>
+                <input type="text" class="form-control item" name="username" id="username" placeholder="Ingresa tu nombre de usuario" required autofocus>
             </div>
                 <div class="form-group">
                 <input type="text" class="form-control item" name="email" id="email" placeholder="ejemplo@gmail.com" required>

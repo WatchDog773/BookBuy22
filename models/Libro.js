@@ -1,5 +1,5 @@
 // Import sequilize
-const  Sequilize = require("sequelize");
+const Sequilize = require("sequelize");
 
 // Importar la conf2iguración de la base de datos
 const db = require("../config/db");
@@ -17,68 +17,73 @@ const { Sequelize } = require("sequelize");
 
 
 // Definición del modelo
-const  Libro = db.define("libro", {
-    id:{
+const Libro = db.define("libro", {
+    id: {
         type: Sequilize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    nombre:{
+    nombre: {
         type: Sequilize.STRING,
     },
-    autor:{
-        type:Sequilize.STRING,
+    autor: {
+        type: Sequilize.STRING,
     },
-    precio:{
-        type:Sequilize.DOUBLE,
+    precio: {
+        type: Sequilize.DOUBLE,
     },
-    descripcion:{
-        type:Sequilize.STRING(1234),
+    beneficioBookBuy: {
+        type: Sequilize.DOUBLE,
     },
-    ISBN:{
+    beneficioUsuario: {
+        type: Sequilize.DOUBLE,
+    },
+    beneficioStripe: {
+        type: Sequilize.DOUBLE,
+    },
+    descripcion: {
+        type: Sequilize.STRING(1234),
+    },
+    ISBN: {
         type: Sequilize.TEXT,
     },
-    fecha:{
-        type: Sequilize.DATE ,       // DataTypes.DATEONLY   // DATE without time
+    fecha: {
+        type: Sequilize.DATE, // DataTypes.DATEONLY   // DATE without time
     },
     imagen: {
         type: Sequilize.BLOB,
-     },
-     vendedor: {
-        type:Sequilize.STRING,
     },
-     estado:{
-         type: Sequilize.STRING,
-     },
-     url:{
+    vendedor: {
+        type: Sequilize.STRING,
+    },
+    emailVendedor: {
+        type: Sequilize.STRING(50),
+    },
+    url: {
         type: Sequilize.STRING
     },
-},
-{
+}, {
     hooks: {
         beforeCreate(libro) {
             console.log("Antes de inserta en la base de datos");
             const url = slug(libro.nombre).toLocaleLowerCase();
             const date = new Date();
-           //  Crea el nombre en la URL del proyecto
+            //  Crea el nombre en la URL del proyecto
             libro.url = `${url}_${shortid.generate()}`;
             libro.fecha = date.toISOString();
         },
-        beforeUpdate(libro){
+        beforeUpdate(libro) {
             console.log("Antes de actualizar en la base de datos");
             const url = slug(libro.nombre).toLocaleLowerCase();
-    
+
             //  Actualiza el nombre en la URL del proyecto
-            libro.url =  `${url}_${shortid.generate()}`;
+            libro.url = `${url}_${shortid.generate()}`;
         }
-      },
-     }
-);
+    },
+});
 
 
 
 
 // Importar el modulo para poder utilizarlo
-module.exports =Libro;
-
-
+module.exports = Libro;

@@ -1,48 +1,80 @@
-<hr>
-<h4 class=" text-center mb-5"><b>{{usuario.fullname}}, estos son los libros que tienes en venta </b> </h4>
-  <hr>
-  
+<hr />
+<h5 class="text-center mb-5">
+  <b>
+    {{usuario.username}}
+  </b>
+  estos son los libros que tienes tu estantería de venta
+</h5>
+<hr />
 
-
-{{!-- Mostrar los mensajes en caso de existir --}}
+{{! Mostrar los mensajes en caso de existir }}
 {{#if mensajes}}
   {{#each mensajes}}
-   <div class="alert {{type}}" role="alert">
+    <div class="alert {{type}}" role="alert">
       {{error}}
     </div>
   {{/each}}
 {{/if}}
 
 <div class="container text-center">
-          {{!-- Mostrar los proyectos (si existen) --}}
-    {{#if libros}}
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">
+          <b>
+            Título del libro
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            Acción
+          </b>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#if libros}}
         {{#each libros}}
-        <div class="row mr-auto mb-2">
-          <div class="row col-8 mb-2">
-            <a href="#" class="list-group-item list-group-item-action list-group-item-success ">{{ dataValues.nombre  }}</a> 
-          </div>
-          <div class="row col-4 ml-2 mb-2">
-                 <a type="button" href="/libro/{{dataValues.url}}" class="btn btn-primary  ml-2 mt-1">Editar</a>
-                <button name="quitar-libro"   data-libro-url={{dataValues.url}} type="button" class="btn btn-danger ml-2 mt-1">Quitar</button>
-          </div>
-        </div>
-     
+          <tr>
+            <td>
+              {{dataValues.nombre}}
+            </td>
+            <td>
+              <a
+                type="button"
+                href="/libro/{{dataValues.url}}"
+                class="btn btn-primary  ml-2 mt-1"
+              >
+                Editar
+              </a>
+              <button
+                name="quitar-libro"
+                data-libro-url={{dataValues.url}}
+                type="button"
+                class="btn btn-danger ml-2 mt-1"
+              >
+                Quitar
+              </button>
+            </td>
+          </tr>
         {{/each}}
-    {{else}}
-      <li class="list-group-item list-group-item-primary"><h5>¿Qué esperas? vende un libro con nosotros</h5> </li>
-{{/if}}
+      {{else}}
+
+      {{/if}}
+    </tbody>
+  </table>
+</div>
+
+<hr />
+<div class="row">
+  <div class="col text-center mb-3 mt-6">
+    <a href="/crear_libro" class="btn btn-success btn-lg text-center mt-3">
+      Añadir un nuevo libro a mi estantería
+    </a>
+  </div>
 </div>
 
 
+<div style="height: 300px;">
+</div>
 
-
-
-
-
-<hr>
-  <div class="row">
-    <div class="col text-center mb-3 mt-6">
-       <a href="/crear_libro" class="btn btn-success btn-lg text-center mt-3">Añadir un nuevo libro a mi estantería</a>
-    </div>
-      </div>
- <br>

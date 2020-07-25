@@ -12,9 +12,22 @@ const Usuario = db.define('usuario',{
         primaryKey:true,
         autoIncrement: true
     },
-    fullname:{
+    username:{
         type: Sequelize.STRING(100),
         allowNull: false,
+    },
+    address:{
+        type: Sequelize.STRING,
+    },
+    phone:{
+        type: Sequelize.INTEGER,
+    },
+    age:{
+        type: Sequelize.INTEGER,
+    },
+    fullname:{
+        type: Sequelize.STRING(100),
+        allowNull: true,
         validate:{
             notEmpty:{
                 msg: "Debes ingresar un nombre completo"

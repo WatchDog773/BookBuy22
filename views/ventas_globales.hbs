@@ -1,0 +1,107 @@
+<hr />
+<h4 class="text-center mb-5">
+  <b>
+    <i class="fas fa-table mr-2"></i>
+    Historial de ventas
+  </b>
+</h4>
+<hr />
+
+{{! Mostrar los mensajes en caso de existir }}
+{{#if mensajes}}
+  {{#each mensajes}}
+    <div class="alert {{type}}" role="alert">
+      {{error}}
+    </div>
+  {{/each}}
+{{/if}}
+
+<div class="container text-center">
+  {{! Mostrar los proyectos (si existen) }}
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">
+          <b>
+            No
+          </b>
+          .
+        </th>
+        <th scope="col">
+          <b>
+            Libro
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            Vendedor
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            Fecha de Venta
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            Precio
+          </b>
+        </th>
+            <th scope="col">
+          <b>
+            Beneficio
+          </b>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#if ventasGlobales}}
+        {{#each ventasGlobales}}
+          <tr>
+            <th scope="row">
+              {{dataValues.id}}
+            </th>
+            <td>
+              {{dataValues.nombreLibro}}
+            </td>
+            <td>
+              {{dataValues.emailVendedor}}
+            </td>
+            <td>
+              {{dataValues.fecha}}
+            </td>
+            <td>
+              L.{{dataValues.precio}}
+            </td>
+            <td>
+              L.{{dataValues.beneficioBookBuy}}
+            </td>
+          </tr>
+        {{/each}}
+      {{else}}
+
+      {{/if}}
+    </tbody>
+  </table>
+</div>
+<hr />
+
+
+<script>
+  function Pluss(){
+  var result = 0;
+        {{#if ventasGlobales}}
+        {{#each ventasGlobales}}
+              result = result +{{dataValues.precio}} ;
+                {{/each}}
+          {{/if}}
+    alert("La ganacia total es de:"+result)
+ 
+  }
+
+</script>
+
+
+<div style="height: 210px;">
+</div>

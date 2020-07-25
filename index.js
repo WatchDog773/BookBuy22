@@ -32,6 +32,7 @@ db.sync()
 
 
 const app = express();
+app.use(express.json());
 
 // Indicarle al servidor la carpeta de archivos estáticos (css), carpeta public
 app.use(express.static("public"));
