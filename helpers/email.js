@@ -41,3 +41,19 @@ const send = await transporter.sendMail({
         console.log("No se puede cargar el template de correo");
         throw error;
       }
+
+  // Generar un HTML para el cuerpo del correo electrónico
+      // TODO: crear el archivo HTML
+      const data = {
+        fullname: opciones.usuario.fullname,
+        resetUrl: opciones.resetUrl,
+      };
+
+      const template = hbs.compile(source.toString());
+      const html = template(data);
+
+      // Enviar el correo electrónico
+      send();
+    }
+  );
+};
