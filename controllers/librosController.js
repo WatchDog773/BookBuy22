@@ -217,7 +217,7 @@ exports.estanteriaGlobal = async(req, res, next) => {
             error: "Error al obtener los libros, favor reintentar",
             type: "alert-warning"
         });
-        res.render("estanteria_global", mensajes);
+        res.render("estanteria_global", { layout: "admin", mensajes });
     }
 }
 
@@ -238,7 +238,7 @@ exports.obtenerLibroPorUrl = async(req, res, next) => {
             // Cambiar la visualización de la fecha con Moment.js
             const hace = moment(libro.dataValues.fecha).fromNow();
             res.render("ver_libro", {
-                layout: "auth",
+                layout: "main",
                 libro: libro.dataValues,
                 hace,
             });

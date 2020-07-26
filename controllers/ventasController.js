@@ -59,3 +59,32 @@ exports.ventasGlobales = async(req, res, next) => {
         res.render("ventas_globales", { layout: "admin", mensajes });
     }
 }
+
+
+
+// Obtener los datos de las ventas por usuario
+exports.misCompras = async(req, res, next) => {
+    const usuario = res.locals.usuario;
+    const mensajes = [];
+    try {
+        // Variable que almacena todos los proyectos que existem
+        const compras = await Venta.findAll({
+            where: {
+                idComprador: usuario.id
+            }
+        }).then(function(compras) {
+            compras = compras.map(function(compra) {
+                compra.dataValues.fecha = moment(compra.dataValues.fecha).format("dddd D MMMM  YYYY");
+                return compra;
+            });
+            res.render("mis_compras", { compras });
+        });
+
+    } catch (error) {
+        mensajes.push({
+            error: "Error al obtener los datos, intente de nuevo",
+            type: "alert-warning"
+        });
+        res.render("mis_compras", mensajes);
+    }
+}

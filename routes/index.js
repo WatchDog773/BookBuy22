@@ -9,8 +9,9 @@ const authController = require("../controllers/authController");
 const comentariosController = require("../controllers/comentariosController");
 const checkOutController = require("../controllers/checkoutController");
 const ventasController = require("../controllers/ventasController");
+const enviosController = require("../controllers/enviosController");
 
-module.exports = function () {
+module.exports = function() {
 
     routes.get("/", authController.usuarioAutenticado, librosController.administradorVerificacion, librosController.librosHome);
 
@@ -72,6 +73,12 @@ module.exports = function () {
 
     // Ruta para ver los libros en venta desde el administrador
     routes.get("/estanteria_global", authController.usuarioAutenticado, librosController.estanteriaGlobal);
+
+    // Ruta para ver los envios pendientes de libros desde el administrador
+    routes.get("/envios", authController.usuarioAutenticado, enviosController.enviosHome);
+
+    // Ruta para ver las compras que ha realizado un usuario desde su perfíl
+    routes.get("/mis_compras", authController.usuarioAutenticado, ventasController.misCompras);
 
     return routes;
 };

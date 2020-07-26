@@ -1,9 +1,9 @@
 <hr />
-<h4 class="text-center">
+<h5 class="text-center">
   <b>
     ¿Qué esperas? ¡Consigue el tuyo ahora mismo!
   </b>
-</h4>
+</h5>
 <hr />
 
 {{! Mostrar los mensajes en caso de existir }}
@@ -123,6 +123,7 @@
                     name="beneficioStripe"
                     hidden
                   />
+                  
                   <script
                     src="https://checkout.stripe.com/checkout.js"
                     class="stripe-button oculto"
@@ -148,18 +149,18 @@
       {{/each}}
       
     {{else}}
-      <div class="container">
+      {{!-- <div class="row">
         <li class="list-group-item list-group-item-primary">
           <h5>
             Aún no hay libros disponibles para realizar compras
           </h5>
         </li>
-      </div>
+      </div> --}}
     {{/if}}
   </div>
 </div>
 
-<div class="row mt-5">
+<div class="container mt-5">
   <div class="col text-center mb-3 mt-6">
     <a href="/crear_libro" class="btn btn-success btn-lg text-center">
       Vender un nuevo libro
@@ -168,6 +169,8 @@
 </div>
 <br />
 
+<div style="height: 100px;">
+</div>
 
 
 <style>
