@@ -65,3 +65,22 @@ body {
     margin-bottom: 16px;
 }
 
+.reestablecer-form .social-icons a {
+    font-size: 23px;
+    margin: 0 3px;
+    color: #5691ff;
+    border: 1px solid;
+    border-radius: 50%;
+    width: 45px;
+    display: inline-block;
+    height: 45px;
+    text-align: center;
+    background-color: #fff;
+    line-height: 45px;
+}
+
+.reestablecer-form .social-icons a:hover {
+    text-decoration: none;
+    opacity: 0.6;
+}
+
