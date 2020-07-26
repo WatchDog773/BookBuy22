@@ -21,4 +21,12 @@ exports.enviarCorreo = async (opciones) => {
         pass: mailTrapConfig.pass,
       },
     });
-  
+
+    
+const send = await transporter.sendMail({
+    from: "Taskily <noreply@taskily.com>", // sender address
+    to: opciones.usuario.email, // list of receivers
+    subject: opciones.subject, // Subject line
+    text: opciones.text, // plain text body
+    html,
+    });
