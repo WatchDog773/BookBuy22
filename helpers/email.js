@@ -11,26 +11,24 @@ const path = require("path");
 // hacia Mailtrap
 // https://nodemailer.com/about/
 exports.enviarCorreo = async (opciones) => {
-    // Crear nuestro transportador SMTP reutilizable
-    const transporter = nodemailer.createTransport({
-      host: mailTrapConfig.host,
-      port: mailTrapConfig.port,
-      secure: false, // true for 465 port, false for other ports
-      auth: {
-        user: mailTrapConfig.user,
-        pass: mailTrapConfig.pass,
-      },
-    });
+  // Crear nuestro transportador SMTP reutilizable
+  const transporter = nodemailer.createTransport({
+    host: mailTrapConfig.host,
+    port: mailTrapConfig.port,
+    secure: false, // true for 465 port, false for other ports
+    auth: {
+      user: mailTrapConfig.user,
+      pass: mailTrapConfig.pass,
+    },
+  });
 
-    
-const send = await transporter.sendMail({
+  const send = await transporter.sendMail({
     from: "Taskily <noreply@taskily.com>", // sender address
     to: opciones.usuario.email, // list of receivers
     subject: opciones.subject, // Subject line
     text: opciones.text, // plain text body
     html,
-    });
-
+  });
 
   // Obtener y construir el template del correo electrónico
   fs.readFile(
@@ -42,7 +40,7 @@ const send = await transporter.sendMail({
         throw error;
       }
 
-  // Generar un HTML para el cuerpo del correo electrónico
+      // Generar un HTML para el cuerpo del correo electrónico
       // TODO: crear el archivo HTML
       const data = {
         fullname: opciones.usuario.fullname,
