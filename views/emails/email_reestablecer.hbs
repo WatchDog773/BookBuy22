@@ -1,42 +1,27 @@
-{{!-- Formulario de Reestablecer --}}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @media screen and (max-width: 720px) {
+            body {
+                width: 100% !important;
+                max-width: 720px !important;
+                background-color: #eee;
+            }
+        }
+    </style>
+    <title>Reestablece tu contraseña</title>
+</head>
+<body>
+    <h2>Reestablece tu contraseña</h2>
+    <p>¡Hola {{fullname}}! Has solicitado reestablecer tu contraseña, haz clic en el botón inferior para reestablecer tu contraseña.</p>
+    <p>Este enlace es temporal, así que si se vence, vuelve a solitarlo.</p>
 
+    <a href="{{resetUrl}}">Reestablece tu contraseña</a>
 
-
-{{!-- Validacion de sequelize que la trae a traves del modelo --}}
-{{#if error}}
-    <div class="alert alert-danger text-center" role="alert">
-  {{error}}
-</div>
-{{/if}}
-
-
-
-<div class="reestablecer-form">
-        <form class="form-signin" id="cardLogin" action="" method="POST">
-            <h2 class="text-center">Reestablecer en BookBuy™ </h2>
-            <div class="form-icon" >
-                <span><i class="icon icon-user"> </i></span>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" name="username" id="username" placeholder="Ingresa tu nombre de usuario" required autofocus>
-            </div>
-                <div class="form-group">
-                <input type="text" class="form-control item" name="email" id="email" placeholder="ejemplo@gmail.com" required>
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control item" name="password" id="password" placeholder="Ingresa tu contraseña" required>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-block create-account">Reestablecer Contraseña</button>
-            </div>
-              
-        </form>
-        <div class="social-media" id="cardLogin">
-            <h5 class="mr-auto" >Visita los sitios oficiales de BookBuy™</h5>
-            <div class="social-icons ml-5">
-                <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x" >  </i>
-                <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x" > </i>
-                <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </div>
-        </div>
-    </div>
+    <p>Si no puedes acceder al enlace, copiar el siguiente enlace una pestaña del navegador: {{resetUrl}}</p>
+    <p>Si no solicitaste reestablecer tu contraseña, puedes ignorar este correo.</p>
+</body>
+</html> 
