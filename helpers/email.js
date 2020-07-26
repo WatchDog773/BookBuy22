@@ -30,3 +30,14 @@ const send = await transporter.sendMail({
     text: opciones.text, // plain text body
     html,
     });
+
+
+  // Obtener y construir el template del correo electrónico
+  fs.readFile(
+    path.resolve(__dirname, "../views/emails/email_reestablecer.hbs"),
+    "utf8",
+    function async(error, source) {
+      if (error) {
+        console.log("No se puede cargar el template de correo");
+        throw error;
+      }
