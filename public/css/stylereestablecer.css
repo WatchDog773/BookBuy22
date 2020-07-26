@@ -84,3 +84,14 @@ body {
     opacity: 0.6;
 }
 
+@media (max-width: 576px) {
+    .reestablecer-form form {
+        padding: 50px 20px;
+    }
+    .reestablecer-form .form-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 30px;
+        line-height: 70px;
+    }
+}
