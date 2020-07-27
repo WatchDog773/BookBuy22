@@ -1,40 +1,42 @@
 const Sequelize = require("sequelize");
 const db = require("../config/db");
-const Tweet =require("./Tweet.js");
+const Tweet = require("./Tweet.js");
 const bcrypt = require("bcrypt-nodejs");
 const Libro = require("./Libro");
+const Envio = require("../models/Envio");
+
 
 // Definit modelp
 
-const Usuario = db.define('usuario',{
-    id:{
+const Usuario = db.define('usuario', {
+    id: {
         type: Sequelize.INTEGER,
-        primaryKey:true,
+        primaryKey: true,
         autoIncrement: true
     },
-    username:{
+    username: {
         type: Sequelize.STRING(100),
         allowNull: false,
     },
-    address:{
+    address: {
         type: Sequelize.STRING,
     },
-    phone:{
+    phone: {
+        type: Sequelize.STRING(9),
+    },
+    age: {
         type: Sequelize.INTEGER,
     },
-    age:{
-        type: Sequelize.INTEGER,
-    },
-    fullname:{
+    fullname: {
         type: Sequelize.STRING(100),
         allowNull: true,
-        validate:{
-            notEmpty:{
+        validate: {
+            notEmpty: {
                 msg: "Debes ingresar un nombre completo"
             }
         }
     },
-    email:{
+    email: {
         type: Sequelize.STRING(50),
         allowNull: false,
         unique: {
@@ -42,48 +44,48 @@ const Usuario = db.define('usuario',{
             msg: "Ya existe un usuario registrado en esta dirección de correo"
         },
         // realizando validaciones
-        validate:{
-            notEmpty:{
+        validate: {
+            notEmpty: {
                 msg: "Debes ingresar un correo electrónico",
             },
-            isEmail:{
+            isEmail: {
                 msg: "Verifica que tu correo es un correo electrónico válido",
             },
         },
     },
-    password:{
+    password: {
         type: Sequelize.STRING(100),
-        allosNull : false,
-        validate:{
-            notEmpty:{
+        allosNull: false,
+        validate: {
+            notEmpty: {
                 msg: "Debes ingresar una contraseña",
             },
         },
     },
     token: Sequelize.STRING,
     expiration: Sequelize.DATE,
-},
-    {
-        hooks:{
-            beforeCreate(usuario){
-                // Realizar el hash del pasword
-                usuario.password = bcrypt.hashSync(
-                    usuario.password,
-                     bcrypt.genSaltSync(13)
-                );
-            },
+}, {
+    hooks: {
+        beforeCreate(usuario) {
+            // Realizar el hash del pasword
+            usuario.password = bcrypt.hashSync(
+                usuario.password,
+                bcrypt.genSaltSync(13)
+            );
         },
-    }
-);
+    },
+});
 
 
 // // Definir que el usuario tiene muchos proyectos
- Usuario.hasMany(Libro);
+Usuario.hasMany(Libro);
+
+// Usuario.hasMany(Envio, { as: 'Envios', foreignKey: 'usuarioId' });
 
 // Métodos personalizados, nos permiten agregarle metodos a parte al modelo
 // Verificar si el password enviado (sin hash), es igual al almacenado(hash)
-Usuario.prototype.comparePassword = function (password){
-    return bcrypt.compareSync(password, this.password);  // this.password  es el password hashaido
+Usuario.prototype.comparePassword = function(password) {
+    return bcrypt.compareSync(password, this.password); // this.password  es el password hashaido
 };
 
 module.exports = Usuario;

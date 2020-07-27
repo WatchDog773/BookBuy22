@@ -1,45 +1,53 @@
 // Import sequilize
-const  Sequilize = require("sequelize");
+const Sequilize = require("sequelize");
 
 // Importar la conf2iguración de la base de datos
 const db = require("../config/db");
 const { Sequelize } = require("sequelize");
 
 // Definición del modelo
-const  Venta = db.define("Ventas", {
-    id:{
+const Venta = db.define("Ventas", {
+    id: {
         type: Sequilize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    fecha:{
-        type: Sequilize.DATE ,       // DataTypes.DATEONLY   // DATE without time
+    fecha: {
+        type: Sequilize.DATE, // DataTypes.DATEONLY   // DATE without time
     },
-    nombreLibro:{
+    nombreLibro: {
         type: Sequilize.STRING,
     },
-    idVendedor:{
+    idVendedor: {
         type: Sequilize.INTEGER,
     },
-    emailVendedor:{
+    emailVendedor: {
         type: Sequelize.STRING(50),
     },
-    precio:{
-        type:Sequilize.DOUBLE,
+    idComprador: {
+        type: Sequilize.INTEGER,
     },
-},
-{
+    precio: {
+        type: Sequilize.DECIMAL(10, 2),
+    },
+    beneficioBookBuy: {
+        type: Sequilize.DECIMAL(10, 2),
+    },
+    beneficioUsuario: {
+        type: Sequilize.DECIMAL(10, 2),
+    },
+    beneficioStripe: {
+        type: Sequilize.DECIMAL(10, 2),
+    },
+}, {
     hooks: {
-        beforeCreate(Ventas){
+        beforeCreate(Ventas) {
             const date = new Date();
             Ventas.fecha = date.toISOString();
         }
     },
-}
-);
+});
 
 
 // Importar el modulo para poder utilizarlo
-module.exports =Venta;
-
-
+module.exports = Venta;

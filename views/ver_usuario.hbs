@@ -1,37 +1,52 @@
-<h4 class="text-center mt-4 mb-4"><i class="far fa-edit mr-3"></i>Mi Perfíl </h4>
+<hr>
+<h5 class="text-center mt-4 mb-4"><i class="far fa-edit mr-3"></i>Mi Perfíl </h5>
 <div class="container col-8 mb-6">
-
+<hr>
+<br>
   {{#if usuarios }}
     {{#each usuarios}}
 
 <form method="POST" action="/actualizar_usuario">
   <div class="form-group">
-    <label for="nombre">Nombre del usuario</label>
-    <input required  type="text" class="form-control"  name="username" value="{{dataValues.username}}" >
+    <label for="nombre"><b>Nombre del usuario</b> </label>
+    <input required  type="text" class="form-control mb-4"  name="username" value="{{dataValues.username}}" >
 
-    <label for="nombre">Nombre completo</label>
-    <input required type="text" class="form-control"  name="fullname" value="{{dataValues.fullname}}" >
+    <label for="nombre"><b>Nombre completo</b> </label>
+    <input required type="text" class="form-control mb-4"  name="fullname" value="{{dataValues.fullname}}" >
 
-      <label for="nombre">Correo Electrónico</label>
-    <input required type="text" class="form-control"  name="email" value="{{dataValues.email}}" >
+      <label for="nombre"><b>Correo Electrónico</b><a
+  data-toggle="modal"
+  data-target="#exampleModal">
+  <i class="fas fa-info-circle fa-sm"></i>
+</a> </label>
+    <input required type="text" class="form-control mb-4"  name="email" value="{{dataValues.email}}" >
 
-    <label for="nombre">Edad</label>
-    <input required type="text" class="form-control"  name="age" value="{{dataValues.age}}" >
+ <div class="row">
+    <div class="col">
+       <label for="nombre"><b>Edad</b> </label>
+    <input required type="text" class="form-control mb-4"  name="age" value="{{dataValues.age}}" >
+    </div>
+    <div class="col">
+       <label for="nombre"><b>Télefono</b> </label>
+    <input required type="text" class="form-control mb-4"  name="phone" value="{{dataValues.phone}}" >
+    </div>
+  </div>
 
-    <label for="nombre">Télefono</label>
-    <input required type="text" class="form-control"  name="phone" value="{{dataValues.phone}}" >
-
-    <label for="nombre">Dirección</label>
-    <input required type="text" class="form-control" name="address" value="{{dataValues.address}}" >
+    <label for="nombre"><b>Dirección</b> </label>
+    <input required type="text" class="form-control mb-4" name="address" value="{{dataValues.address}}" >
     {{/each}}
 {{/if}}
 </div>
+
+<button type="button" class="btn btn-primary mr-3 mt-3" data-toggle="modal" data-target="#exampleModalCenter">
+ Actualizar
+</button>
+
+   <a href="/mi_estanteria"  class="btn btn-danger  mt-3">Regresar</a>
   <div class="row ">
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary mr-3" data-toggle="modal" data-target="#exampleModalCenter">
- Actualizar
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -39,13 +54,9 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">¿Está seguro que desea actualizar sus datos?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+
       </div>
-      {{!-- <div class="modal-body">
-        ...
-      </div> --}}
+  
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
         <button  type="submit" class="btn btn-primary mr-3">Actualizar</button>
@@ -53,9 +64,49 @@
     </div>
   </div>
 </div>
-{{!-- 
- <button  type="submit" class="btn btn-primary mr-3">Actualizar</button> --}}
-        <a href="/mi_estanteria"  class="btn btn-danger  ">Regresar</a>
+     
   </div>
 </form>
+</div>
+
+
+<div style="height: 75px;">
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          <i class="fas fa-exclamation-circle mr-2"></i>Recuerda
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">
+            &times;
+          </span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <p>
+        Es importante que coloques un correo electrónico que estes utilizando actualmente.
+      </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="tn btn-primary" data-dismiss="modal"> Entiendo</button>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

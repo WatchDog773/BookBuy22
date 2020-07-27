@@ -1,0 +1,148 @@
+<hr />
+<h4 class="text-center mb-3">
+  <b>
+    <i class="fas fa-shipping-fast mr-2"></i>
+    Envios pendientes
+  </b>
+</h4>
+<hr />
+
+{{! Mostrar los mensajes en caso de existir }}
+{{#if mensajes}}
+  {{#each mensajes}}
+    <div class="alert {{type}}" role="alert">
+      {{error}}
+    </div>
+  {{/each}}
+{{/if}}
+
+<div class="container text-center">
+  {{! Mostrar los proyectos (si existen) }}
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">
+          <b>
+            Comprador
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            Nombre del libro
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            Dirección de Entrega
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            teléfono
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            Precio
+          </b>
+        </th>
+        <th scope="col">
+          <b>
+            Acción
+          </b>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#if envios}}
+        {{#each envios}}
+          <tr>
+            <th scope="row">
+              {{dataValues.emailComprador}}
+            </th>
+            <td>
+              {{dataValues.nombreLibro}}
+            </td>
+            <td>
+              {{dataValues.direccionComprador}}
+            </td>
+            <td>
+              {{dataValues.telefono}}
+            </td>
+            <td>
+              L.{{dataValues.precioCompra}}
+            </td>
+            <td>
+              <!-- Button trigger modal -->
+              <form method="POST" action="/eliminar_envio">
+                <input
+                  type="text"
+                  class="form-control"
+                  value="{{dataValues.id}}"
+                  id="idEnvio"
+                  name="idEnvio"
+                  hidden
+                />
+                <button type="submit" class="btn btn-danger mr-3">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </form>
+
+              {{!-- <!-- Modal -->
+              <div
+                class="modal fade"
+                name="exampleModalCenter"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">
+                        ¿Estás seguro que desea eliminar este envío?
+                      </h5>
+                    </div>
+                    <div class="modal-footer mb-1">
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        data-dismiss="modal"
+                      >
+                        Cancelar
+                      </button>
+                      
+                        <form method="POST" action="/eliminar_envio">
+                          <input
+                            type="text"
+                            class="form-control"
+                            value="{{dataValues.id}}"
+                            id="idEnvio"
+                            name="idEnvio"
+                            hidden
+                          />
+                          <button type="submit" class="btn btn-success">
+                            Eliminar
+                          </button>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+              </div> --}}
+            </td>
+          </tr>
+        {{/each}}
+      {{else}}
+        <div class="alert alert-info mt-4" role="alert">
+          Aún no hay envios pendientes
+        </div>
+      {{/if}}
+    </tbody>
+  </table>
+</div>
+<hr />
+
+<div style="height: 210px;">
+</div>

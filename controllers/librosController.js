@@ -20,9 +20,18 @@ exports.formularioNuevoLibro = (req, res, next) => {
 exports.nuevoLibro = async(req, res, next) => {
     // Usuario actual
     const usuario = res.locals.usuario;
+
+    var beneficioUsuario;
+    var beneficioBookBuy;
+    var beneficioStripe;
+
     console.log(res.locals.usuario);
 
     const { nombre, autor, precio, descripcion, ISBN, fecha, imagen, vendedor, emailVendedor } = req.body;
+
+    beneficioStripe = (precio * 0.029) + 0.30;
+    beneficioBookBuy = (precio - beneficioStripe) * 0.12;
+    beneficioUsuario = (precio - beneficioStripe) * 0.88;
 
     const mensajes = [];
     const estado = "En venta";
@@ -70,7 +79,7 @@ exports.nuevoLibro = async(req, res, next) => {
         });
     } else {
         try {
-            await Libro.create({ nombre, autor, precio, descripcion, ISBN, fecha, imagen, estado, usuarioId: usuario.id, vendedor, emailVendedor });
+            await Libro.create({ nombre, autor, precio, beneficioBookBuy, beneficioUsuario, beneficioStripe, descripcion, ISBN, fecha, imagen, estado, usuarioId: usuario.id, vendedor, emailVendedor });
             mensajes.push({
                 error: "Libro almacenado satisfactoriamente",
                 type: "alert-success",
@@ -195,14 +204,20 @@ exports.estanteriaGlobal = async(req, res, next) => {
     const usuario = res.locals.usuario;
     const mensajes = [];
     try {
-        const librosAll = await Libro.findAll();
-        res.render("estanteria_global", { layout: "admin", librosAll });
+        const librosAll = await Libro.findAll()
+            .then(function(librosAll) {
+                librosAll = librosAll.map(function(libros) {
+                    libros.dataValues.fecha = moment(libros.dataValues.fecha).format("dddd D MMMM  YYYY");
+                    return libros;
+                });
+                res.render("estanteria_global", { layout: "admin", librosAll });
+            });
     } catch (error) {
         mensajes.push({
             error: "Error al obtener los libros, favor reintentar",
             type: "alert-warning"
         });
-        res.render("estanteria_global", mensajes);
+        res.render("estanteria_global", { layout: "admin", mensajes });
     }
 }
 
@@ -223,7 +238,7 @@ exports.obtenerLibroPorUrl = async(req, res, next) => {
             // Cambiar la visualización de la fecha con Moment.js
             const hace = moment(libro.dataValues.fecha).fromNow();
             res.render("ver_libro", {
-                layout: "auth",
+                layout: "main",
                 libro: libro.dataValues,
                 hace,
             });
