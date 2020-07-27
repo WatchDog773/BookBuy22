@@ -80,13 +80,16 @@ module.exports = function() {
     // Ruta para ver las compras que ha realizado un usuario desde su perfíl
     routes.get("/mis_compras", authController.usuarioAutenticado, ventasController.misCompras);
 
-    // Reestablecer la contraseña de un usuario
-  routes.get(
-    "/reestablecer_password",
-    usuariosController.formularioReestablecerPassword
-  );
+    // Ruta para eliminar envios
+    routes.post("/eliminar_envio", authController.usuarioAutenticado, enviosController.eliminarEnvio);
 
-  routes.post("/reestablecer_password", authController.enviarToken);
+    // Reestablecer la contraseña de un usuario
+    routes.get(
+        "/reestablecer_password",
+        usuariosController.formularioReestablecerPassword
+    );
+
+    routes.post("/reestablecer_password", authController.enviarToken);
 
 
     return routes;
