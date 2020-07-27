@@ -28,16 +28,16 @@ const Venta = db.define("Ventas", {
         type: Sequilize.INTEGER,
     },
     precio: {
-        type: Sequilize.DOUBLE,
+        type: Sequilize.DECIMAL(10, 2),
     },
     beneficioBookBuy: {
-        type: Sequilize.DOUBLE,
+        type: Sequilize.DECIMAL(10, 2),
     },
     beneficioUsuario: {
-        type: Sequilize.DOUBLE,
+        type: Sequilize.DECIMAL(10, 2),
     },
     beneficioStripe: {
-        type: Sequilize.DOUBLE,
+        type: Sequilize.DECIMAL(10, 2),
     },
 }, {
     hooks: {

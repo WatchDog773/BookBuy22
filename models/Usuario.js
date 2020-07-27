@@ -22,7 +22,7 @@ const Usuario = db.define('usuario', {
         type: Sequelize.STRING,
     },
     phone: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING(9),
     },
     age: {
         type: Sequelize.INTEGER,

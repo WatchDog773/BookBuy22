@@ -30,16 +30,16 @@ const Libro = db.define("libro", {
         type: Sequilize.STRING,
     },
     precio: {
-        type: Sequilize.DOUBLE,
+        type: Sequilize.DECIMAL(10, 2),
     },
     beneficioBookBuy: {
-        type: Sequilize.DOUBLE,
+        type: Sequilize.DECIMAL(10, 2),
     },
     beneficioUsuario: {
-        type: Sequilize.DOUBLE,
+        type: Sequilize.DECIMAL(10, 2),
     },
     beneficioStripe: {
-        type: Sequilize.DOUBLE,
+        type: Sequilize.DECIMAL(10, 2),
     },
     descripcion: {
         type: Sequilize.STRING(1234),

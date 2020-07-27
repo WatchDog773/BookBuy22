@@ -22,10 +22,10 @@ const Envio = db.define("Envios", {
         type: Sequelize.STRING,
     },
     telefono: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING(9),
     },
     precioCompra: {
-        type: Sequilize.DOUBLE,
+        type: Sequilize.DECIMAL(10, 2),
     },
 
 });
