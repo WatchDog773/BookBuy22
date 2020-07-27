@@ -1,8 +1,8 @@
 // Configuracion para la conexion con Mailtrap
 
 module.exports = {
-    user: process.env.USERMAILTRAP,
-    pass: process.env.PASSMAILTRAP,
-    host: process.env.HOSTMAILTRAP,
-    port: process.env.PORTMAILTRAP,
+    user: "51f54af02b3633",
+    pass: "7a9751c5d31190",
+    host: "smtp.mailtrap.io",
+    port: "465",
 };

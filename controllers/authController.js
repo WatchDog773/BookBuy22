@@ -77,11 +77,11 @@ exports.enviarToken = async (req, res, next) => {
   // el token generado
   await enviarCorreo.enviarCorreo({
     usuario,
-    subject: "Reestablece tu contraseña de Taskily",
+    subject: "Reestablece tu contraseña de Bookbuy",
     resetUrl,
     vista: "email_reestablecer",
     text:
-      "Has solicitado reestablecer tu contraseña de Taskily! Autoriza el contenido HTML.",
+      "Has solicitado reestablecer tu contraseña de Bookbuy! Autoriza el contenido HTML.",
   });
 
   // Redireccionar al usuario al inicio de sesión

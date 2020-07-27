@@ -23,7 +23,7 @@ exports.enviarCorreo = async (opciones) => {
   });
 
   const send = await transporter.sendMail({
-    from: "Taskily <noreply@taskily.com>", // sender address
+    from: "reestablecer-9464c9@inbox.mailtrap.io", // sender address
     to: opciones.usuario.email, // list of receivers
     subject: opciones.subject, // Subject line
     text: opciones.text, // plain text body
