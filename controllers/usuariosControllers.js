@@ -36,7 +36,9 @@ exports.formularioIniciarSesion = (req, res, next) => {
 };
 
 
-
+exports.formularioReestablecerPassword = (req, res, next) => {
+    res.render("reestablecer_password", { layout: "auth" });
+  };
 
 exports.formularioVerUsuario = async (req, res, next) => {
     const usuario = res.locals.usuario;

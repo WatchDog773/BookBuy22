@@ -8,6 +8,14 @@ const Sequelize = require("sequelize");
 const { nuevoLibro } = require("./clientesControllers");
 
 
+
+// Importar crypto
+const crypto = require("crypto");
+// Importar la configuración de envío de correo electrónico
+const enviarCorreo = require("../helpers/email");
+
+
+
 // Verificar si el usuario se puede autenticar con sus credenciales
 exports.autenticarUsuario = passport.authenticate("local", {
     successRedirect: "/",
@@ -35,4 +43,51 @@ exports.usuarioAutenticado = (req, res, next) =>{
 
   // Si el usuario no esta autenticado, iniciar sesión
   return res.redirect("/iniciar_sesion");
+};
+
+// Genera un token que le permite al usuario reestablecer la contraseña
+// mediante un enlace
+exports.enviarToken = async (req, res, next) => {
+  // Verificar si existe el usuario
+  const { email } = req.body;
+  const usuario = await Usuario.findOne({
+    where: {
+      email,
+    },
+  });
+
+  // Si el usuario no existe
+  if (!usuario) {
+    req.flash("error", "¡Este usuario no está registrado en Taskily!");
+    res.redirect("/reestablecer_password");
+  }
+
+  // Si el usuario existe
+  // Generar un token único con una fecha de expiración
+  usuario.token = crypto.randomBytes(20).toString("hex");
+  usuario.expiration = Date.now() + 3600000;
+
+  // Guardar el token y la fecha de validez
+  await usuario.save();
+
+  // URL de reestablecer contraseña
+  const resetUrl = `http://${req.headers.host}/reestablecerPassword/${usuario.token}`;
+
+  // Enviar el correo electrónico al usuario con el link que contiene
+  // el token generado
+  await enviarCorreo.enviarCorreo({
+    usuario,
+    subject: "Reestablece tu contraseña de Bookbuy",
+    resetUrl,
+    vista: "email_reestablecer",
+    text:
+      "Has solicitado reestablecer tu contraseña de Bookbuy! Autoriza el contenido HTML.",
+  });
+
+  // Redireccionar al usuario al inicio de sesión
+  req.flash(
+    "success",
+    "Se envió un enlace para reestablecer tu contraseña a tu correo electrónico"
+  );
+  res.redirect("/iniciar_sesion");
 };
