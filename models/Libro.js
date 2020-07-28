@@ -44,6 +44,9 @@ const Libro = db.define("libro", {
     descripcion: {
         type: Sequilize.STRING(1234),
     },
+    categoria: {
+        type: Sequilize.STRING,
+    },
     ISBN: {
         type: Sequilize.TEXT,
     },

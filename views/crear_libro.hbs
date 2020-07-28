@@ -1,54 +1,161 @@
 {{>ourMessages}}
 
 <div class="formulario">
-<hr>
-<h5 class="text-center mt-4 mb-4"><i class="far fa-edit mr-3"></i>Vender un libro </h5>
-<hr>
+  <hr />
+  <h5 class="text-center mt-4 mb-4">
+    <i class="far fa-edit mr-3"></i>
+    Vender un libro
+  </h5>
+  <hr />
 
-{{!-- Usamos post para el envio de datos --}}
+  {{! Usamos post para el envio de datos }}
 
-<div class="container col-8 mb-5">
+  <div class="container col-8 mb-5">
+    <form method="POST" action="/crear_libro">
+      <div class="form-group">
+        <label for="nombre">
+          <b>
+            Nombre del libro
+          </b>
+        </label>
+        <input
+          required
+          type="text"
+          class="form-control"
+          id="nombre"
+          name="nombre"
+        />
+        <br />
 
-<form method="POST" action="/crear_libro">
-  <div class="form-group">
-   
-    <label for="nombre"> <b>Nombre del libro</b> </label>
-    <input required type="text" class="form-control" id="nombre" name="nombre">
-<br>
-       <label for="nombre"> <b>Autor del libro</b> </label>
-    <input required type="text" class="form-control" id="nombre" name="autor">
-<br>
-   <label for="nombre"> <b>Precio</b> </label>
+        <div class="row">
+          <div class="col">
+            <label for="nombre">
+              <b>
+                Autor del libro
+              </b>
+            </label>
+            <input
+              required
+              type="text"
+              class="form-control"
+              id="nombre"
+              name="autor"
+            />
+          </div>
+          <div class="col">
+            <label for="nombre">
+              <b>
+                ISBN del libro
+              </b>
+            </label>
+            <input type="text" class="form-control" id="nombre" name="ISBN" />
+          </div>
+        </div>
 
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text">L.</span>
+        <br />
+
+        <div class="row">
+          <div class="col">
+            <label for="nombre">
+              <b>
+                Precio
+              </b>
+            </label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  L.
+                </span>
+              </div>
+              <input
+                required
+                type="number"
+                class="form-control"
+                aria-label="Amount (to the nearest dollar)"
+                id="precio"
+                name="precio"
+                min="90"
+              />
+              <div class="input-group-append">
+                <span class="input-group-text">
+                  .00
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="row">
+           <label for="categoria" class="mt-1 ml-3 mb-2">
+              <b>
+                Selecciona la categoría
+              </b>
+            </label>
+            </div>
+ 
+            <select name="categoria" id="categoria">
+              <optgroup label="-- Aventura --">
+                <option name="categoria" value="Acción">
+                  Acción
+                </option>
+                <option name="categoria" value="Terror">
+                  Terror
+                </option>
+                  <option name="categoria" value="Saga">
+                  Saga
+                </option>
+              </optgroup>
+              <optgroup label="-- General --">
+                <option name="categoria" value="Cultura">
+                  Cultura
+                </option>
+                <option name="categoria" value="Historia">
+                  Historia 
+                </option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+
+        <br />
+        <label for="nombre">
+          <b>
+            Descripción
+          </b>
+        </label>
+        <input
+          required
+          type="text"
+          class="form-control"
+          id="descripcion"
+          name="descripcion"
+        />
+        <br />
+        <input
+          type="text"
+          class="form-control"
+          id="vendedor"
+          name="vendedor"
+          value="{{usuario.fullname}}"
+          hidden
+        />
+        <input
+          type="text"
+          class="form-control"
+          id="emailVendedor"
+          name="emailVendedor"
+          value="{{usuario.email}}"
+          hidden
+        />
+        <br />
+
+        {{! <input type="file" name="imagen" /> }}
+      </div>
+      <button type="submit" class="btn btn-success  mt-3 mb-5">
+        Guardar
+      </button>
+      <a href="/home_libro" class="btn btn-danger mt-3 mb-5">
+        Regresar
+      </a>
+    </form>
   </div>
-  <input required type="number" class="form-control" aria-label="Amount (to the nearest dollar)"  id="precio" name="precio" min="90">
-  <div class="input-group-append">
-    <span class="input-group-text">.00</span>
-  </div>
-</div>
-
-  <br>
-   <label for="nombre"> <b>Descripción</b> </label>
-   <input required type="text" class="form-control" id="descripcion" name="descripcion">
-   <br>
-    <label for="nombre"> <b> ISBN del libro</b></label>
-    <input  type="text" class="form-control" id="nombre" name="ISBN">
-
-     <input type="text" class="form-control" id="vendedor"  name="vendedor" value="{{usuario.fullname}}" hidden>
-    <input type="text" class="form-control" id="emailVendedor"  name="emailVendedor" value="{{usuario.email}}" hidden>
-<br>
-     
-{{!-- <input type="file" name="imagen" /> --}}
-
-    </div>
-      <button  type="submit" class="btn btn-success  mt-3 mb-5" >Guardar</button>
-      <a href="/home_libro"  class="btn btn-danger mt-3 mb-5">Regresar</a>
-</form>
-
-</div>
-
-
 </div>
