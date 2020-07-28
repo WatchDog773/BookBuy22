@@ -27,7 +27,7 @@ exports.nuevoLibro = async(req, res, next) => {
 
     console.log(res.locals.usuario);
 
-    const { nombre, autor, precio, descripcion, ISBN, fecha, imagen, vendedor, emailVendedor } = req.body;
+    const { nombre, autor, precio, descripcion, ISBN, fecha, imagen, vendedor, emailVendedor, categoria } = req.body;
 
     beneficioStripe = (precio * 0.029) + 0.30;
     beneficioBookBuy = (precio - beneficioStripe) * 0.12;
@@ -79,7 +79,7 @@ exports.nuevoLibro = async(req, res, next) => {
         });
     } else {
         try {
-            await Libro.create({ nombre, autor, precio, beneficioBookBuy, beneficioUsuario, beneficioStripe, descripcion, ISBN, fecha, imagen, estado, usuarioId: usuario.id, vendedor, emailVendedor });
+            await Libro.create({ nombre, autor, precio, beneficioBookBuy, beneficioUsuario, beneficioStripe, categoria, descripcion, ISBN, fecha, imagen, estado, usuarioId: usuario.id, vendedor, emailVendedor });
             mensajes.push({
                 error: "Libro almacenado satisfactoriamente",
                 type: "alert-success",
@@ -301,3 +301,210 @@ exports.actualizarLibro = async(req, res, next) => {
         res.redirect("/mi_estanteria");
     }
 };
+
+
+// Categorias
+
+exports.libroAccion = async(req, res, next) => {
+    const usuario = res.locals.usuario;
+    const mensajes = [];
+
+    try {
+        const libros = await Libro.findAll({
+            where: {
+                [Op.and]: [{
+                        usuarioId: {
+                            [Op.ne]: usuario.id // square brackets are needed for property names that aren't plain strings
+                        }
+                    },
+                    {
+                        categoria: "acción"
+                    }
+                ]
+            }
+        }).then(function(libros) {
+            libros = libros.map(function(libro) {
+                libro.dataValues.fecha = moment(libro.dataValues.fecha).fromNow();
+                return libro;
+            });
+            res.render("home_libro", { libros });
+        });
+    } catch (error) {
+        mensajes.push({
+            error: "Error al obtener los libros, favor reintentar",
+            type: "alert-warning"
+        });
+        res.render("home_libro", mensajes);
+    }
+}
+
+
+// Obtener los datos del proyecto
+exports.libroTerror = async(req, res, next) => {
+    const usuario = res.locals.usuario;
+    const mensajes = [];
+
+    try {
+        const libros = await Libro.findAll({
+            where: {
+                [Op.and]: [{
+                        usuarioId: {
+                            [Op.ne]: usuario.id // square brackets are needed for property names that aren't plain strings
+                        }
+                    },
+                    {
+                        categoria: "Terror"
+                    }
+                ]
+            }
+        }).then(function(libros) {
+            libros = libros.map(function(libro) {
+                libro.dataValues.fecha = moment(libro.dataValues.fecha).fromNow();
+                return libro;
+            });
+            res.render("home_libro", { libros });
+        });
+    } catch (error) {
+        mensajes.push({
+            error: "Error al obtener los libros, favor reintentar",
+            type: "alert-warning"
+        });
+        res.render("home_libro", mensajes);
+    }
+}
+
+
+exports.libroHistoria = async(req, res, next) => {
+    const usuario = res.locals.usuario;
+    const mensajes = [];
+
+    try {
+        const libros = await Libro.findAll({
+            where: {
+                [Op.and]: [{
+                        usuarioId: {
+                            [Op.ne]: usuario.id // square brackets are needed for property names that aren't plain strings
+                        }
+                    },
+                    {
+                        categoria: "Historia"
+                    }
+                ]
+            }
+        }).then(function(libros) {
+            libros = libros.map(function(libro) {
+                libro.dataValues.fecha = moment(libro.dataValues.fecha).fromNow();
+                return libro;
+            });
+            res.render("home_libro", { libros });
+        });
+    } catch (error) {
+        mensajes.push({
+            error: "Error al obtener los libros, favor reintentar",
+            type: "alert-warning"
+        });
+        res.render("home_libro", mensajes);
+    }
+}
+
+
+exports.libroCultura = async(req, res, next) => {
+    const usuario = res.locals.usuario;
+    const mensajes = [];
+
+    try {
+        const libros = await Libro.findAll({
+            where: {
+                [Op.and]: [{
+                        usuarioId: {
+                            [Op.ne]: usuario.id // square brackets are needed for property names that aren't plain strings
+                        }
+                    },
+                    {
+                        categoria: "Cultura"
+                    }
+                ]
+            }
+        }).then(function(libros) {
+            libros = libros.map(function(libro) {
+                libro.dataValues.fecha = moment(libro.dataValues.fecha).fromNow();
+                return libro;
+            });
+            res.render("home_libro", { libros });
+        });
+    } catch (error) {
+        mensajes.push({
+            error: "Error al obtener los libros, favor reintentar",
+            type: "alert-warning"
+        });
+        res.render("home_libro", mensajes);
+    }
+}
+
+
+exports.libroSaga = async(req, res, next) => {
+    const usuario = res.locals.usuario;
+    const mensajes = [];
+
+    try {
+        const libros = await Libro.findAll({
+            where: {
+                [Op.and]: [{
+                        usuarioId: {
+                            [Op.ne]: usuario.id // square brackets are needed for property names that aren't plain strings
+                        }
+                    },
+                    {
+                        categoria: "Saga"
+                    }
+                ]
+            }
+        }).then(function(libros) {
+            libros = libros.map(function(libro) {
+                libro.dataValues.fecha = moment(libro.dataValues.fecha).fromNow();
+                return libro;
+            });
+            res.render("home_libro", { libros });
+        });
+    } catch (error) {
+        mensajes.push({
+            error: "Error al obtener los libros, favor reintentar",
+            type: "alert-warning"
+        });
+        res.render("home_libro", mensajes);
+    }
+}
+
+
+exports.libroDrama = async(req, res, next) => {
+    const usuario = res.locals.usuario;
+    const mensajes = [];
+
+    try {
+        const libros = await Libro.findAll({
+            where: {
+                [Op.and]: [{
+                        usuarioId: {
+                            [Op.ne]: usuario.id // square brackets are needed for property names that aren't plain strings
+                        }
+                    },
+                    {
+                        categoria: "Drama"
+                    }
+                ]
+            }
+        }).then(function(libros) {
+            libros = libros.map(function(libro) {
+                libro.dataValues.fecha = moment(libro.dataValues.fecha).fromNow();
+                return libro;
+            });
+            res.render("home_libro", { libros });
+        });
+    } catch (error) {
+        mensajes.push({
+            error: "Error al obtener los libros, favor reintentar",
+            type: "alert-warning"
+        });
+        res.render("home_libro", mensajes);
+    }
+}

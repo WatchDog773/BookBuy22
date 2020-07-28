@@ -83,6 +83,14 @@ module.exports = function() {
     // Ruta para eliminar envios
     routes.post("/eliminar_envio", authController.usuarioAutenticado, enviosController.eliminarEnvio);
 
+    // Rutas para ver las categoria 
+    routes.get("/libro_accion", authController.usuarioAutenticado, librosController.libroAccion);
+    routes.get("/libro_terror", authController.usuarioAutenticado, librosController.libroTerror);
+    routes.get("/libro_historia", authController.usuarioAutenticado, librosController.libroHistoria);
+    routes.get("/libro_cultura", authController.usuarioAutenticado, librosController.libroCultura);
+    routes.get("/libro_saga", authController.usuarioAutenticado, librosController.libroSaga);
+
+
     // Reestablecer la contraseña de un usuario
     routes.get(
         "/reestablecer_password",
