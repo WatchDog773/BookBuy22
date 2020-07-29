@@ -47,7 +47,7 @@
                 data-content="{{dataValues.descripcion}}"
               >
                 <i class="fas fa-eye">
-                  Ver resumen
+                   <a>Ver resumen</a> 
                 </i>
               </button>
             </div>
@@ -60,19 +60,19 @@
                 <b>
                   Autor:
                 </b>
-                {{dataValues.autor}}
+                <a> {{dataValues.autor}}</a>
               </div>
               <div class="card-text text-center">
                 <b>
                   Categoría:
                 </b>
-                {{dataValues.categoria}}
+                <a>{{dataValues.categoria}}</a>
               </div>
               <div class="card-text text-center">
                 <b>
                   Vendedor:
                 </b>
-                {{dataValues.vendedor}}
+                <a >  {{dataValues.vendedor}}</a>
               </div>
 
               <div class="card-text text-center mt-4">
@@ -180,3 +180,6 @@
 <style>
   #boton{display:none;}
 </style>
+
+
+

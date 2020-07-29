@@ -1,48 +1,74 @@
-<hr>
-<h5 class="text-center mt-4 mb-4"><i class="far fa-edit mr-3"></i>Mi Perfíl </h5>
-<div class="container col-8 mb-6">
-<hr>
-<br>
+  <hr />
+  <h5 class="text-center mt-4 mb-4">
+    <i class="far fa-edit mr-3"></i>
+    Mi Perfíl
+  </h5>
+  <hr />
   {{#if usuarios }}
     {{#each usuarios}}
 
+
+
+
+<div class="container">
+    <div class="row ">
+        <div class="col-lg-9 mx-auto">
+            <div class="card mt-2 mx-auto p-4  ">
+                <div class="card-body bg-light">
+                    <div class="container">
 <form method="POST" action="/actualizar_usuario">
   <div class="form-group">
-    <label for="nombre"><b>Nombre del usuario</b> </label>
-    <input required  type="text" class="form-control mb-4"  name="username" value="{{dataValues.username}}" >
 
-    <label for="nombre"><b>Nombre completo</b> </label>
-    <input required type="text" class="form-control mb-4"  name="fullname" value="{{dataValues.fullname}}" >
+    <div class="row">
+         <div class="col-md-6">
+           <label for="nombre" id="robotic">Nombre del usuario*</label>
+           <input required  type="text" class="form-control mb-3"  name="username" value="{{dataValues.username}}" >
+           </div>
+            <div class="col-md-6">
+              <label for="nombre" id="robotic">Nombre completo*</label>
+            <input required type="text" class="form-control mb-3"  name="fullname" value="{{dataValues.fullname}}" >
+            </div>
+      </div>
 
-      <label for="nombre"><b>Correo Electrónico</b><a
-  data-toggle="modal"
-  data-target="#exampleModal">
-  <i class="fas fa-info-circle fa-sm"></i>
-</a> </label>
-    <input required type="text" class="form-control mb-4"  name="email" value="{{dataValues.email}}" >
+    
+    <div class="row">
+         <div class="col-md-6">
+           <label for="nombre" id="robotic"><a data-toggle="modal" data-target="#exampleModal"><i class="fas fa-info-circle fa-sm mr-2"></i> </a>Correo Electrónico </label>
+             <input required type="text" class="form-control mb-3"  name="email" value="{{dataValues.email}}" >
+           </div>
+            <div class="col-md-6">
+             <div class="form-group" id="robotic"> <label for="form_need">Sexo*</label> <select id="form_need" name="sex" class="form-control" required="required" data-error="Please specify your need.">
+                 <option value=""selected disabled >--Seleccione--</option>
+                  <option>Masculino</option>
+                   <option>Femenino</option>
+                    </select> </div>
+            </div>
+      </div>
+
+      
 
  <div class="row">
     <div class="col">
-       <label for="nombre"><b>Edad</b> </label>
-    <input required type="text" class="form-control mb-4"  name="age" value="{{dataValues.age}}" >
+       <label for="nombre" id="robotic">Edad </label>
+    <input required type="text" class="form-control mb-3"  name="age" value="{{dataValues.age}}" >
     </div>
     <div class="col">
-       <label for="nombre"><b>Télefono</b> </label>
-    <input required type="text" class="form-control mb-4"  name="phone" value="{{dataValues.phone}}" >
+       <label for="nombre" id="robotic">Télefono </label>
+    <input required type="text" class="form-control mb-3"  name="phone" value="{{dataValues.phone}}" >
     </div>
   </div>
-
-    <label for="nombre"><b>Dirección</b> </label>
-    <input required type="text" class="form-control mb-4" name="address" value="{{dataValues.address}}" >
+    <div class="form-group" id="robotic"> <label for="form_message">Dirección*</label> <textarea id="form_message" name="address" class="form-control" placeholder="Escriba un breve resumén del libro" > {{dataValues.address}}</textarea> </div>
+    {{!-- <label for="nombre">Dirección*</label>
+    <input required type="text" class="form-control mb-3" name="address" value="{{dataValues.address}}" > --}}
     {{/each}}
 {{/if}}
 </div>
 
-<button type="button" class="btn btn-primary mr-3 mt-3" data-toggle="modal" data-target="#exampleModalCenter">
+{{!-- <button type="button" class="btn btn-primary mr-3 mt-3">
  Actualizar
-</button>
+</button> --}}
+<div class="col-md-12"> <input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Actualizar Perfíl"  data-toggle="modal" data-target="#exampleModalCenter"> </div>
 
-   <a href="/mi_estanteria"  class="btn btn-danger  mt-3">Regresar</a>
   <div class="row ">
 
 <!-- Button trigger modal -->
@@ -67,6 +93,12 @@
      
   </div>
 </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 

@@ -21,6 +21,9 @@ const Usuario = db.define('usuario', {
     address: {
         type: Sequelize.STRING,
     },
+    sex: {
+        type: Sequelize.STRING,
+    },
     phone: {
         type: Sequelize.STRING(9),
     },
