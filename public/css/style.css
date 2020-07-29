@@ -168,6 +168,25 @@ a.article:hover {
     transition: all 0.3s;
 }
 
+#comment {
+    background-color: #2ecc71;
+    box-shadow: 0px 5px 0px 0px #15B358;
+    color: rgb(255, 255, 255);
+}
+
+#comment:hover {
+    background-color: #48E68B;
+}
+
+#comment1 {
+    background-color: #e74c3c;
+    box-shadow: 0px 5px 0px 0px #CE3323;
+}
+
+#comment1:hover {
+    background-color: #FF6656;
+}
+
 @media (max-width: 768px) {
     #sidebar {
         margin-left: -250px;
