@@ -181,18 +181,18 @@ a.article:hover {
 }
 
 .site-footer {
-    background-color: #3a3c42;
+    background-color: #ecee68;
     margin-top: 8%;
     padding: 45px 0 20px;
     font-size: 15px;
     width: 100%;
     line-height: 24px;
-    color: #737373;
+    color: #5a5959;
     bottom: 0;
 }
 
 .site-footer hr {
-    border-top-color: #bbb;
+    border-top-color: rgb(34, 34, 34);
     opacity: 0.5
 }
 
@@ -201,7 +201,7 @@ a.article:hover {
 }
 
 .site-footer h6 {
-    color: #fff;
+    color: rgb(0, 0, 0);
     font-size: 16px;
     text-transform: uppercase;
     margin-top: 5px;
@@ -209,7 +209,7 @@ a.article:hover {
 }
 
 .site-footer a {
-    color: #737373;
+    color: #222222;
 }
 
 .site-footer a:hover {
@@ -868,4 +868,8 @@ label {
     background-color: #0062cc;
     border: none;
     cursor: pointer;
+}
+
+#cerrarSesion {
+    background-color: rgb(223, 136, 136)
 }

@@ -38,7 +38,7 @@
                     <a href="/control_usuarios"><i class="fas fa-users mr-2 ml-2"></i>Control de Usuarios</a>
                 </li>
                 <li>
-                    <a href="/cerrar_sesion"><i class="fas fa-sign-out-alt mr-3 ml-2"></i>Cerrar Sesión</a>
+                    <a href=""  data-toggle="modal" data-target="#exampleModalCenter" ><i class="fas fa-sign-out-alt mr-3 ml-2"></i>Cerrar Sesión</a>
                 </li>
             </ul>
         </nav>
@@ -66,8 +66,10 @@
             <a  class="nav-link dropdown-toggle-split"   id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:rgb(255, 255, 255);">
              <i class="fas fa-user-circle mr-2" ></i><strong >{{usuario.username}}<i class="fas fa-caret-right fa-xs ml-2"></i></strong>
             </a>
-            <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
-            <a class="nav-link" href="/cerrar_sesion" ><i class="fas fa-sign-out-alt mr-2"></i><strong>Cerrar Sesión</strong></a>
+            <div class="dropdown-menu text-center" id="cerrarSesion"  aria-labelledby="navbarDropdown">
+            <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-sign-out-alt mr-2" ></i><strong>Cerrar Sesión</strong></a>
+
+            
             </div>
           </li>
                         </ul>
@@ -127,6 +129,32 @@
                     x[slideIndex - 1].style.display = "block";
                 }
             </script>
+
+                     
+         <div class="modal fade" id="exampleModalCenter"  tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  aria-hidden="true" >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                  {{usuario.username}}, ¿estás seguro que deseas salir?
+                </h5>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+                <a type="button" class="btn btn-primary mr-3" href="/cerrar_sesion">
+                  Si, cerrar sesión
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+            
 
 </body>
  <footer class="site-footer ">
