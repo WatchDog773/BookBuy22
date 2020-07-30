@@ -85,10 +85,7 @@ module.exports = function() {
     routes.get("/mis_compras", authController.usuarioAutenticado, ventasController.misCompras);
 
    // Reestablecer la contraseña de un usuario
-  routes.get(
-    "/restablecer_password",
-    usuariosController.formularioRestablecerPassword
-  );
+  routes.get("/restablecer_password", usuariosController.formularioRestablecerPassword);
 
   routes.post("/restablecer_password", authController.enviarToken);
 
