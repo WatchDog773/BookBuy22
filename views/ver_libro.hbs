@@ -13,87 +13,72 @@
 <h5 class="mt-3 text-center"> <b>Edición del libro</b> </h5>
 <hr>
   <hr />
-  {{! Mostrar los mensajes en caso de existir }}
 
-  {{! Usamos post para el envio de datos }}
+<div class="container">
+    <div class="row ">
+        <div class="col-lg-9 mx-auto">
+            <div class="card mt-2 mx-auto p-4 border border-primary">
+                <div class="card-body bg-light">
+                    <div class="container">
+                        <form id="contact-form" role="form" method="POST" action="/actualizar_libro/{{libro.id}}">
+                            <div class="controls">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label for="form_name" id="robotic">Nombre del libro*</label> <input id="form_name" type="text" name="nombre" class="form-control" placeholder="Ingrese el nombre del libro" required="required" data-error="Firstname is required." value="{{libro.nombre}}"> </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label for="form_lastname" id="robotic">Autor del libro *</label> <input id="form_lastname" type="text" name="autor" class="form-control" placeholder="Ingrese el nombre del autor" required="required" data-error="Lastname is required." value="{{libro.autor}}"> </div>
+                                    </div>
+                                </div>
+                                        <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label for="form_email" id="robotic">ISBN</label> <input id="form_email" type="text" name="ISBN" class="form-control" placeholder="Ingrese el ISBN del libro" required="required" data-error="Valid email is required." value="{{libro.ISBN}}"> </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label for="form_need" id="robotic">Categoría *</label> <select  id="form_need" name="categoria" class="form-control" required="required" data-error="Please specify your need.">
+                                                <option value="" >Seleccione la categoría</option>
+                                                <optgroup label="-- Aventura --"></optgroup>
+                                                <option>Acción</option>
+                                                <option>Terror</option>
+                                                <option>Saga</option>
+                                                 <optgroup label="-- General --"></optgroup>
+                                                <option>Cultura</option>
+                                                <option>Historia</option>
+                                            </select> </div>
+                                    </div>
+                                </div>
+                                     <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label for="form_name" id="robotic">Precio*</label> <input id="form_name" type="number" name="precio" class="form-control" placeholder="Ingrese el precio del libro " required="required" data-error="Firstname is required." value="{{libro.precio}}"> </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        {{!-- <div class="form-group"> <label for="form_lastname">ISBN</label> <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required."> </div> --}}
+                                    </div>
+                                </div>
+                        
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group"> <label for="form_message" id="robotic">Resumen*</label> <textarea id="form_message" name="descripcion" class="form-control" placeholder="Escriba un breve resumén del libro" >{{libro.descripcion}} </textarea></div>
+                                    </div>
+                                                <input
+                                                type="text"
+                                                class="form-control"
+                                                id="vendedor"
+                                                name="vendedor"
+                                                value="{{usuario.fullname}}"
+                                                hidden
+                                                />
+                                              <input
+                                              type="text"
+                                              class="form-control"
+                                              id="emailVendedor"
+                                              name="emailVendedor"
+                                              value="{{usuario.email}}"
+                                             hidden
+                                            />
+                                    <div class="col-md-12"> <input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Actualizar Datos"  data-toggle="modal" data-target="#exampleModalCenter"> </div>
 
-  <div class="container col-8 mb-6">
-    <form method="POST" action="/actualizar_libro/{{libro.id}}">
-      <div class="form-group">
-        <label for="nombre">
-          Título del libro
-        </label>
-        <input
-          required
-          type="text"
-          class="form-control"
-          id="nombre"
-          name="nombre"
-          value="{{libro.nombre}}"
-        />
-
-        <label for="nombre">
-          Autor
-        </label>
-        <input
-          required
-          type="text"
-          class="form-control"
-          id="nombre"
-          name="autor"
-          value="{{libro.autor}}"
-        />
-
-        <label for="nombre">
-          ISBN
-        </label>
-        <input
-          required
-          type="text"
-          class="form-control"
-          id="nombre"
-          name="ISBN"
-          value="{{libro.ISBN}}"
-        />
-
-        <label for="nombre">
-          Descripción
-        </label>
-        <input
-          required
-          type="text"
-          class="form-control"
-          id="nombre"
-          name="descripcion"
-          value="{{libro.descripcion}}"
-        />
-
-        <label for="nombre">
-          Precio
-        </label>
-        <input
-          required
-          type="number"
-          class="form-control"
-          id="nombre"
-          name="precio"
-          value="{{libro.precio}}"
-          min="90"
-        />
-      </div>
-
-      <div class="row">
-        <!-- Button trigger modal -->
-        <button
-          type="button"
-          class="btn btn-primary mr-3"
-          data-toggle="modal"
-          data-target="#exampleModalCenter"
-        >
-          Actualizar
-        </button>
-
-        <!-- Modal -->
+                                            <!-- Modal -->
         <div
           class="modal fade"
           id="exampleModalCenter"
@@ -124,12 +109,14 @@
             </div>
           </div>
         </div>
-        {{! 
- <button  type="submit" class="btn btn-primary mr-3">Actualizar</button> }}
-        <a href="/mi_estanteria" class="btn btn-danger">
-          Regresar
-        </a>
-      </div>
-    </form>
-  </div>
+
+                                </div>
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> <!-- /.8 -->
+        </div> <!-- /.row-->
+    </div>
 </div>

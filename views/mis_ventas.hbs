@@ -18,21 +18,21 @@
       <tr>
         <th scope="col">
           <b>
-            Título del libro
+            <a> Título del libro</a>
           </b>
         </th>
         <th scope="col">
           <b>
-            Fecha de Venta
+            <a>Fecha de Venta</a>
           </b>
         </th>
         <th scope="col">
           <b>
-            Precio
+            <a>Precio</a>
           </b>
         </th>
         <th scope="col">
-          <b>Mi Beneficio</b>
+          <b><a>Mi Beneficio</a></b>
 <a
   data-toggle="modal"
   data-target="#exampleModalCenter">
@@ -47,22 +47,22 @@
         {{#each ventas}}
           <tr>
             <td>
-              {{dataValues.nombreLibro}}
+              <a>{{dataValues.nombreLibro}}</a>
             </td>
                <td>
-              {{dataValues.fecha}}
+              <a>{{dataValues.fecha}}</a>
             </td>
             <td>
-              L.{{dataValues.precio}}
+             <a> L.{{dataValues.precio}}</a>
             </td>
             <td>
-              L.{{dataValues.beneficioUsuario}}
+              <a>L.{{dataValues.beneficioUsuario}}</a>
             </td>
           </tr>
         {{/each}}
       {{else}}
       <div class="alert alert-info mt-4" role="alert">
-            {{usuario.username}} aún no tienes ventas de ninguno de tus libros 
+          <a> {{usuario.username}} aún no tienes ventas de ninguno de tus libros </a> 
         </div>
       {{/if}}
     </tbody>
@@ -110,5 +110,5 @@
   </div>
 </div>
 
-<div style="height: 450px;">
+<div style="height: 100px;">
 </div>

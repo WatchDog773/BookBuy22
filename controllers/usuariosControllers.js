@@ -5,7 +5,7 @@ exports.formularioCrearCuenta = (req, res, next) => {
     res.render("registrarse", { layout: "auth" });
 };
 
-exports.crearCuenta = async (req, res, next) => {
+exports.crearCuenta = async(req, res, next) => {
     // Obtener los daos de la nueva cuenta
     // Obtenerlos por destructuring
     const { username, email, password } = req.body;
@@ -36,11 +36,12 @@ exports.formularioIniciarSesion = (req, res, next) => {
 };
 
 
-exports.formularioReestablecerPassword = (req, res, next) => {
-    res.render("reestablecer_password", { layout: "auth" });
-  };
 
-exports.formularioVerUsuario = async (req, res, next) => {
+exports.formularioRestablecerPassword = (req, res, next) => {
+    res.render("restablecer_password", { layout: "auth" });
+};
+
+exports.formularioVerUsuario = async(req, res, next) => {
     const usuario = res.locals.usuario;
     const mensajes = [];
 
@@ -67,8 +68,8 @@ exports.formularioVerUsuario = async (req, res, next) => {
 
 
 // Actualizar los datos de un proyecto
-exports.actualizarUsuario = async (req, res, next) => {
-    const { username, fullname, email, age, phone, address } = req.body;
+exports.actualizarUsuario = async(req, res, next) => {
+    const { username, fullname, email, age, phone, address, sex } = req.body;
     const usuario = res.locals.usuario;
 
 
@@ -96,28 +97,24 @@ exports.actualizarUsuario = async (req, res, next) => {
             mensajes,
         });
     } else {
-        await Usuario.update(
-            { username, fullname, email, age, phone, address },
-            {
-                where: {
-                    id: usuario.id,
-                },
-            }
-        );
+        await Usuario.update({ username, fullname, email, age, phone, address, sex }, {
+            where: {
+                id: usuario.id,
+            },
+        });
         res.redirect("/ver_usuario");
     }
 };
 
 
 
-exports.controlUsuarios = async (req, res, next) => {
+exports.controlUsuarios = async(req, res, next) => {
     const usuario = res.locals.usuario;
     const mensajes = [];
 
     try {
         // Variable que almacena todos los proyectos que existem
-        const usuariosAll = await Usuario.findAll({
-        });
+        const usuariosAll = await Usuario.findAll({});
         // Luego renderizo la vista que mostrará todos los proyectos que existen
         res.render("control_usuarios", { layout: "admin", usuariosAll });
     } catch (error) {
@@ -128,4 +125,3 @@ exports.controlUsuarios = async (req, res, next) => {
         res.render("control_usuarios", mensajes);
     }
 };
-

@@ -17,12 +17,12 @@
       <tr>
         <th scope="col">
           <b>
-            Título del libro
+            <a>Título del libro</a>
           </b>
         </th>
         <th scope="col">
           <b>
-            Acción
+            <a>Acción</a>
           </b>
         </th>
       </tr>
@@ -32,7 +32,7 @@
         {{#each libros}}
           <tr>
             <td>
-              {{dataValues.nombre}}
+              <a>{{dataValues.nombre}}</a>
             </td>
             <td>
               <a
@@ -48,14 +48,14 @@
                 type="button"
                 class="btn btn-danger ml-2 mt-1"
               >
-                Quitar
+                 Quitar
               </button>
             </td>
           </tr>
         {{/each}}
       {{else}}
    <div class="alert alert-info mt-4" role="alert">
-            {{usuario.username}} aún no has estas vendiendo ningún libro ¿Qué esperas?
+           <a> {{usuario.username}} aún no has estas vendiendo ningún libro ¿Qué esperas?</a>
         </div>
       {{/if}}
     </tbody>
@@ -72,6 +72,6 @@
 </div>
 
 
-<div style="height: 45px;">
+<div style="height: 20px;">
 </div>
 
