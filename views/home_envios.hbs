@@ -47,6 +47,11 @@
             Precio
           </b>
         </th>
+        <th scope="col">
+          <b>
+            Acción
+          </b>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -54,19 +59,78 @@
         {{#each envios}}
           <tr>
             <th scope="row">
-              {{dataValues.emailComprador}}
+              <a >{{dataValues.emailComprador}}</a>
             </th>
             <td>
-              {{dataValues.nombreLibro}}
+             <a> {{dataValues.nombreLibro}}</a>
             </td>
             <td>
-              {{dataValues.direccionComprador}}
+            <a>  {{dataValues.direccionComprador}}</a>
             </td>
             <td>
-              {{dataValues.telefono}}
+              <a>{{dataValues.telefono}}</a>
             </td>
             <td>
-              L.{{dataValues.precioCompra}}
+             <a> L.{{dataValues.precioCompra}}</a>
+            </td>
+            <td>
+              <!-- Button trigger modal -->
+              <form method="POST" action="/eliminar_envio">
+                <input
+                  type="text"
+                  class="form-control"
+                  value="{{dataValues.id}}"
+                  id="idEnvio"
+                  name="idEnvio"
+                  hidden
+                />
+                <button type="submit" class="btn btn-danger mr-3">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </form>
+
+              {{!-- <!-- Modal -->
+              <div
+                class="modal fade"
+                name="exampleModalCenter"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">
+                        ¿Estás seguro que desea eliminar este envío?
+                      </h5>
+                    </div>
+                    <div class="modal-footer mb-1">
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        data-dismiss="modal"
+                      >
+                        Cancelar
+                      </button>
+                      
+                        <form method="POST" action="/eliminar_envio">
+                          <input
+                            type="text"
+                            class="form-control"
+                            value="{{dataValues.id}}"
+                            id="idEnvio"
+                            name="idEnvio"
+                            hidden
+                          />
+                          <button type="submit" class="btn btn-success">
+                            Eliminar
+                          </button>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+              </div> --}}
             </td>
           </tr>
         {{/each}}

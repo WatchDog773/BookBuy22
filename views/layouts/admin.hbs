@@ -11,6 +11,7 @@
   
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
 
 
 </head>
@@ -37,7 +38,7 @@
                     <a href="/control_usuarios"><i class="fas fa-users mr-2 ml-2"></i>Control de Usuarios</a>
                 </li>
                 <li>
-                    <a href="/cerrar_sesion"><i class="fas fa-sign-out-alt mr-3 ml-2"></i>Cerrar Sesión</a>
+                    <a href=""  data-toggle="modal" data-target="#exampleModalCenter" ><i class="fas fa-sign-out-alt mr-3 ml-2"></i>Cerrar Sesión</a>
                 </li>
             </ul>
         </nav>
@@ -45,7 +46,7 @@
         <!-- Page Content  -->
         <div id="content">
 
-            <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #7386D5;">
+            <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #6b51e0;">
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-info mr-2">
@@ -65,8 +66,10 @@
             <a  class="nav-link dropdown-toggle-split"   id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:rgb(255, 255, 255);">
              <i class="fas fa-user-circle mr-2" ></i><strong >{{usuario.username}}<i class="fas fa-caret-right fa-xs ml-2"></i></strong>
             </a>
-            <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
-            <a class="nav-link" href="/cerrar_sesion" ><i class="fas fa-sign-out-alt mr-2"></i><strong>Cerrar Sesión</strong></a>
+            <div class="dropdown-menu text-center" id="cerrarSesion"  aria-labelledby="navbarDropdown">
+            <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-sign-out-alt mr-2" ></i><strong>Cerrar Sesión</strong></a>
+
+            
             </div>
           </li>
                         </ul>
@@ -127,13 +130,39 @@
                 }
             </script>
 
+                     
+         <div class="modal fade" id="exampleModalCenter"  tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  aria-hidden="true" >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                  {{usuario.username}}, ¿estás seguro que deseas salir?
+                </h5>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+                <a type="button" class="btn btn-primary mr-3" href="/cerrar_sesion">
+                  Si, cerrar sesión
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+            
+
 </body>
  <footer class="site-footer ">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6">
             <h6>Sobre nosotros</h6>
-            <p class="text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa eveniet blanditiis, assumenda, delectus impedit neque excepturi voluptatibus, necessitatibus laudantium doloremque fugiat quod incidunt sint rerum perferendis nobis alias at. At!</p>
+            <p class="text-justify">Somos un sitio web comprometido con satisfacer la necesidad del acceso fácil a recursos relacionados a la lectura nos identificamos como un enlacé entre las comunidad de lectores que existe y lograr facilitar la venta de libros.</p>
           </div>
 
           <div class="col-xs-6 col-md-3">
@@ -152,8 +181,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Copyright &copy; 2020 Todos los derechos reservados por
-         <a>BookBuy™</a>.
+            <p class="copyright-text">Derechos Reservados &copy; 2020 Todos los derechos reservados por
+         <a>BookBuy™</a>
             </p>
           </div>
 

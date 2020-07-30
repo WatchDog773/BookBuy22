@@ -5,7 +5,16 @@
 
 body {
     background: #007bff;
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(to right, #84b9ff, #33AEFF);
+}
+
+h5 {
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    font-family: 'Roboto', sans-serif;
 }
 
 .card-signin {

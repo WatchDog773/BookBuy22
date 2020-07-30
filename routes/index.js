@@ -84,14 +84,28 @@ module.exports = function() {
     // Ruta para ver las compras que ha realizado un usuario desde su perfíl
     routes.get("/mis_compras", authController.usuarioAutenticado, ventasController.misCompras);
 
+
    // Reestablecer la contraseña de un usuario
   routes.get("/restablecer_password", usuariosController.formularioRestablecerPassword);
 
   routes.post("/restablecer_password", authController.enviarToken);
 
   routes.get("/resetear_password/:token", authController.validarToken);
-
+  
   routes.post("/resetear_password/:token", authController.actualizarPassword);
+
+    // Ruta para eliminar envios
+    routes.post("/eliminar_envio", authController.usuarioAutenticado, enviosController.eliminarEnvio);
+
+    // Rutas para ver las categoria 
+    routes.get("/libro_accion", authController.usuarioAutenticado, librosController.libroAccion);
+    routes.get("/libro_terror", authController.usuarioAutenticado, librosController.libroTerror);
+    routes.get("/libro_historia", authController.usuarioAutenticado, librosController.libroHistoria);
+    routes.get("/libro_cultura", authController.usuarioAutenticado, librosController.libroCultura);
+    routes.get("/libro_saga", authController.usuarioAutenticado, librosController.libroSaga);
+
+
+  
 
   return routes;
 };

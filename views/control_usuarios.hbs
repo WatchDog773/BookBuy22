@@ -54,19 +54,19 @@
         {{#each usuariosAll}}
           <tr>
             <th scope="row">
-              {{dataValues.id}}
+              <a>{{dataValues.id}}</a>
             </th>
             <td>
-              {{dataValues.fullname}}
+              <a>{{dataValues.fullname}}
+            </td></a>
+            <td>
+              <a> {{dataValues.username}}</a>
             </td>
             <td>
-              {{dataValues.username}}
+              <a>{{dataValues.phone}}</a>
             </td>
             <td>
-              {{dataValues.phone}}
-            </td>
-            <td>
-              {{dataValues.email}}
+              <a >{{dataValues.email}}</a>
             </td>
           </tr>
         {{/each}}
@@ -78,5 +78,5 @@
 </div>
 <hr />
 
-<div style="height: 160px;">
+<div style="height: 100px;">
 </div>

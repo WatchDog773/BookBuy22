@@ -1,3 +1,10 @@
+  <hr />
+  <h5 class="text-center mt-4 mb-4"> 
+    <i class="far fa-comments mr-3"></i> 
+    Comunidad BookBuy™
+  </h5>
+  <hr />
+
 <hr>
 <div class="container mr-12 mt-4">
   {{! Mostrar los proyectos (si existen) }}
@@ -41,19 +48,11 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <form method="POST" action="/crear_comentarios">
-        <div class="form-group mt-4">
-          <textarea
-          class="textarea"
-            tabindex="0"
-            id="textComments"
-            name="contenido"
-            rows="3"
-            cols="32"
-            placeholder="Escribe tu comentario aquí..."
-          ></textarea>
-          <br />
 
-          <input
+              <div class="col-md-12">
+                    <div class="form-group"> <label for="form_message" id="robotic"></label> <textarea rows="3" id="form_message" name="contenido" class="form-control" placeholder="Escribe tu comentario aquí..."></textarea> </div>
+               </div>
+     <input
             type="text"
             class="form-control"
             id="vendedor"
@@ -61,14 +60,15 @@
             value="{{usuario.username}}"
             hidden
           />
-        </div>
-        <button type="submit" class="btn btn-success  mt-3 mb-5">
-          Comentar
+
+        <button type="submit" class="btn  mt-3 mb-5 ml-3" id="comment">
+          <a > Comentar</a>
         </button>
-        <a href="/home_libro" class="btn btn-danger mt-3 mb-5">
-          Regresar
+        <a href="/home_libro" class="btn btn-danger mt-3 mb-5 ml-2" id="comment1">
+           Regresar
         </a>
       </form>
     </div>
   </div>
+  
 </div>
