@@ -1,6 +1,10 @@
 const express = require("express");
 const routes = express.Router();
 
+// Importar expresss-validator
+// https://express-validator.github.io/docs/sanitization.html
+
+
 const clientesController = require("../controllers/clientesControllers.js");
 const librosController = require("../controllers/librosController.js");
 const usuariosController = require("../controllers/usuariosControllers");
@@ -80,14 +84,17 @@ module.exports = function() {
     // Ruta para ver las compras que ha realizado un usuario desde su perfíl
     routes.get("/mis_compras", authController.usuarioAutenticado, ventasController.misCompras);
 
-    // Reestablecer la contraseña de un usuario
+   // Reestablecer la contraseña de un usuario
   routes.get(
-    "/reestablecer_password",
-    usuariosController.formularioReestablecerPassword
+    "/restablecer_password",
+    usuariosController.formularioRestablecerPassword
   );
 
-  routes.post("/reestablecer_password", authController.enviarToken);
+  routes.post("/restablecer_password", authController.enviarToken);
 
+  routes.get("/resetear_password/:token", authController.validarToken);
 
-    return routes;
+  routes.post("/resetear_password/:token", authController.actualizarPassword);
+
+  return routes;
 };
