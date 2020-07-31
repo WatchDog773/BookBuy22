@@ -33,12 +33,28 @@ b {
     font-family: 'Roboto', sans-serif;
 }
 
+#principal {
+    height: 40px;
+}
+
+@media (min-width: 522px) {
+    #principal {
+        height: 100;
+        ;
+    }
+}
+
 #robotic {
     font-family: 'Roboto', sans-serif;
 }
 
 #estilo {
     list-style: none;
+}
+
+#title {
+    font-family: 'Lobster', cursive;
+    font-size: 24px;
 }
 
 a,
@@ -89,7 +105,7 @@ a:focus {
 }
 
 #sidebar .sidebar-header {
-    padding: 20px;
+    padding: 7px;
     background: #917bf0;
 }
 
@@ -546,6 +562,16 @@ a.article:hover {
     transition: transform 700ms, filter 60ms ease-in-out;
 }
 
+#hoverCardy {
+    border-color: rgb(17, 17, 17);
+    border-width: 12px;
+}
+
+#hoverCardy:hover {
+    transform: scale(1.02);
+    transition: transform 700ms, filter 60ms ease-in-out;
+}
+
 .card-block {
     font-size: 1em;
     position: relative;
@@ -826,10 +852,11 @@ label {
     margin-top: 5px
 }
 
-.card {
+
+/* .card {
     margin-left: 10px;
     margin-right: 10px
-}
+} */
 
 .contact-form {
     background: #fff;
@@ -890,5 +917,5 @@ label {
 }
 
 #cerrarSesion {
-    background-color: rgb(223, 136, 136)
+    background-color: rgb(192, 63, 63)
 }

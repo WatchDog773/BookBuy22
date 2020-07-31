@@ -17,7 +17,7 @@ const enviosController = require("../controllers/enviosController");
 
 module.exports = function() {
 
-    routes.get("/", authController.usuarioAutenticado, librosController.administradorVerificacion, librosController.librosHome);
+    routes.get("/", authController.usuarioAutenticado, librosController.administradorVerificacion, librosController.bienvenidaUsuario);
 
     // Rutas para la creación de clientes
     routes.post("/crear_cliente", authController.usuarioAutenticado, clientesController.nuevoCliente);
@@ -85,14 +85,14 @@ module.exports = function() {
     routes.get("/mis_compras", authController.usuarioAutenticado, ventasController.misCompras);
 
 
-   // Reestablecer la contraseña de un usuario
-  routes.get("/restablecer_password", usuariosController.formularioRestablecerPassword);
+    // Reestablecer la contraseña de un usuario
+    routes.get("/restablecer_password", usuariosController.formularioRestablecerPassword);
 
-  routes.post("/restablecer_password", authController.enviarToken);
+    routes.post("/restablecer_password", authController.enviarToken);
 
-  routes.get("/resetear_password/:token", authController.validarToken);
-  
-  routes.post("/resetear_password/:token", authController.actualizarPassword);
+    routes.get("/resetear_password/:token", authController.validarToken);
+
+    routes.post("/resetear_password/:token", authController.actualizarPassword);
 
     // Ruta para eliminar envios
     routes.post("/eliminar_envio", authController.usuarioAutenticado, enviosController.eliminarEnvio);
@@ -105,7 +105,7 @@ module.exports = function() {
     routes.get("/libro_saga", authController.usuarioAutenticado, librosController.libroSaga);
 
 
-  
 
-  return routes;
+
+    return routes;
 };

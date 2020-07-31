@@ -8,7 +8,7 @@
     <title>BookBuy 2020</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
@@ -20,8 +20,8 @@
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
-            <div class="sidebar-header mt-3">
-                <h6><i class="fas fa-users-cog ml-4 mr-2"></i>Administración</h6>
+            <div class="sidebar-header ">
+                <h6 class="ml-2 mt-2"><img src="https://img.icons8.com/color/48/000000/admin-settings-male.png" class="mr-2"/>Administrador</h6>
             </div>
 
             <ul class="list-unstyled components">
@@ -52,7 +52,7 @@
                     <button type="button" id="sidebarCollapse" class="btn btn-info mr-2">
                         <i class="fas fa-bars"></i>
                     </button>
-                     <img class="mr-2" src="./images/bookMain.png" width="30" height="30" alt=""> <b style="color:rgb(255, 255, 255);">BookBuy™</b>
+                     <img class="mr-2" src="./images/bookMain.png" width="30" height="30" alt=""> <a style="color:rgb(255, 255, 255);" id="title">BookBuy™</a>
 
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto mr-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify mr-2"></i>
@@ -67,7 +67,7 @@
              <i class="fas fa-user-circle mr-2" ></i><strong >{{usuario.username}}<i class="fas fa-caret-right fa-xs ml-2"></i></strong>
             </a>
             <div class="dropdown-menu text-center" id="cerrarSesion"  aria-labelledby="navbarDropdown">
-            <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-sign-out-alt mr-2" ></i><strong>Cerrar Sesión</strong></a>
+            <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModalCenter" style="color:rgb(255, 255, 255);" ><i class="fas fa-sign-out-alt mr-2" ></i><strong>Cerrar Sesión</strong></a>
 
             
             </div>
