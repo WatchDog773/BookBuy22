@@ -41,6 +41,11 @@ b {
     list-style: none;
 }
 
+#title {
+    font-family: 'Lobster', cursive;
+    font-size: 24px;
+}
+
 a,
 a:hover,
 a:focus {
