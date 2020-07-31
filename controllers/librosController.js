@@ -255,7 +255,7 @@ exports.obtenerLibroPorUrl = async(req, res, next) => {
 
 exports.actualizarLibro = async(req, res, next) => {
     // Obtener los datos de la información enviada
-    const { id, nombre, autor, descripcion, ISBN, precio } = req.body;
+    const { id, nombre, autor, descripcion, ISBN, precio, categoria } = req.body;
     // Obtener la información del usuario actual
     const usuario = res.locals.usuario;
     const mensajes = [];
@@ -296,7 +296,7 @@ exports.actualizarLibro = async(req, res, next) => {
             mensajes,
         });
     } else {
-        await Libro.update({ nombre, autor, descripcion, ISBN, precio }, {
+        await Libro.update({ nombre, autor, descripcion, ISBN, precio, categoria }, {
             where: {
                 id: req.params.id,
             },

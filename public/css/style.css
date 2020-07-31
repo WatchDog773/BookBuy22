@@ -33,6 +33,17 @@ b {
     font-family: 'Roboto', sans-serif;
 }
 
+#principal {
+    height: 40px;
+}
+
+@media (min-width: 522px) {
+    #principal {
+        height: 100;
+        ;
+    }
+}
+
 #robotic {
     font-family: 'Roboto', sans-serif;
 }
@@ -906,5 +917,5 @@ label {
 }
 
 #cerrarSesion {
-    background-color: rgb(223, 136, 136)
+    background-color: rgb(192, 63, 63)
 }

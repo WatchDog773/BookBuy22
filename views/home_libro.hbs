@@ -24,12 +24,18 @@
         {{!-- Contenido --}}
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative border-primary">
         <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">{{dataValues.nombre}}</strong>
+          <div  id="principal" class="mb-3">
+            <strong class="d-inline-block mb-2 text-primary">{{dataValues.nombre}}</strong>
+          </div>
           <h3 class="mb-0">L. {{dataValues.precio}}</h3>
           <div class="mb-1 text-muted">Autor: <a >{{dataValues.autor}}</a></div>
           <div class="mb-1 text-muted">Categoría: <a >{{dataValues.categoria}}</a></div>
           <div class="mb-1 text-muted">Vendedor: <a >{{dataValues.vendedor}}</a></div>
-         <form action="/checkout" method="POST" class="mt-2">
+          
+
+          <div class="row">
+            <div class="col-8">
+                <form action="/checkout" method="POST" class="mt-2">
                   <input type="text" value={{dataValues.precio}}  name="precio" hidden/>
                   <input type="text" value="{{dataValues.nombre}}" name="nombreLibro" hidden />
                   <input type="text" value={{dataValues.emailVendedor}} name="emailVendedor" hidden />
@@ -48,8 +54,15 @@
                     data-locale="auto">
                     </script>
                 </form>
-                <hr />
-         
+            </div>
+            <div class="col-4">
+                 <a type="button" title="{{dataValues.nombre}}" data-container="body" data-toggle="popover" data-placement="right" data-content="{{dataValues.descripcion}}" >
+                    <img src="https://img.icons8.com/color/48/000000/open-in-popup.png"/>
+                </a>
+            </div>
+          </div>
+
+        
         </div>
         <div class="col-auto d-none d-lg-block">
           <img class="bd-placeholder-img" width="250" height="250" src="https://image.freepik.com/vector-gratis/ilustracion-educacion-regreso-escuela-pila-libros-trofeo-oro-futuro-ganador-exito_143055-169.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></img>
