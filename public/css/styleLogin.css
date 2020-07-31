@@ -42,7 +42,15 @@ a {
 
 .card-signin .card-img-left {
     width: 45%;
-    background: scroll center url('../images/bookLogin.PNG');
+    /*'../images/bookLogin.PNG */
+    background: scroll center url('https://image.freepik.com/vector-gratis/ilustracion-concepto-amante-libros_114360-1467.jpg');
+    background-size: cover;
+}
+
+.card-signin .card-img-le {
+    width: 45%;
+    /*'../images/bookLogin.PNG */
+    background: scroll center url('https://image.freepik.com/vector-gratis/ilustracion-concepto-biblioteca_114360-2825.jpg');
     background-size: cover;
 }
 

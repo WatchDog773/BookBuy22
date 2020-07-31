@@ -8,6 +8,9 @@ const { Op } = require("sequelize");
 const moment = require("moment");
 moment.locale("es");
 
+exports.bienvenidaUsuario = (req, res, next) => {
+    res.render("home_usuario");
+}
 
 exports.formularioNuevoLibro = (req, res, next) => {
     // Vamos a renderizar la vista en este control

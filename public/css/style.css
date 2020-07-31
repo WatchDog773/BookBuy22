@@ -94,7 +94,7 @@ a:focus {
 }
 
 #sidebar .sidebar-header {
-    padding: 20px;
+    padding: 7px;
     background: #917bf0;
 }
 
@@ -547,6 +547,16 @@ a.article:hover {
 }
 
 #cardHome:hover {
+    transform: scale(1.02);
+    transition: transform 700ms, filter 60ms ease-in-out;
+}
+
+#hoverCardy {
+    border-color: rgb(17, 17, 17);
+    border-width: 12px;
+}
+
+#hoverCardy:hover {
     transform: scale(1.02);
     transition: transform 700ms, filter 60ms ease-in-out;
 }
