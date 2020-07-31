@@ -15,122 +15,29 @@
   {{/each}}
 {{/if}}
 
+
 <div class="container d-flex">
   <div class="card-deck">
     {{#if libros}}
       {{#each libros}}
-        <div
-          class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-4 mb-3"
-          id="body"
-        >
-          <div class="card mt-3" id="cardHome">
-            <img
-              src="./images/libroVector3.png"
-              class="card-img-top"
-              alt="..."
-            />
-
-            <div class="card-text text-center">
-              <div class="collapse  mt-2" id="collapseExample">
-                <div class="card card-body">
-                  {{dataValues.descripcion}}
-                </div>
-              </div>
-
-              <button
-                type="button"
-                title="{{dataValues.nombre}}"
-                class="btn btn-success"
-                data-container="body"
-                data-toggle="popover"
-                data-placement="right"
-                data-content="{{dataValues.descripcion}}"
-              >
-                <i class="fas fa-eye">
-                   <a>Ver resumen</a> 
-                </i>
-              </button>
-            </div>
-
-            <div class="card-body">
-              <h4 class="card-title mt-3 text-center">
-                {{dataValues.nombre}}
-              </h4>
-              <div class="card-text text-center">
-                <b>
-                  Autor:
-                </b>
-                <a> {{dataValues.autor}}</a>
-              </div>
-              <div class="card-text text-center">
-                <b>
-                  Categoría:
-                </b>
-                <a>{{dataValues.categoria}}</a>
-              </div>
-              <div class="card-text text-center">
-                <b>
-                  Vendedor:
-                </b>
-                <a >  {{dataValues.vendedor}}</a>
-              </div>
-
-              <div class="card-text text-center mt-4">
-                <h4>
-                  <Strong>
-                    Precio L.{{dataValues.precio}}
-                  </Strong>
-                </h4>
-                <form action="/checkout" method="POST">
-                  <input
-                    type="text"
-                    value={{dataValues.precio}}
-                    name="precio"
-                    hidden
-                  />
-                  <input
-                    type="text"
-                    value="{{dataValues.nombre}}"
-                    name="nombreLibro"
-                    hidden
-                  />
-                  <input
-                    type="text"
-                    value={{dataValues.emailVendedor}}
-                    name="emailVendedor"
-                    hidden
-                  />
-                  <input
-                    type="text"
-                    value={{dataValues.id}}
-                    name="idLibro"
-                    hidden
-                  />
-                  <input
-                    type="text"
-                    value={{dataValues.usuarioId}}
-                    name="idVendedor"
-                    hidden
-                  />
-                  <input
-                    type="text"
-                    value={{dataValues.beneficioBookBuy}}
-                    name="beneficioBookBuy"
-                    hidden
-                  />
-                  <input
-                    type="text"
-                    value={{dataValues.beneficioUsuario}}
-                    name="beneficioUsuario"
-                    hidden
-                  />
-                  <input
-                    type="text"
-                    value={{dataValues.beneficioStripe}}
-                    name="beneficioStripe"
-                    hidden
-                  />
-
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-6 " id="hoverCardy" >
+        {{!-- Contenido --}}
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative border-primary">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">{{dataValues.nombre}}</strong>
+          <h3 class="mb-0">L. {{dataValues.precio}}</h3>
+          <div class="mb-1 text-muted">Autor: <a >{{dataValues.autor}}</a></div>
+          <div class="mb-1 text-muted">Categoría: <a >{{dataValues.categoria}}</a></div>
+          <div class="mb-1 text-muted">Vendedor: <a >{{dataValues.vendedor}}</a></div>
+         <form action="/checkout" method="POST" class="mt-2">
+                  <input type="text" value={{dataValues.precio}}  name="precio" hidden/>
+                  <input type="text" value="{{dataValues.nombre}}" name="nombreLibro" hidden />
+                  <input type="text" value={{dataValues.emailVendedor}} name="emailVendedor" hidden />
+                  <input type="text" value={{dataValues.id}} name="idLibro" hidden/>
+                  <input type="text" value={{dataValues.usuarioId}} name="idVendedor"  hidden />
+                  <input type="text" value={{dataValues.beneficioBookBuy}} name="beneficioBookBuy" hidden />
+                  <input type="text" value={{dataValues.beneficioUsuario}} name="beneficioUsuario" hidden />
+                  <input type="text" value={{dataValues.beneficioStripe}} name="beneficioStripe"  hidden  />
                   <script
                     src="https://checkout.stripe.com/checkout.js"
                     class="stripe-button oculto"
@@ -138,32 +45,31 @@
                     data-name="Book Buy"
                     data-image="./images/book.png"
                     data-description="Compra Segura"
-                    data-locale="auto"
-                  ></script>
+                    data-locale="auto">
+                    </script>
                 </form>
-
                 <hr />
-                <div class="text-left">
+         
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img class="bd-placeholder-img" width="250" height="250" src="https://image.freepik.com/vector-gratis/ilustracion-educacion-regreso-escuela-pila-libros-trofeo-oro-futuro-ganador-exito_143055-169.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></img>
+          <div class="ml-5 text-muted">
                   <small>
                     Publicado {{dataValues.fecha}}
                   </small>
                 </div>
-              </div>
-            </div>
-          </div>
+        </div>
+      </div>
         </div>
       {{/each}}
     {{else}}
-       {{!-- <div class="row">
-        <li class="list-group-item list-group-item-primary">
-          <h5>
-            Aún no hay libros disponibles para realizar compras
-          </h5>
-        </li>
-      </div>  --}}
+     
     {{/if}}
   </div>
 </div>
+
+
+
 <hr>
 <div class="container mt-5">
   <div class="col text-center mb-3 mt-6">
@@ -174,12 +80,16 @@
 </div>
 <br />
 
-<div style="height: 60px;">
-</div>
 
 <style>
   #boton{display:none;}
 </style>
+
+
+
+
+
+
 
 
 
