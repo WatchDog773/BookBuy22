@@ -12,10 +12,11 @@
 {{/if}}
 
 <div class="container text-center mt-4">
-  <table class="table">
+  <div class="table-responsive">
+  <table class="table ">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">
+        <th scope="col" >
           <b>
             <a>Título del libro</a>
           </b>
@@ -47,8 +48,9 @@
                 data-libro-url={{dataValues.url}}
                 type="button"
                 class="btn btn-danger ml-2 mt-1"
+                id="quitarLibro"
               >
-                 Quitar
+                  Quitar
               </button>
             </td>
           </tr>
@@ -60,6 +62,8 @@
       {{/if}}
     </tbody>
   </table>
+  </div>
+
 </div>
 
 <hr />

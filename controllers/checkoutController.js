@@ -10,8 +10,6 @@ exports.checkOut = async(req, res, next) => {
     // Usuario actual
     const usuario = res.locals.usuario;
 
-
-
     const { precio, nombreLibro, idLibro, vendedor, emailVendedor, idVendedor, fecha, beneficioBookBuy, beneficioUsuario, beneficioStripe } = req.body;
     const total = precio * 100;
     console.log(nombreLibro);
