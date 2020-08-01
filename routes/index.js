@@ -97,6 +97,9 @@ module.exports = function() {
     // Ruta para eliminar envios
     routes.post("/eliminar_envio", authController.usuarioAutenticado, enviosController.eliminarEnvio);
 
+    // Ruta de ayuda 
+    routes.get("/ayuda", authController.usuarioAutenticado, librosController.ayuda);
+
     // Rutas para ver las categoria 
     routes.get("/libro_accion", authController.usuarioAutenticado, librosController.libroAccion);
     routes.get("/libro_terror", authController.usuarioAutenticado, librosController.libroTerror);
