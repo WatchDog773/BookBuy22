@@ -310,3 +310,56 @@ a {
         font-weight: 600
     }
 }
+
+/*Animaciones*/
+
+.nube{
+    width: 120px;
+    height: 50px;
+    background-size: 100% 100%;
+    position: absolute;
+    
+}
+
+@keyframes movimiento1 {
+    from {margin-left: 100%;}
+    to {margin-left: -30%;}
+}
+
+.nube:nth-child(1) {
+    background-image: url("../images/nube2.png");
+    animation: movimiento1 10s infinite;
+}
+
+.nube:nth-child(2) {
+    margin-top: 60px;
+    background-image: url("../images/nube2.png");
+    animation: movimiento2 7s infinite;
+}
+
+.nube:nth-child(3) {
+    margin-top: 120px;
+    background-image: url("../images/nube2.png");
+    animation: movimiento3 14s infinite;
+}
+.nube:nth-child(4) {
+    margin-top: 80px;
+    background-image: url("../images/GIF016.gif");
+    animation: movimiento4 11s infinite;
+}
+@keyframes movimiento1 {
+    from {margin-left: 100%;}
+    to {margin-left: -30%;}
+}
+@keyframes movimiento2 {
+    from {margin-left: 100%;}
+    to {margin-left: -30%;}
+}
+@keyframes movimiento3 {
+    from {margin-left: 100%;}
+    to {margin-left: -30%;}
+}
+@keyframes movimiento4 {
+    from {margin-left: 100%;}
+    to {margin-left: -50%;}
+}
