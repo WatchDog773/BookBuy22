@@ -5,14 +5,19 @@
 {{! Mostrar los mensajes en caso de existir }}
 {{ourMessages}}
 
-      {{#if ventas}}
-        <div class="alert alert-info mt-4 text-center"  role="alert">
-        <img src="https://img.icons8.com/cotton/64/000000/love-for-money.png" class="mr-2"/><a>{{usuario.username}}, ¡genial! has vendido un nuevo libro de tu estantería</a>
 
-        </div>
-      {{/if}}
 
 <div class="container text-center mt-4 mb-7">
+  {{#if ventas}}
+<div class="alert alert-success alert-white rounded">
+        <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+        <div class="icon">
+            <i class="fa fa-check"></i>
+        </div>
+        <strong>¡ Excelente {{usuario.username}}  !  </strong> 
+        <a>has vendido un nuevo libro de tu estantería</a>
+    </div>
+ {{/if}}
     <div class="table-responsive">
         <table class="table table-hover table-bordered">
     <thead class="thead-dark">
@@ -61,9 +66,15 @@
           </tr>
         {{/each}}
       {{else}}
-      <div class="alert alert-info mt-4" role="alert">
-          <a> {{usuario.username}}, aún no se ha vendido ninguno de tus libros </a> 
+
+    <div class="alert alert-warning alert-white rounded">
+        <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+        <div class="icon">
+            <i class="fa fa-info-circle"></i>
         </div>
+        <strong>¡ Ánimo {{usuario.username}} !</strong> 
+        <a> aún no se ha vendido ninguno de tus libros</a>
+    </div>  
       {{/if}}
     </tbody>
   </table>
@@ -112,5 +123,5 @@
 </div>
 
 
-<div style="height: 190px;">
+<div style="height: 210px;">
 </div>

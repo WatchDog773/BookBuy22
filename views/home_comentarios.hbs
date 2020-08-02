@@ -72,3 +72,50 @@
   </div>
   
 </div>
+
+
+
+
+
+
+<div class="container bootstrap snippets text-center">
+    <div class="col-md-6 col-md-offset-2 col-sm-12 ">
+        <div class="comment-wrapper mr-auto">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Comment panel
+                </div>
+                <div class="panel-body">
+                    <textarea class="form-control" placeholder="write a comment..." rows="3"></textarea>
+                    <br>
+                    <button type="button" class="btn btn-info pull-right">Post</button>
+                   
+                    <hr>
+                     {{#if comentarios}}
+    {{#each comentarios}}
+                    <ul class="media-list">
+                        <li class="media">
+                            <a href="#" class="pull-left">
+                                <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle ml-5">
+                            </a>
+                            <div class="media-body">
+                                <span class="text-muted pull-right">
+                                    <small class="text-muted">30 min ago</small>
+                                </span>
+                                <strong class="text-success">@{{dataValues.autor}}</strong>
+                                <p>
+                                    "{{dataValues.contenido}}"
+                                </p>
+                            </div>
+                        </li>                  
+                    </ul>
+      {{/each}}
+  {{else}}
+  {{/if}}
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
