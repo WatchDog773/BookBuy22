@@ -311,55 +311,82 @@ a {
     }
 }
 
+
 /*Animaciones*/
 
-.nube{
+.nube {
     width: 120px;
     height: 50px;
     background-size: 100% 100%;
     position: absolute;
-    
 }
 
 @keyframes movimiento1 {
-    from {margin-left: 100%;}
-    to {margin-left: -30%;}
+    from {
+        margin-left: 100%;
+    }
+    to {
+        margin-left: -30%;
+    }
 }
 
 .nube:nth-child(1) {
     background-image: url("../images/nube2.png");
-    animation: movimiento1 10s infinite;
+    animation: movimiento1 16s infinite;
 }
 
 .nube:nth-child(2) {
-    margin-top: 60px;
+    margin-top: 200px;
     background-image: url("../images/nube2.png");
-    animation: movimiento2 7s infinite;
+    animation: movimiento2 14s infinite;
 }
 
 .nube:nth-child(3) {
     margin-top: 120px;
     background-image: url("../images/nube2.png");
-    animation: movimiento3 14s infinite;
+    animation: movimiento3 15s infinite;
 }
+
 .nube:nth-child(4) {
-    margin-top: 80px;
-    background-image: url("../images/GIF016.gif");
-    animation: movimiento4 11s infinite;
+    margin-top: 160px;
+    height: 90px;
+    background-image: url("https://lh3.googleusercontent.com/proxy/163jocT1YDUN7cSLkc2oRHbIjQ3qlDHXCnjCu6UmwUkyHSJNWc3CbeQhKB6-YN4T27A8q7Y9zEEJ6UniSZ5uL-r8fSFa8JMiT4T_tcbxnkgvpuBIY98Cb4FKjsRS");
+    /* background-image: url("../images/GIF016.gif"); */
+    animation: movimiento4 14s infinite;
 }
+
 @keyframes movimiento1 {
-    from {margin-left: 100%;}
-    to {margin-left: -30%;}
+    from {
+        margin-left: 100%;
+    }
+    to {
+        margin-left: -30%;
+    }
 }
+
 @keyframes movimiento2 {
-    from {margin-left: 100%;}
-    to {margin-left: -30%;}
+    from {
+        margin-left: 100%;
+    }
+    to {
+        margin-left: -30%;
+    }
 }
+
 @keyframes movimiento3 {
-    from {margin-left: 100%;}
-    to {margin-left: -30%;}
+    from {
+        margin-left: 100%;
+    }
+    to {
+        margin-left: -30%;
+    }
 }
+
 @keyframes movimiento4 {
-    from {margin-left: 100%;}
-    to {margin-left: -50%;}
+    from {
+        margin-left: 100%;
+    }
+    to {
+        margin-left: -50%;
+    }
 }
