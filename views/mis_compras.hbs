@@ -3,14 +3,19 @@
 <h5 class="text-center mt-4 mb-4"><i class="fas fa-shopping-basket ml-2  mr-2"></i>Mis Compras</h5>
 <hr>
 
-{{! Mostrar los mensajes en caso de existir }}
-{{#if mensajes}}
-  {{#each mensajes}}
-    <div class="alert {{type}}" role="alert">
-      {{error}}
-    </div>
-  {{/each}}
-{{/if}}
+{{ourMessages}}
+
+      {{#if compras}}
+        <div class="alert alert-info mt-4 text-center"  role="alert">
+         <img src="https://img.icons8.com/flat_round/64/000000/trophy--v1.png" class="mr-2"/><a>{{usuario.username}}, ¡genial! has realizado una nueva compra con nosotros</a>
+          <a
+             data-toggle="modal"
+            data-target="#exampleModalCente">
+            <i class="fas fa-info-circle"></i>
+          </a>
+        </div>
+      {{/if}}
+
 
 <div class="container text-center mt-3 mb-7">
   <div class="table-responsive">
@@ -51,7 +56,7 @@
         {{/each}}
       {{else}}
         <div class="alert alert-info mt-4" role="alert">
-         <a>{{usuario.username}} aún no has comprado ningún libro ¿Qué esperas?</a>
+         <a>{{usuario.username}}, aún no has comprado ningún libro ¿Qué esperas?</a>
         </div>
       {{/if}}
     </tbody>
@@ -60,6 +65,44 @@
 
 </div>
 
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModalCente"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          <i class="fas fa-shipping-fast mr-3"></i>Entrega rápida
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">
+            &times;
+          </span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <p>
+Nuestro equipo de entrega es el más veloz, así que en menos de 8 horas tendrás tu libro. Nos
+comunicaremos a través de tu número de teléfono o tu correo electrónico para realizar la entrega.
+      </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="tn btn-primary" data-dismiss="modal"> Entiendo</button>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div style="height: 190px;">
 </div>
