@@ -12,8 +12,8 @@
     {{#each comentarios}}
       <div class="row justify-content-center">
         <div class="col-2 text-right">
-          <a >
-            <b> {{dataValues.autor}}</b>
+          <a id="commentLetter">
+            <b>@{{dataValues.autor}}:</b>
            
           </a>
         </div>
@@ -44,78 +44,20 @@
   {{/if}}
 </div>
 <hr>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <form method="POST" action="/crear_comentarios">
-
-              <div class="col-md-12">
-                    <div class="form-group"> <label for="form_message" id="robotic"></label> <textarea rows="3" id="form_message" name="contenido" class="form-control" placeholder="Escribe tu comentario aquí..."></textarea> </div>
-               </div>
-     <input
-            type="text"
-            class="form-control"
-            id="vendedor"
-            name="autor"
-            value="{{usuario.username}}"
-            hidden
-          />
-
-        <button type="submit" class="btn  mt-3 mb-5 ml-3" id="comment">
-          <a > Comentar</a>
-        </button>
-        <a href="/home_libro" class="btn btn-danger mt-3 mb-5 ml-2" id="comment1">
-           Regresar
-        </a>
-      </form>
-    </div>
-  </div>
-  
-</div>
 
 
-
-
-
-
-<div class="container bootstrap snippets text-center">
-    <div class="col-md-6 col-md-offset-2 col-sm-12 ">
-        <div class="comment-wrapper mr-auto">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    Comment panel
-                </div>
-                <div class="panel-body">
-                    <textarea class="form-control" placeholder="write a comment..." rows="3"></textarea>
-                    <br>
-                    <button type="button" class="btn btn-info pull-right">Post</button>
-                   
-                    <hr>
-                     {{#if comentarios}}
-    {{#each comentarios}}
-                    <ul class="media-list">
-                        <li class="media">
-                            <a href="#" class="pull-left">
-                                <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle ml-5">
-                            </a>
-                            <div class="media-body">
-                                <span class="text-muted pull-right">
-                                    <small class="text-muted">30 min ago</small>
-                                </span>
-                                <strong class="text-success">@{{dataValues.autor}}</strong>
-                                <p>
-                                    "{{dataValues.contenido}}"
-                                </p>
-                            </div>
-                        </li>                  
-                    </ul>
-      {{/each}}
-  {{else}}
-  {{/if}}
-
+<div class="container pb-cmnt-container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card card-info">
+                <div class="card-block">
+                    <form class="form-inline" method="POST" action="/crear_comentarios">
+                      <textarea placeholder="¡Escribe tu comentario aquí!" class="pb-cmnt-textarea" name="contenido"></textarea>
+                         <input  type="text" class="form-control"  id="vendedor" name="autor" value="{{usuario.username}}" hidden/>
+                        <button class="btn  float-xs-right mt-1 mb-2" type="submit" id="comment">Comentar</button>
+                    </form>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
