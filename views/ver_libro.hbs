@@ -32,7 +32,7 @@
                                 </div>
                                         <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group"> <label for="form_email" id="robotic">ISBN</label> <input id="form_email" type="text" name="ISBN" class="form-control" placeholder="Ingrese el ISBN del libro" required="required" data-error="Valid email is required." value="{{libro.ISBN}}"> </div>
+                                        <div class="form-group"> <label for="form_email" id="robotic">ISBN</label> <input id="form_email" type="text" name="ISBN" class="form-control" placeholder="Ingrese el ISBN del libro" required="required" data-error="Valid email is required." value="{{libro.ISBN}}" maxlength="13" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"> </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group"> <label for="form_need" id="robotic">Categoría *</label> <select  id="form_need" name="categoria" class="form-control"  data-error="Please specify your need.">
@@ -44,74 +44,59 @@
                                                  <optgroup label="-- General --"></optgroup>
                                                 <option>Cultura</option>
                                                 <option>Historia</option>
-                                            </select> </div>
+                                            </select> 
+                                        </div>
                                     </div>
                                 </div>
+
                                      <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group"> <label for="form_name" id="robotic">Precio*</label> <input id="form_name" type="number" name="precio" class="form-control" placeholder="Ingrese el precio del libro " required="required" data-error="Firstname is required." value="{{libro.precio}}"> </div>
+                                           <label for="form_name" id="robotic">Precio*</label> 
+                                      <div class="input-group mb-3">
+
+                                         <div class="input-group-prepend">
+                                           <span class="input-group-text" id="basic-addon1">L</span>
+                                          </div>
+                                              <input id="form_name" type="number" name="precio" class="form-control" placeholder="Ingrese el precio del libro "  value="{{libro.precio}}" required="required" data-error="Firstname is required.">
+                                        </div>
+                                        {{!-- <div class="form-group"> <label for="form_name" id="robotic">Precio*</label> <input id="form_name" type="number" name="precio" class="form-control" placeholder="Ingrese el precio del libro " required="required" data-error="Firstname is required."> </div> --}}
                                     </div>
                                     <div class="col-md-6">
                                         {{!-- <div class="form-group"> <label for="form_lastname">ISBN</label> <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required."> </div> --}}
                                     </div>
                                 </div>
-                        
+
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group"> <label for="form_message" id="robotic">Resumen*</label> <textarea id="form_message" name="descripcion" class="form-control" placeholder="Escriba un breve resumén del libro" >{{libro.descripcion}} </textarea></div>
                                     </div>
-                                                <input
-                                                type="text"
-                                                class="form-control"
-                                                id="vendedor"
-                                                name="vendedor"
-                                                value="{{usuario.fullname}}"
-                                                hidden
-                                                />
-                                              <input
-                                              type="text"
-                                              class="form-control"
-                                              id="emailVendedor"
-                                              name="emailVendedor"
-                                              value="{{usuario.email}}"
-                                             hidden
-                                            />
-                                    <div class="col-md-12"> <input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Actualizar Datos"  data-toggle="modal" data-target="#exampleModalCenter"> </div>
-
-                                            <!-- Modal -->
-        <div
-          class="modal fade"
-          id="exampleModalCenter"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">
-                  ¿Está seguro que desea actualizar este libro?
-                </h5>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  data-dismiss="modal"
-                >
-                  Cancelar
-                </button>
-                <button type="submit" class="btn btn-primary mr-3">
-                  Actualizar
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-                                </div>
-                                
+                                          <input  type="text" class="form-control" id="vendedor" name="vendedor"  value="{{usuario.fullname}}" hidden />
+                                          <input type="text"  class="form-control" id="emailVendedor"name="emailVendedor" value="{{usuario.email}}"hidden/>
+                                    </div>
+                                      <div class="row  text-center">
+                                      <div class="col-md-12">
+                                      <a class="btn btn-success btn-lg btn-block"  id="comment" data-toggle="modal" data-target="#exampleModalCenter">Actualizar Datos</a>
+                                      </div>
+                                    </div>
+                                  <div class="modal fade"  id="exampleModalCenter"  tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                       <div class="modal-content">
+                                         <div class="modal-header">
+                                           <h5 class="modal-title" id="exampleModalLongTitle">
+                                           ¿Está seguro que desea actualizar este libro?
+                                           </h5>
+                                         </div>
+                                       <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger"  data-dismiss="modal" >
+                                        Cancelar
+                                       </button>
+                                       <button type="submit" class="btn btn-primary mr-3">
+                                       Actualizar
+                                     </button>
+                                      </div>
+                                       </div>
+                                 </div>
+                              </div>
                             </div>
                         </form>
                     </div>

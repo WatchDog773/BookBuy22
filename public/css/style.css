@@ -780,7 +780,7 @@ a.article:hover {
 }
 
 .caja {
-    background: #64a2ff;
+    background: #ba93f8;
     position: relative;
     border-radius: 3px;
     color: white;
@@ -792,7 +792,7 @@ a.article:hover {
     content: '';
     width: 0;
     height: 0;
-    border-top: 20px solid #64a2ff;
+    border-top: 20px solid #ba93f8;
     border-left: 20px solid transparent;
     left: -15px;
 }
@@ -802,7 +802,7 @@ a.article:hover {
     content: '';
     width: 0;
     height: 0;
-    border-top: 20px solid #64a2ff;
+    border-top: 20px solid#ba93f8;
     border-right: 20px solid transparent;
     right: -15px;
     top: 0px;
