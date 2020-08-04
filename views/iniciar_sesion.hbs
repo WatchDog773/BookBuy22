@@ -1,6 +1,10 @@
 {{!-- Formulario de Inicio de sesión --}}
 
 <body class="cuerpocompleto">
+  <div class="nube"></div>
+  <div class="nube"></div>
+  <div class="nube"></div>
+  <div class="nube"></div>
   <div class="container">
     <div class="row">
       <div class="col-lg-10 col-xl-9 mx-auto">
@@ -9,17 +13,17 @@
              <!-- Background image for card set in CSS! -->
              </div>
                <div class="card-body">
-               <h5 class="card-title text-center"> <b>¡Bienvenido a BookBuy!</b> </h5>
+               <h5 class="card-title text-center"> <img src="https://img.icons8.com/color/48/000000/book.png" class="mr-2"/><b>¡Bienvenido a BookBuy!</b> </h5>
                <form class="form-signin" action="/iniciar_sesion" method="POST" >
                <div class="form-label-group">
                <input type="email" id="inputEmail" class="form-control"  name="email" placeholder="Correo" required>
                <label for="inputEmail">Correo Eléctronico</label>
                </div>
               <hr>
-              <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" name="password" placeholder="password" required>
-                <label for="inputPassword">Contraseña</label>
-              </div>
+                <div class="form-label-group">
+               <input type="password" id="inputPassword" class="form-control"  name="password" placeholder="Contraseña" required>
+               <label for="inputPassword">Contraseña</label>
+               </div>
               <br>
             <div class="form-group">
 						   <button class="btn btn-lg btn-info btn-block text-uppercase" type="submit"> <a> Iniciar Sesión</a></button>
@@ -36,5 +40,6 @@
         </div>
       </div>
     </div>
+
   </div>
 </body>

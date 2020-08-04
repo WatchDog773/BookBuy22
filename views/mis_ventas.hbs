@@ -1,19 +1,25 @@
-
 <hr>
 <h5 class="text-center mt-4 mb-4"><i class="fas fa-search-dollar ml-2  mr-2"></i>Mis Ventas </h5>
 <hr>
 
 {{! Mostrar los mensajes en caso de existir }}
-{{#if mensajes}}
-  {{#each mensajes}}
-    <div class="alert {{type}}" role="alert">
-      {{error}}
-    </div>
-  {{/each}}
-{{/if}}
+{{ourMessages}}
+
+
 
 <div class="container text-center mt-4 mb-7">
-  <table class="table">
+  {{#if ventas}}
+<div class="alert alert-success alert-white rounded">
+        <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+        <div class="icon">
+            <i class="fa fa-check"></i>
+        </div>
+        <strong>¡ Excelente {{usuario.username}}  !  </strong> 
+        <a>has vendido un nuevo libro de tu estantería</a>
+    </div>
+ {{/if}}
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
     <thead class="thead-dark">
       <tr>
         <th scope="col">
@@ -38,7 +44,6 @@
   data-target="#exampleModalCenter">
   <i class="fas fa-info-circle"></i>
 </a>
-
         </th>
       </tr>
     </thead>
@@ -61,14 +66,21 @@
           </tr>
         {{/each}}
       {{else}}
-      <div class="alert alert-info mt-4" role="alert">
-          <a> {{usuario.username}} aún no tienes ventas de ninguno de tus libros </a> 
+
+    <div class="alert alert-warning alert-white rounded">
+        <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+        <div class="icon">
+            <i class="fa fa-info-circle"></i>
         </div>
+        <strong>¡ Ánimo {{usuario.username}} !</strong> 
+        <a> aún no se ha vendido ninguno de tus libros</a>
+    </div>  
       {{/if}}
     </tbody>
   </table>
+    </div>
 </div>
-<hr>
+
 
 
 <!-- Modal -->
@@ -98,8 +110,8 @@
       </div>
       <div class="modal-body">
       <p>
-        Recuerda que BookBuy obtiene un 15% de la comisión de cada una
-        de las ventas que realiaces en nuestra plataforma de servicios
+        Recuerda que BookBuy obtiene un 15% como comisión de cada una
+        de las ventas que realices en nuestra plataforma de servicios.
       </p>
       </div>
       <div class="modal-footer">
@@ -110,5 +122,6 @@
   </div>
 </div>
 
-<div style="height: 100px;">
+
+<div style="height: 210px;">
 </div>

@@ -12,6 +12,10 @@ exports.bienvenidaUsuario = (req, res, next) => {
     res.render("home_usuario");
 }
 
+exports.ayuda = (req, res, next) => {
+    res.render("home_ayuda");
+}
+
 exports.formularioNuevoLibro = (req, res, next) => {
     // Vamos a renderizar la vista en este control
     res.render("crear_libro");
