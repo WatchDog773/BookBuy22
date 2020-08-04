@@ -356,8 +356,7 @@ a {
 .nube:nth-child(4) {
     margin-top: 160px;
     height: 90px;
-    background-image: url("https://lh3.googleusercontent.com/proxy/163jocT1YDUN7cSLkc2oRHbIjQ3qlDHXCnjCu6UmwUkyHSJNWc3CbeQhKB6-YN4T27A8q7Y9zEEJ6UniSZ5uL-r8fSFa8JMiT4T_tcbxnkgvpuBIY98Cb4FKjsRS");
-    /* background-image: url("../images/GIF016.gif"); */
+    background-image: url("../images/GIF016.gif");
     animation: movimiento4 14s infinite;
 }
 
